@@ -12,7 +12,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 
 <!-- 오늘 본 상품 시작 { -->
 <aside id="stv">
-    <div id="stv_list">
+    <div id="">
         <h2>
             오늘 본 상품
             <span id="stv_pg"></span>
