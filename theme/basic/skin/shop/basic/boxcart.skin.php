@@ -6,9 +6,8 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 ?>
 
 <!-- 장바구니 간략 보기 시작 { -->
-<aside id="sbsk">
+<aside id="sbsk" class="op_area">
     <h2>장바구니</h2>
-
     <ul>
     <?php
     $hsql  = " select it_id, it_name from {$g5['g5_shop_cart_table']} ";
@@ -25,7 +24,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
     }
 
     if ($i==0)
-        echo '<li id="sbsk_empty">장바구니 상품 없음</li>'.PHP_EOL;
+        echo '<li class="li_empty">장바구니 상품 없음</li>'.PHP_EOL;
 ?>
     </ul>
 

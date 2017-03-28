@@ -4,14 +4,14 @@ if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 0);
 ?>
-
+<section id="sbn_idx" class="sbn">
 <?php
 $max_width = $max_height = 0;
 $bn_first_class = ' class="sbn_first"';
 
 for ($i=0; $row=sql_fetch_array($result); $i++)
 {
-    if ($i==0) echo '<section id="sbn_idx" class="sbn">'.PHP_EOL.'<h2>쇼핑몰 배너</h2>'.PHP_EOL.'<ul>'.PHP_EOL;
+    if ($i==0) echo '<h2>쇼핑몰 배너</h2>'.PHP_EOL.'<ul class="bn_slider">'.PHP_EOL;
     //print_r2($row);
     // 테두리 있는지
     $bn_border  = ($row['bn_border']) ? ' class="sbn_border"' : '';;
@@ -47,9 +47,16 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
         $bn_first_class = '';
     }
 }
-if ($i>0) echo '</ul>'.PHP_EOL.'</section>'.PHP_EOL;
+
+
+if ($i>0) echo '</ul>'.PHP_EOL;
 ?>
 
+    <ul>
+        <li><a href="#">text</a></li>
+
+    </ul>
+</section>
 <script>
 (function($) {
     var intervals = {};
@@ -76,8 +83,8 @@ if ($i>0) echo '</ul>'.PHP_EOL.'</section>'.PHP_EOL;
             width = wrap_width;
 
             this.width(wrap_width).height(height)
-                .find("ul").width(width).height(height)
-                .find("li").width(width).height(height);
+                .find(".bn_slider").width(width).height(height)
+                .find(".bn_slider li").width(width).height(height);
 
             $bnnr.not(".sbn_first").css("left", width+"px");
 
@@ -101,7 +108,7 @@ if ($i>0) echo '</ul>'.PHP_EOL.'</section>'.PHP_EOL;
                 var slide_button = "<div id=\"sbn_btn_p\" class=\"sbn_btn\"><button type=\"button\" id=\"sbn_btn_prev\" class=\"sbn_btn_slide\"><span></span>이전</button></div>\n";
                 slide_button += "<div id=\"sbn_btn_n\" class=\"sbn_btn\"><button type=\"button\" id=\"sbn_btn_next\" class=\"sbn_btn_slide\"><span></span>다음</button></div>";
 
-                this.find("ul").before(slide_button);
+                this.find(".bn_slider").before(slide_button);
 
                 var $bnnr_btn = this.find(".sbn_btn_slide");
 
