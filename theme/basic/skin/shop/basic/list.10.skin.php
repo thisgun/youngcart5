@@ -27,7 +27,7 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
     echo "<li class=\"sct_li{$sct_last}\" style=\"width:{$this->img_width}px\">\n";
 
     if ($this->href) {
-        echo "<div class=\"sct_img\"><a href=\"{$this->href}{$row['it_id']}\" class=\"sct_a\">\n";
+        echo "<div class=\"sct_img\"  style=\"width:{$this->img_width}px;height:{$this->img_height}px\"><a href=\"{$this->href}{$row['it_id']}\" class=\"sct_a\">\n";
     }
 
     if ($this->view_it_img) {

@@ -6,7 +6,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 ?>
 
 <!-- 위시리스트 간략 보기 시작 { -->
-<aside id="swish">
+<aside id="swish" class="op_area">
     <h2>위시리스트</h2>
 
     <ul>
@@ -25,7 +25,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
     }
 
     if ($i==0)
-        echo '<li id="swish_empty">위시리스트 없음</li>'.PHP_EOL;
+        echo '<li class="li_empty">위시리스트 없음</li>'.PHP_EOL;
 ?>
     </ul>
 

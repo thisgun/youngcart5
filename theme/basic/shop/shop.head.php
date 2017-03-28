@@ -31,14 +31,14 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
             <li class="tnb_left tnb_shop"><a href="<?php echo G5_SHOP_URL; ?>/"><i class="fa fa-shopping-bag" aria-hidden="true"></i> 쇼핑몰</a></li>
             <li class="tnb_left tnb_community"><a href="<?php echo G5_URL; ?>/"><i class="fa fa-home" aria-hidden="true"></i> 커뮤니티</a></li>
             <?php } ?>
-            <li class="tnb_cart"><a href="<?php echo G5_SHOP_URL; ?>/cart.php">장바구니</a></li>            
+            <li class="tnb_cart"><a href="<?php echo G5_SHOP_URL; ?>/cart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i> 장바구니</a></li>            
             <li><a href="<?php echo G5_SHOP_URL; ?>/mypage.php">마이페이지</a></li>
             <?php if ($is_member) { ?>
 
             <li><a href="<?php echo G5_BBS_URL; ?>/member_confirm.php?url=register_form.php">정보수정</a></li>
             <li><a href="<?php echo G5_BBS_URL; ?>/logout.php?url=shop">로그아웃</a></li>
             <?php if ($is_admin) {  ?>
-            <li><a href="<?php echo G5_ADMIN_URL; ?>/shop_admin/"><b>관리자</b></a></li>
+            <li class="tnb_admin"><a href="<?php echo G5_ADMIN_URL; ?>/shop_admin/"><b>관리자</b></a></li>
             <?php }  ?>
             <?php } else { ?>
             <li><a href="<?php echo G5_BBS_URL; ?>/register.php">회원가입</a></li>
@@ -55,7 +55,7 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 
             <label for="sch_str" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
             <input type="text" name="q" value="<?php echo stripslashes(get_text(get_search_string($q))); ?>" id="sch_str" required>
-            <input type="submit" value="검색" id="sch_submit">
+            <button type="submit" id="sch_submit"><i class="fa fa-search" aria-hidden="true"></i><span class="sound_only">검색</span></button>
 
             </form>
             <script>
@@ -95,15 +95,16 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 <div id="side_menu">
     <div class="side_menu_wr">
         <?php echo outlogin('theme/shop_basic'); // 아웃로그인 ?>
-
-        <?php include_once(G5_SHOP_SKIN_PATH.'/boxcart.skin.php'); // 장바구니 ?>
-
-        <?php include_once(G5_SHOP_SKIN_PATH.'/boxwish.skin.php'); // 위시리스트 ?>
-
-
+        <div class="side_menu_shop">
+            <button type="button" class="btn_side_shop">오늘본상품<span class="count">99</span></button>
+            <?php include(G5_SHOP_SKIN_PATH.'/boxtodayview.skin.php'); // 오늘 본 상품 ?>
+            <button type="button" class="btn_side_shop">장바구니<span class="count">99</span></button>
+            <?php include_once(G5_SHOP_SKIN_PATH.'/boxcart.skin.php'); // 장바구니 ?>
+            <button type="button" class="btn_side_shop">위시리스트<span class="count">99</span></button>
+            <?php include_once(G5_SHOP_SKIN_PATH.'/boxwish.skin.php'); // 위시리스트 ?>
+        </div>
         <?php include_once(G5_SHOP_SKIN_PATH.'/boxcommunity.skin.php'); // 커뮤니티 ?>
 
-        <?php include(G5_SHOP_SKIN_PATH.'/boxtodayview.skin.php'); // 오늘 본 상품 ?>
     </div>
     <button type="button" id="btn_sidemenu" class="btn_sidemenu_cl"><i class="fa fa-outdent" aria-hidden="true"></i><span class="sound_only">사이드메뉴버튼</span></button>
 </div>
@@ -117,17 +118,49 @@ $(function (){
         $(".fa-outdent").toggleClass("fa-indent")
     });
 
+    $(".btn_side_shop").on("click", function() {
+        $(this).next(".op_area").slideToggle(300).siblings(".op_area").slideUp();
+    });
 });
 </script>
 
 
 <div id="wrapper">
 
-
     <div id="aside">
 
         <?php include_once(G5_SHOP_SKIN_PATH.'/boxcategory.skin.php'); // 상품분류 ?>
 
+        <?php if($default['de_type5_list_use']) { ?>
+        <!-- 할인상품 시작 { -->
+        <section class="sale_prd">
+            <h2><a href="<?php echo G5_SHOP_URL; ?>/listtype.php?type=4">인기상품</a></h2>
+            <?php
+            $list = new item_list();
+            $list->set_type(4);
+            $list->set_view('it_id', false);
+            $list->set_view('it_name', true);
+            $list->set_view('it_basic', false);
+            $list->set_view('it_cust_price', true);
+            $list->set_view('it_price', true);
+            $list->set_view('it_icon', false);
+            $list->set_view('sns', false);
+            echo $list->run();
+            ?>
+        </section>
+        <!-- } 할인상품 끝 -->
+        <?php } ?>
+
+        <!-- 커뮤니티 최신글 시작 { -->
+        <section id="sidx_lat">
+            <h2>커뮤니티 최신글</h2>
+            <?php echo latest('theme/shop_basic', 'notice', 5, 30); ?>
+        </section>
+        <!-- } 커뮤니티 최신글 끝 -->
+
+        <?php echo poll('theme/shop_basic'); // 설문조사 ?>
+
+        <?php echo visit('theme/shop_basic'); // 접속자 ?>
     </div>
 <!-- } 상단 끝 -->
 
