@@ -19,7 +19,8 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
         echo '<li>';
         $it_name = get_text($row['it_name']);
         // 이미지로 할 경우
-        //$it_name = get_it_image($row[it_id], 50, 50, true);
+        $it_img = get_it_image($row[it_id], 60, 60, true);
+        echo '<div class="prd_img">'.$it_img.'</div>';
         echo '<a href="'.G5_SHOP_URL.'/wishlist.php">'.$it_name.'</a>';
         echo '</li>';
     }

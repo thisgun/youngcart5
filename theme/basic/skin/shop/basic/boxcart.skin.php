@@ -18,14 +18,15 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
         echo '<li>';
         $it_name = get_text($row['it_name']);
         // 이미지로 할 경우
-        //$it_name = get_it_image($row['it_id'], 50, 50, true);
+        $it_img = get_it_image($row['it_id'], 60, 60, true);
         echo '<a href="'.G5_SHOP_URL.'/cart.php">'.$it_name.'</a>';
+         echo '<div class="prd_img">'.$it_img.'</div>';
         echo '</li>';
     }
 
     if ($i==0)
         echo '<li class="li_empty">장바구니 상품 없음</li>'.PHP_EOL;
-?>
+    ?>
     </ul>
 
 </aside>

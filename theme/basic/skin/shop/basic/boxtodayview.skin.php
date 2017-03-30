@@ -18,37 +18,41 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 
         <?php if ($tv_idx) { // 오늘 본 상품이 1개라도 있을 때 ?>
 
-        <?php
-        $tv_tot_count = 0;
-        $k = 0;
-        for ($i=1;$i<=$tv_idx;$i++)
-        {
-            $tv_it_idx = $tv_idx - ($i - 1);
-            $tv_it_id = get_session("ss_tv[$tv_it_idx]");
+        
+    <?php
+            $tv_tot_count = 0;
+            $k = 0;
+            for ($i=1;$i<=$tv_idx;$i++)
+            {
+                $tv_it_idx = $tv_idx - ($i - 1);
+                $tv_it_id = get_session("ss_tv[$tv_it_idx]");
 
-            $rowx = sql_fetch(" select it_id, it_name from {$g5['g5_shop_item_table']} where it_id = '$tv_it_id' ");
-            if(!$rowx['it_id'])
-                continue;
+                $rowx = sql_fetch(" select * from {$g5['g5_shop_item_table']} where it_id = '$tv_it_id' ");
+                if(!$rowx['it_id'])
+                    continue;
 
-            if ($tv_tot_count % $tv_div['img_length'] == 0) $k++;
+                if ($tv_tot_count % $tv_div['img_length'] == 0) $k++;
 
-            $it_name = get_text($rowx['it_name']);
-            $img = get_it_image($tv_it_id, $tv_div['img_width'], $tv_div['img_height'], $tv_it_id, '', $it_name);
+                $it_name = get_text($rowx['it_name']);
+                $img = get_it_image($tv_it_id, $tv_div['img_width'], $tv_div['img_height'], $tv_it_id, '', $it_name);
 
-            if ($tv_tot_count == 0) echo '<ul id="stv_ul">'.PHP_EOL;
-            echo '<li class="stv_item c'.$k.'">'.PHP_EOL;
-            echo '<span class="prd_img">'.PHP_EOL;
-            echo $img;
-            echo '</span>';
-            echo cut_str($it_name, 20, '').PHP_EOL;
-            echo '<span class="prd_cost">99,999</span>';
-            echo '</li>'.PHP_EOL;
+        if ($tv_tot_count == 0) echo '<ul id="stv_ul">'.PHP_EOL;
+        echo '<li class="stv_item c'.$k.'">'.PHP_EOL;
+        echo '<div class="prd_img">';
+        echo $img;
+        echo '</div>'.PHP_EOL;
+        echo '<div class="prd_name">';
+        echo cut_str($it_name, 10, '').PHP_EOL;
+        echo '</div>';
+        echo '<div class="prd_cost">';
+        echo number_format(get_price($rowx)).PHP_EOL;
+        echo '</div>'.PHP_EOL;
+         echo '</li>'.PHP_EOL;
 
-            $tv_tot_count++;
-        }
-        if ($tv_tot_count > 0) echo '</ul>'.PHP_EOL;
-        ?>
-
+        $tv_tot_count++;
+    }
+    if ($tv_tot_count > 0) echo '</ul>'.PHP_EOL;
+    ?>
         <div id="stv_btn"></div>
         <span id="stv_pg"></span>
 

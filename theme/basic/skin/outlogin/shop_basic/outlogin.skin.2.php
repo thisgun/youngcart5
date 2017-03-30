@@ -31,8 +31,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$outlogin_skin_url.'/style.css">'
         </li>
 
         <li>
-            <a href="<?php echo G5_BBS_URL ?>/scrap.php" target="_blank" id="ol_after_scrap" class="win_scrap"><i class="fa fa-newspaper-o" aria-hidden="true"></i> <span class="sound_only">쿠폰</span>
-            <strong>11</strong>
+            <a href="<?php echo G5_SHOP_URL ?>/coupon.php" target="_blank" id="ol_after_scrap" class="win_scrap"><i class="fa fa-newspaper-o" aria-hidden="true"></i> <span class="sound_only">쿠폰</span>
+            <strong><?php echo number_format($cp_count); ?></strong>
             </a>
         </li>
     </ul>
