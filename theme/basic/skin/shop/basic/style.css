@@ -38,9 +38,9 @@
 /* 커뮤니티 링크 */
 #scomm{padding:20px;}
 #scomm h2{margin:0 0 5px;}
-#scomm li {display:block}
+#scomm li {display:block;margin:3px}
 #scomm li a{line-height:25px;color:#555}
-
+#scomm li a:hover{color:#be334a}
 /* 메인배너 */
 #main_bn {border:1px solid #cdcdcd;position:relative;margin-bottom:20px}
 #main_bn .bx-prev{position:absolute;top:50%;left:0;margin-top:-35px;z-index:99;background:url(img/btn_prev.png) no-repeat 50% 50%;width:50px;height:70px;;text-indent:-999px;overflow:hidden;opacity:0.6}
@@ -528,74 +528,95 @@
 
 /* 사용후기 모음 */
 #sps_sch {margin:0 0 10px}
-#sps_sch a {display:inline-block;padding:0 8px;height:21px;background:#333;color:#fff;text-decoration:none;vertical-align:middle;line-height:1.9em}
-#sps_sch .btn_submit {padding:0 8px;height:24px;vertical-align:middle}
+#sps_sch a {display:inline-block;padding:0 8px;height:40px;line-height:40px;vertical-align:top;border-radius:3px;background:#fff;color:#3059c7;font-weight:bold;border:1px solid #3059c7;text-decoration:none;}
+#sps_sch .sch_wr{border:1px solid #d3d3d3;border-radius:3px;display:inline-block}
+#sps_sch:after {display:block;visibility:hidden;clear:both;content:""}
+#sps_sch select{border:0;;margin:9px 5px ;height:20px;float:left;border-right:1px solid #ddd;}
+#sps_sch .sch_input{height:38px;border:0;padding:0;background-color:transparent;float:left}
+#sps_sch .sch_btn{height:38px;float:left;background:none;border:0;width:40px;font-size:15px}*/
+
 
 #sps {zoom:1}
 #sps ol {margin:0;padding:0;border-top:1px solid #e9e9e9;list-style:none}
 #sps li {position:relative;padding:10px;border-bottom:1px solid #e9e9e9}
 #sps li:after {display:block;visibility:hidden;clear:both;content:""}
 
-.sps_img {float:left;margin:0 10px 0 0;width:70px}
+.sps_img {float:left;margin:0 10px 0 0;}
+.sps_img img{border-radius:50%}
 .sps_img span {position:absolute;font-size:0;line-height:0;overflow:hidden}
 
+.sps_reply{margin-top:10px;padding-top:10px;border-top:1px dotted #bbb}
 .sps_reply .sps_img {text-align:right;width:70px;}
 .sps_reply .sps_section h2{background:url('./img/use_reply.png') no-repeat 0 0;text-indent:30px;line-height:1.5em;}
 
-#sps dl {margin:5px 0 10px;zoom:1}
+#sps dl {margin:5px 0;zoom:1}
 #sps dl:after {display:block;visibility:hidden;clear:both;content:""}
 #sps dt {float:left}
-#sps dd {float:left;margin:0 20px 0 5px}
+#sps dd {float:left;margin:0 10px 0 0 ;color:#999}
 #sps dd img {position:relative;top:-2px}
 
-.sps_section {float:left;width:640px}
+.sps_section {float:left;width:835px}
 .sps_section p {padding:0;width:100%}
 .sps_con_full {padding:0;height:auto !important}
-.sps_con_btn {margin:5px 0 0;text-align:right}
-.sps_con_btn button {margin:0;padding:5px;border:0;background:#565e60;color:#fff}
+.sps_con_btn {}
+.sps_con_btn button  {border:1px solid #ddd;padding:5px 8px;color:#666;font-size:0.92em;margin:5px 0;background:#fff}
+.sps_con_btn button:hover{background:#6b99ee;border-color:#6b99ee;color:#fff}
+
 
 /* 상품문의 모음 */
 #sqa_sch {margin:0 0 10px}
-#sqa_sch a {display:inline-block;padding:0 8px;height:21px;background:#333;color:#fff;text-decoration:none;vertical-align:middle;line-height:1.9em}
-#sqa_sch .btn_submit {padding:0 8px;height:24px;vertical-align:middle}
+#sqa_sch a {display:inline-block;padding:0 8px;height:40px;line-height:40px;vertical-align:top;border-radius:3px;background:#fff;color:#3059c7;font-weight:bold;border:1px solid #3059c7;text-decoration:none;}
+#sqa_sch .sch_wr{border:1px solid #d3d3d3;border-radius:3px;display:inline-block}
+#sqa_sch:after {display:block;visibility:hidden;clear:both;content:""}
+#sqa_sch select{border:0;;margin:9px 5px ;height:20px;float:left;border-right:1px solid #ddd;}
+#sqa_sch .sch_input{height:38px;border:0;padding:0;background-color:transparent;float:left}
+#sqa_sch .sch_btn{height:38px;float:left;background:none;border:0;width:40px;font-size:15px}*/
 
 #sqa {zoom:1}
 #sqa ol {margin:0;padding:0;border-top:1px solid #e9e9e9;list-style:none}
 #sqa li {position:relative;padding:10px;border-bottom:1px solid #e9e9e9}
 #sqa li:after {display:block;visibility:hidden;clear:both;content:""}
 
-.sqa_img {float:left;margin:0 10px 0 0;width:80px}
-.sqa_img span {position:absolute;font-size:0;line-height:0}
+.sqa_img {float:left;margin:0 10px 0 0;}
+.sqa_img img{border-radius:50%}
+.sqa_img span {position:absolute;font-size:0;line-height:0;overflow:hidden}
 
 #sqa dl {margin:5px 0 10px;zoom:1}
 #sqa dl:after {display:block;visibility:hidden;clear:both;content:""}
 #sqa dt {float:left}
-#sqa dd {float:left;margin:0 20px 0 5px}
-#sqa dd img {position:relative;top:-2px}
+#sqa dd {float:left;margin:0 10px 0 0 ;color:#999}
 
-.sqa_section {float:left;width:630px}
-.sqa_section .sqa_con {padding:10px;background:#f2f5f9;line-height:1.7em}
+#sqa dd img {position:relative;top:-2px}
+.sqa_con {margin:10px 0 ;background:#f3f3f3;line-height:1.5em}
+.sqa_con .qa_alp{position:absolute;top:15px;left:25px;font-size:2em;color:#bbb}
+
+.sqa_section {float:left;width:835px}
+.sqa_section .sqa_con {background:#f3f3f3;line-height:1.7em}
 .sqa_section p {padding:0;width:100%}
 .sqa_con_full {padding:0;height:auto !important}
-.sqa_con_btn {margin:5px 0 0;text-align:right}
-.sqa_con_btn button {margin:0;padding:5px;border:0;background:#565e60;color:#fff}
+.sqa_con_btn {margin:5px 0 0;}
+.sqa_con_btn button {border:1px solid #ddd;padding:5px 8px;color:#666;font-size:0.92em;margin:5px 0;background:#fff}
+.sqa_con_btn button:hover{background:#6b99ee;border-color:#6b99ee;color:#fff}
 
 
 /*쿠폰존 리스트*/
-.couponzone_list{margin:0 0 50px;}
-.couponzone_list h2{margin:0 0 5px}
-.couponzone_list p{margin:0 0 5px;}
+.couponzone_list{margin:0 0 50px;position:relative;}
+.couponzone_list h2{margin:0 0 15px;padding-bottom:10px;font-size:1.25em;border-bottom:2px solid #000}
+.couponzone_list p{margin:0 0 5px;position:absolute;top:5px;right:0;color:#666}
 .couponzone_list ul{padding:0;margin:0;list-style:none}
 .couponzone_list ul:after {display:block;visibility:hidden;clear:both;content:""}
-.couponzone_list ul li{float:left;width:230px;height:210px;border:1px solid #e9e9e9;background:#f2f6f9;padding:0;margin:0 10px 10px 0;line-height:1.2em}
+.couponzone_list ul li{float:left;width:233px;border:1px solid #ddd;background:#fff;padding:15px;;margin:0 0 10px 10px;line-height:1.2em}
+.couponzone_list ul li:nth-child(4n+1){clear:both;margin-left:0;}
 .couponzone_list ul li img{width:100%;height:auto}
-.couponzone_list ul li .coupon_img{height:100px;overflow:hidden;border-bottom:1px solid #e9e9e9}
-.couponzone_list ul li .coupon_tit{margin:10px 10px 5px;font-weight:bold;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
-.couponzone_list ul li .coupon_date{margin: 5px 10px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
-.couponzone_list ul li .coupon_target{margin: 5px 10px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
-.couponzone_list ul li .coupon_point{margin: 5px 10px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
-.couponzone_list ul li .coupon_btn{margin:10px;text-align:center}
-.couponzone_list ul li .coupon_btn .btn02{width:60%;padding:7px 0;background:#ec2037;border-color:#c92033}
+.couponzone_list ul li .coupon_img{}
+.couponzone_list ul li .coupon_tit{margin:10px 0 5px;font-weight:bold;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
+.couponzone_list ul li .coupon_date{margin: 5px 0px;font-size:0.92em;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;color:#777}
+.couponzone_list ul li .coupon_target{margin: 5px 0px;font-size:0.92em;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;color:#777}
+.couponzone_list ul li .coupon_target a{color:#777;text-decoration:underline}
+.couponzone_list ul li .coupon_point{margin: 5px 0px;font-size:0.92em;;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;color:#777}
+.couponzone_list ul li .coupon_btn{margin:10px 0 0;text-align:center}
+.couponzone_list ul li .coupon_btn .btn02{width:100%;height:35px;line-height:35px;border-color:#d50c0c;color:#d50c0c;background:#fff;font-weight:bold;}
+.couponzone_list ul li .coupon_btn .btn02:hover{background:#d50c0c;color:#fff}
 .couponzone_list ul li .coupon_btn .disabled {background: #ddd;border:1px;color:#999;border-color:#ddd}
+.couponzone_list ul li .coupon_btn .disabled:hover {background: #ddd;border:1px;color:#999;border-color:#ddd}
 .couponzone_list .no_coupon{padding: 100px 0;text-align:center;color:#999}
-#point_coupon li{height:230px;}
