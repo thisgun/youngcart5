@@ -1,23 +1,64 @@
 @charset "utf-8";
-/* SIR 지운아빠 */
 
+/* 오늘 본 상품 */
+#stv{position:relative;border-top:1px solid #eee;margin:15px}
+#stv h2{;padding:10px 0 ;font-size:1.167em;text-align:center}
+#stv_ul{padding:0 0 10px }
+#stv_ul:after {display:block;visibility:hidden;clear:both;content:""}
+#stv_ul li{float:left;width:33.333%}
+#stv_ul li img{width:100%;height:auto}
+#stv_pg {display:block;text-align:center;margin:10px 0 0;line-height:20px}
+.stv_item {display:none;padding:0 5px;word-break:break-all}
+#up{position:absolute;top:10px;left:5px;background:url(img/btn_prev.gif) no-repeat 50% 50%;width:30px;height:20px;text-indent:-999px;overflow:hidden;border:1px solid #ccc;}
+#down{position:absolute;top:10px;right:5px;background:url(img/btn_next.gif) no-repeat 50% 50%;width:30px;height:20px;text-indent:-999px;overflow:hidden;border:1px solid #ccc;}
+#stv .li_empty{text-align:center;padding:50px 0;color:#666;background:#f3f3f3;}
+
+/*메인배너*/
+#main_bn{position:relative;}
+#main_bn img{width:100%;height:auto}
+#main_bn .bx-prev{position:absolute;top:50%;left:0;margin-top:-20px;background:url(img/btn_prev.png) no-repeat 50% 50%;width:40px;height:40px;background-size:50%;text-indent:-999px;overflow:hidden;opacity:0.6}
+#main_bn .bx-next{position:absolute;top:50%;right:0;margin-top:-20px;background:url(img/btn_next.png) no-repeat 50% 50%;width:40px;height:40px;background-size:50%;text-indent:-999px;overflow:hidden;opacity:0.6}
+#main_bn .slide-wrap { visibility: hidden; }
+
+/*사이드배너*/
+#sbn_side{margin:0 0 20px}
+#sbn_side h2  {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
+#sbn_side ul:after {display:block;visibility:hidden;clear:both;content:""}
+#sbn_side img{width:100%;height:auto}
+#sbn_side li{float:left;width:50%}
+
+@media (min-width: 640px){
+    #sbn_side li{}
+
+}
+
+/* 쇼핑몰 이벤트 */
+#sev {text-align:center}
+#sev .bx-wrapper{;position:relative}
+#sev h2 {text-align:center;font-size:1.167em;display:inline-block;padding-bottom:5px;margin: 0 0 10px;border-bottom:2px solid #000;}
+#sev li img{width:100%}
+.sev_admin{padding:10px 10px 0}
+#sev  .bx-pager-item{display:inline-block;margin:2px}
+#sev .bx-pager-link{display:inline-block;width:10px;height:10px;background:#aaa;border-radius:5px;text-indent:-999px;overflow:hidden}
+#sev .active{background:#d5503a;width:18px}
 /* ##### maint.(nn).skin.php, list.(nn).skin.php 공통 적용 시작 ##### */
 /* 공통 */
-.sct_wrap {margin:0 0 30px;zoom:1}
+.sct_wrap {margin:20px 0 30px;;zoom:1}
 .sct_wrap:after {display:block;visibility:hidden;clear:both;content:""}
-.sct_wrap header {margin:0 0 20px;zoom:1}
-.sct_wrap header:after {display:block;visibility:hidden;clear:both;content:""}
-.sct_wrap h2 {padding:10px 0 0;line-height:1em;text-align:center;font-weight:bold; letter-spacing:0.3em}
-.sct_wrap h2 a {text-decoration:none}
+.sct_wrap h2 {text-align:center;font-size:1.167em;}
+.sct_wrap h2 a {display:inline-block;padding-bottom:5px;border-bottom:2px solid #000;text-decoration:none}
 .sct_wrap h2 a:hover{color:#34b5a1}
-.sct_wrap_hdesc {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
 
-.sct {margin:10px 5px 0 ;padding:0;list-style:none;zoom:1;clear:both;}
+.sct {margin: 10px 0 ;padding:0;list-style:none;zoom:1;clear:both;}
 .sct:after {display:block;visibility:hidden;clear:both;content:""}
 .sct_li {position:relative;text-align:center}
 .sct_noitem {padding:50px 0;text-align:center}
 .sct_icon img {margin:0 1px 0 0}
-.sct_sns a {display:inline-block;margin:0 4px 0 0}
+.sct_sns a {display:inline-block;margin:0 2px;width:30px;height:30px;line-height:30px;border-radius:3px;font-size:0;text-align:center}
+.share-facebook{background:#415b92}
+.share-twitter{background:#35b3dc}
+.share-googleplus{background:#d5503a}
+.sct_sns img{width:20px;height:auto;vertical-align:middle;}
 .sct_sns button {margin:0 4px 0 0;padding:0;border:0}
 
 .mli_btn button{background:url(img/mainlist_btn.gif) no-repeat; width:30px; height:30px;border:none;text-indent:-9999px}
@@ -25,22 +66,26 @@
 .mli_btn button.mli_next{background-position: -33px 0;position:absolute;top:0;right:10px}
 
 /* 상품 목록 스킨 10 */
-.sct_10 .sct_li {position:relative;float:left;margin-bottom:10px}
-.sct_10 .sct_last {margin:0 0 15px !important}
-.sct_10 .sct_clear {clear:both;}
-.sct_10 .sct_a {display:block;text-decoration:none;font-weight:bold; text-overflow: ellipsis;  overflow: hidden;  white-space: nowrap;line-height:20px}
-.sct_10 .sct_a img{width:100%;height:auto}
-.sct_10 .sct_id {display:block;margin:0 0 5px}
-.sct_10 .sct_basic {margin:0 0 10px}
-.sct_10 .sct_cost {display:block;margin:0 0 5px;font-size:0.917em}
-.sct_10 .sct_cost strike {display:block;margin:0 0 5px;color:#999;font-weight:normal}
-.sct_10 .sct_icon {margin:0 0 10px}
-.sct_10 .sct_sns {margin:15px 0 0}
-.sct_10 .sct_img{margin:0 5px 5px ;}
+.sct_10{padding:10px 0}
+.sct_10 .sct_li {position:relative;float:left;text-align:left;padding:5px ;margin-bottom:10px;}
+.sct_10 .sct_li .li_wr{}
+.sct_10 .sct_img{margin-bottom:10px;}
+.sct_10 .sct_img img{width:100%;height:auto;}
+.sct_10 .sct_clear{clear:both}
+.sct_10 .sct_id{margin:5px 0;font-size:0.92em;color:#666 }
+.sct_10 .sct_txt{font-weight:bold;font-size:1.083em;margin:5px 0;line-height:1.3em}
+.sct_10 .sct_cost{margin:5px 0}
+.sct_10 .sct_sns{margin:10px 0}
 .li_more{text-align:center}
-.li_more img{width:30px;margin:5px 0}
-.li_more p{color:#aaa;margin-top:5px;display:none;}
-.li_more button{background:#fff;border:3px double #e9e9e9;width:205px;padding:8px 0 ;font-size:0.917em;color:#797979;margin-top:15px}
+
+/* 상품 목록 스킨 20 */
+.sct_20 .sct_li{background:#fff;border-bottom:1px solid #e6e6e6;width:100%;padding:10px;text-align:left}
+.sct_20 .sct_img {position:absolute;top:0;left:0}
+.sct_20 .li_wr{position:relative}
+.sct_20 .sct_id{margin:0px 10px 5px;font-size:0.92em;color:#666 }
+.sct_20 .sct_txt{font-weight:bold;font-size:1.083em;margin:0px 10px 5px;line-height:1.5em}
+.sct_20 .sct_cost{margin:5px 10px}
+.sct_20 .sct_sns{margin:10px 10px}
 
 /* 관련상품 목록 스킨 10 */
 #sit_rel h2{text-align:center;margin:20px 0;letter-spacing:0.3em}
@@ -52,7 +97,7 @@
 #best_item .slide-wrap{margin:0px;overflow:hidden;position:relative;top:0;left:0;float:left;}
 #best_item .sct_best{width:100%;position:relative;padding:0;float:left;}
 #best_item .best_on{}
-.sct_best .sct_li {position:relative;float:left;}
+.sct_best .sct_li {position:relative;float:left}
 .sct_best .sct_last {margin:0 0 15px !important}
 .sct_best .sct_clear {clear:both;margin-left:0}
 .sct_best .sct_a {display:block;position:relative;text-decoration:none;font-weight:bold; text-overflow: ellipsis;  overflow: hidden;  white-space: nowrap;}
@@ -300,14 +345,6 @@
 a.qa_wr{padding:10px 0;display:block;width:100%;text-align:center;background:#34b5a1;color:#fff;margin:10px 0}
 #itemqa_list,#itemuse_list{  background: #fff;  border: 3px double #e9e9e9;  width: 205px;  padding: 8px 0;  font-size: 0.917em;  color: #797979;  margin-top: 15px;}
 
-/* 쇼핑몰 이벤트 */
-#sev {margin:0 10px;padding:0 15px;list-style:none;border:3px double #d6d6d6}
-#sev li {border-top:1px solid #f2f2f2;padding:10px 0 ;text-align:center}
-#sev li:first-child{border:none}
-#sev li a{display:block}
-#sev li a:hover{color:#34b5a1;}
-#sev li img{width:100%}
-.sev_admin{padding:10px 10px 0}
 
 /* 로딩안내 레이어 */
 #loading_message {z-index:10000;position:absolute;top:0;left:0;background:#fff;opacity:0.7}

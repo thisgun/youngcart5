@@ -105,7 +105,7 @@ for($k=0; $cp=sql_fetch_array($res); $k++) {
     <section id="smb_my_wish">
         <h2>최근 위시리스트</h2>
 
-        <div class="list_01">
+        <div class="list_02">
             <ul>
 
             <?php

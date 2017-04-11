@@ -48,7 +48,7 @@ $admin = get_admin("super");
             <strong>02-123-1234</strong>
             <p>월-금 am 9:00 - pm 05:00<br>점심시간 : am 12:00 - pm 01:00</p>
         </div>
-        <a href="#" id="ft_totop">상단으로</a>
+        <a href="#" id="ft_totop"><i class="fa fa-arrow-up" aria-hidden="true"></i><span class="sound_only">상단으로</span></a>
     </div>
 
 

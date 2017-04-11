@@ -31,7 +31,7 @@ include_once('./_head.php');
     <input type="hidden" name="sw_direct" value="">
     <input type="hidden" name="prog"      value="wish">
 
-    <div class="list_01">
+    <div class="list_02">
         <ul>
 
         <?php

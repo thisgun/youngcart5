@@ -14,24 +14,19 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
     <input type="hidden" name="it_id" value="<?php echo $it_id; ?>">
     <input type="hidden" name="is_id" value="<?php echo $is_id; ?>">
 
-    <div class="tbl_frm01 tbl_wrap">
-        <table>
-        <colgroup>
-            <col class="grid_2">
-            <col>
-        </colgroup>
-        <tbody>
-        <tr>
-            <th scope="row"><label for="is_subject">제목<strong class="sound_only"> 필수</strong></label></th>
-            <td><input type="text" name="is_subject" value="<?php echo get_text($use['is_subject']); ?>" id="is_subject" required class="required frm_input" minlength="2" maxlength="250"></td>
-        </tr>
-        <tr>
-            <th scope="row"><label for="" style="width:200px;">내용</label></th>
-            <td><?php echo $editor_html; ?></td>
-        </tr>
-        <tr>
-            <th scope="row">평점</th>
-            <td>
+    <div class="new_win_con form_01">
+
+        <ul>
+            <li>
+                <label for="is_subject" class="sound_only">제목<strong> 필수</strong></label>
+                <input type="text" name="is_subject" value="<?php echo get_text($use['is_subject']); ?>" id="is_subject" required class="required frm_input full_input" minlength="2" maxlength="250" placeholder="제목">
+            </li>
+            <li>
+                <label for=""  class="sound_only">내용</label>
+                <?php echo $editor_html; ?>
+            </li>
+            <li>
+                <span class="sound_only">평점</span>
                 <ul id="sit_use_write_star">
                     <li>
                         <input type="radio" name="is_score" value="5" id="is_score5" <?php echo ($is_score==5)?'checked="checked"':''; ?>>
@@ -59,15 +54,13 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
                         <img src="<?php echo G5_URL; ?>/shop/img/s_star1.png">
                     </li>
                 </ul>
-            </td>
-        </tr>
-        </tbody>
-        </table>
-    </div>
+            </li>
+        </ul>
 
-    <div class="win_btn">
-        <input type="submit" value="작성완료" class="btn_submit">
-        <button type="button" onclick="self.close();">닫기</button>
+        <div class="win_btn">
+            <input type="submit" value="작성완료" class="btn_submit">
+            <button type="button" onclick="self.close();" class="btn_close">닫기</button>
+        </div>
     </div>
 
     </form>
