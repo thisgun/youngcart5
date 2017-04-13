@@ -184,7 +184,7 @@ if($ca_dir_check) {
 
 define('G5_SHOP_CSS_URL', str_replace(G5_PATH, G5_URL, $skin_dir));
 
-$g5['title'] = $it['it_name'].' &gt; '.$it['ca_name'];
+$g5['title'] = $it['ca_name'];
 
 include_once(G5_MSHOP_PATH.'/_head.php');
 include_once(G5_SHOP_PATH.'/settle_naverpay.inc.php');

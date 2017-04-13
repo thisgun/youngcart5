@@ -4,7 +4,7 @@ $tv_idx = get_session("ss_tv_idx");
 $tv_div['top'] = 0;
 $tv_div['img_width'] = 100;
 $tv_div['img_height'] = 100;
-$tv_div['img_length'] = 3; // 한번에 보여줄 이미지 수
+$tv_div['img_length'] = 6; // 한번에 보여줄 이미지 수
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">', 0);
@@ -48,6 +48,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
     if ($tv_tot_count > 0) echo '</ul>'.PHP_EOL;
     ?>
         <div id="stv_btn"></div>
+        <span id="stv_pg"></span>
 
         <script>
         $(function() {

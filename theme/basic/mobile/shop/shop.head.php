@@ -17,30 +17,42 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
     <?php if(defined('_INDEX_')) { // index에서만 실행
         include G5_MOBILE_PATH.'/newwin.inc.php'; // 팝업레이어
     } ?>
+    <ul id="hd_mb">
+        <li><a href="<?php echo G5_URL; ?>/">커뮤니티</a></li>
+         <?php if ($is_member) { ?>
+        <li><a href="<?php echo G5_ADMIN_URL ?>/shop_admin/"><b>관리자</b></a></li>
+        <?php if ($is_admin) {  ?>
+        <?php } else { ?>
+        <li><a href="<?php echo G5_BBS_URL; ?>/member_confirm.php?url=register_form.php">정보수정</a></li>
+        <?php } ?>
+        <li><a href="<?php echo G5_BBS_URL; ?>/logout.php?url=shop">로그아웃</a></li>
+        <?php } else { ?>
+        <li><a href="<?php echo G5_BBS_URL; ?>/login.php?url=<?php echo $urlencode; ?>">로그인</a></li>
+        <li><a href="<?php echo G5_BBS_URL ?>/register.php" id="snb_join">회원가입</a></li>
+        <?php } ?>
+        <li><a href="<?php echo G5_SHOP_URL; ?>/mypage.php">마이페이지</a></li>
+    </ul>
 
     <div id="hd_wr">
         <div id="logo"><a href="<?php echo G5_SHOP_URL; ?>/"><img src="<?php echo G5_DATA_URL; ?>/common/mobile_logo_img" alt="<?php echo $config['cf_title']; ?> 메인"></a></div>
         <div id="hd_btn">
             <button type="button" id="btn_hdcate"><i class="fa fa-bars" aria-hidden="true"></i><span class="sound_only">분류</span></button>
-            <button type="button" id="btn_hdmy"><i class="fa fa-user" aria-hidden="true"></i><span class="sound_only">마이메뉴</span></button>
             <a href="<?php echo G5_SHOP_URL; ?>/cart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="sound_only">장바구니</span><span class="cart-count"><?php echo get_cart_count($tmp_cart_id); ?></span></a>
 
         </div>
     </div>
     <?php include_once(G5_THEME_MSHOP_PATH.'/category.php'); // 분류 ?>
 
-    <?php include_once(G5_THEME_MSHOP_PATH.'/mymenu.php'); // 마이메뉴 ?>
 
     <script>
     $("#btn_hdcate").on("click", function() {
         $("#category").show();
     });
 
-    $("#btn_hdmy").on("click", function() {
-        $("#mymenu").show();
-    });
-
     $(".menu_close").on("click", function() {
+        $(".menu").hide();
+    });
+     $(".cate_bg").on("click", function() {
         $(".menu").hide();
     });
    </script>

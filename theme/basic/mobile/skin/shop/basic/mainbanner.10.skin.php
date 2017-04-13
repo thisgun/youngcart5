@@ -60,7 +60,8 @@ if ($i > 0) {
 $(document).ready(function(){
     $('.slide-wrap').bxSlider({
         speed:800,
-        pager:false,
+        pager:true,
+        controls:false,
         onSliderLoad: function(){ 
             $(".slide-wrap").css("visibility", "visible");
         }

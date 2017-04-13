@@ -60,10 +60,10 @@ include_once(G5_THEME_MSHOP_PATH.'/shop.head.php');
         $list->set_type(3);
         $list->set_view('it_id', false);
         $list->set_view('it_name', true);
-        $list->set_view('it_cust_price', false);
+        $list->set_view('it_cust_price', true);
         $list->set_view('it_price', true);
-        $list->set_view('it_icon', false);
-        $list->set_view('sns', false);
+        $list->set_view('it_icon', true);
+        $list->set_view('sns', true);
         echo $list->run();
         ?>
     </div>
@@ -108,8 +108,12 @@ include_once(G5_THEME_MSHOP_PATH.'/shop.head.php');
 
 
 
-<?php include_once(G5_MSHOP_SKIN_PATH.'/main.event.skin.php'); // 이벤트 ?>
+    <?php include_once(G5_MSHOP_SKIN_PATH.'/main.event.skin.php'); // 이벤트 ?>
 
+    <!-- 커뮤니티 최신글 시작 { -->
+    <section id="sidx_lat">
+        <?php echo latest('theme/shop_basic', 'notice', 5, 30); ?>
+    </section>
 <?php
 include_once(G5_THEME_MSHOP_PATH.'/shop.tail.php');
 ?>
