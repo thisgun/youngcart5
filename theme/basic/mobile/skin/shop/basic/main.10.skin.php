@@ -70,6 +70,10 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
         echo "</div>\n";
     }
 
+    if ($this->view_it_icon) {
+        echo "<div class=\"sct_icon\">".item_icon($row)."</div>\n";
+    }
+
     if ($this->view_sns) {
         $sns_top = $this->img_height + 10;
         $sns_url  = G5_SHOP_URL.'/item.php?it_id='.$row['it_id'];

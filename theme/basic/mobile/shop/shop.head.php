@@ -45,6 +45,18 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 
 
     <script>
+    $( document ).ready( function() {
+        var jbOffset = $( '#hd_wr' ).offset();
+        $( window ).scroll( function() {
+            if ( $( document ).scrollTop() > jbOffset.top ) {
+                $( '#hd_wr' ).addClass( 'fixed' );
+            }
+            else {
+                $( '#hd_wr' ).removeClass( 'fixed' );
+            }
+        });
+    });
+
     $("#btn_hdcate").on("click", function() {
         $("#category").show();
     });
