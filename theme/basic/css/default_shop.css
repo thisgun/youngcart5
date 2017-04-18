@@ -97,6 +97,7 @@ border: 1px solid #558ab7 !important;
 #hd_menu li:last-child{border-left:1px solid #ddd}
 #hd_menu li a{display:block;padding:0 10px}
 
+
 /*사이드 메뉴*/
 #side_menu{position:fixed;top:0;right:0;z-index:999;height:100%;background:#fff}
 .side_menu_wr{display:none;width:230px;overflow-y:auto;height: 100%;border-left:1px solid #cdcdcd;}
@@ -111,8 +112,19 @@ border: 1px solid #558ab7 !important;
 #side_menu .side_menu_shop .op_area li .prd_cost{display:block;font-weight:bold;margin:3px 0 0}
 #side_menu .side_menu_shop .op_area  .li_empty{padding:50px 0;padding-left:0;color:#999;border-bottom:1px solid #f3f3f3;text-align:center}
 
+#category{display:none;position:absolute;top:0;left:0;width:100%;border:2px solid #333949;border-top:0;background:#fff;;z-index:100;text-align:left; }
+#category .ct_wr{padding:20px 20px 20px 5px;}
+#category ul:after {display:block;visibility:hidden;clear:both;content:""}
+#category .cate{line-height:20px;}
+#category .cate_li_1{float:left;text-align:left;width:180px;min-height:200px;margin-left:15px}
+#category .cate_li_1_a{background:#f3f3f3;text-align:center;padding:10px;margin-bottom:5px;display:block;font-weight:bold}
+#category .cate_li_2 {width:100%;float:none;;line-height:20px;;margin:0}
+#category .cate_li_2  a {color:#6d6d6d;display:block;padding:0 5px}
+#category a:hover{color:#c92033}
+#category .close_btn{;;width: 100%;background:#333949;border: 0;text-align: left;color: #fff;padding: 0 20px;height: 40px;font-weight: bold;font-size: 1.167em;}
+
 /* 중간 레이아웃 */
-#wrapper {z-index:5;margin:20px auto;width:1200px;zoom:1}
+#wrapper {z-index:5;margin:20px auto;width:1200px;position:relative;zoom:1}
 #wrapper:after {display:block;visibility:hidden;clear:both;content:""}
 #wrapper_title {margin:10px 0;font-size:1.667em;font-weight:bold}
 
@@ -455,7 +467,7 @@ box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 .sod_opt {}
 .sod_opt ul {margin:0;padding:0;list-style:none}
 .sod_opt li {padding-left:10px;background:url('../img/bullet.gif') no-repeat 3px 8px;color:#777;margin:3px 0;line-height:1.3em}
-.sod_option_btn .mod_options {padding:0 7px;border:1px solid #38b2b9;color:#38b2b9;background:#fff;height:23px;line-height:21px;margin:10px 0 0 }
+.sod_option_btn .mod_options {padding:0 7px;border:1px solid #38b2b9;color:#38b2b9;background:#fff;height:23px;margin:10px 0 0 }
 .cp_btn {padding:0 7px;border:1px solid #38b2b9;color:#38b2b9;background:#fff;height:23px;line-height:21px;margin:10px 0 0 }
 .cp_cancel {padding:0 7px;border:1px solid #aaa;color:#666;background:#fff;height:23px;line-height:21px;margin:10px 0 0 2px;}
 

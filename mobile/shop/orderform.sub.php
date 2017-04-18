@@ -100,9 +100,7 @@ ob_start();
 
             $it_name = $a1 . stripslashes($row['it_name']) . $a2;
             $it_options = print_item_options($row['it_id'], $s_cart_id);
-            if($it_options) {
-                $it_name .= '<div class="sod_opt">'.$it_options.'</div>';
-            }
+
 
             // 복합과세금액
             if($default['de_tax_flag_use']) {
@@ -181,19 +179,23 @@ ob_start();
             <input type="hidden" name="cp_price[<?php echo $i; ?>]" value="0">
             <div class="li_name">
                 <?php echo $it_name; ?>
-                <div class="li_mod"  style="padding-left:<?php echo $image_width + 20; ?>px;"><?php echo $cp_button; ?></div>
-                <span class="total_img"><?php echo $image; ?></span>
-
             </div>
+            <div class="li_op_wr">
+                <span class="total_img"><?php echo $image; ?></span>
+                <div class="sod_opt"><?php echo $it_options; ?></div>
+                <div class="li_mod" ><?php echo $cp_button; ?></div>
+
+    
+            </div>
+
             <div class="li_prqty">
                 <span class="prqty_price li_prqty_sp"><span>판매가 </span><?php echo number_format($row['ct_price']); ?></span>
                 <span class="prqty_qty li_prqty_sp"><span>수량 </span><?php echo number_format($sum['qty']); ?></span>
                 <span class="prqty_sc li_prqty_sp"><span>배송비 </span><?php echo $ct_send_cost; ?></span>
+                 <span class="total_point li_prqty_sp"><span>적립포인트 </span><strong><?php echo number_format($sum['point']); ?></strong></span>
+
             </div>
-            <div class="li_total">
-                <span class="total_price total_span"><span>주문금액 </span><strong><?php echo number_format($sell_price); ?></strong></span>
-                <span class="total_point total_span"><span>적립포인트 </span><strong><?php echo number_format($sum['point']); ?></strong></span>
-            </div>
+                <div class="total_price total_span"><span>주문금액 </span><strong><?php echo number_format($sell_price); ?></strong></div>
 
         </li>
 
@@ -272,177 +274,172 @@ if($is_kakaopay_use) {
     <section id="sod_frm_orderer" >
         <h2>주문하시는 분</h2>
 
-        <div class="odf_tbl">
-            <table>
-            <tbody>
-            <tr>
-                <th scope="row"><label for="od_name">이름<strong class="sound_only"> 필수</strong></label></th>
-                <td><input type="text" name="od_name" value="<?php echo get_text($member['mb_name']); ?>" id="od_name" required class="frm_input required" maxlength="20"></td>
-            </tr>
+        <div class="odf_list">
+            <ul>
+                <li>
+                    <label for="od_name">이름<strong class="sound_only"> 필수</strong></label>
+                    <input type="text" name="od_name" value="<?php echo get_text($member['mb_name']); ?>" id="od_name" required class="frm_input required" maxlength="20">
+                </li>
 
-            <?php if (!$is_member) { // 비회원이면 ?>
-            <tr>
-                <th scope="row"><label for="od_pwd">비밀번호<strong class="sound_only"> 필수</strong></label></th>
-                <td>
-                    <input type="password" name="od_pwd" id="od_pwd" required class="frm_input required" maxlength="20">
-                    영,숫자 3~20자 (주문서 조회시 필요)
-                </td>
-            </tr>
-            <?php } ?>
+                <?php if (!$is_member) { // 비회원이면 ?>
+                <li>
+                    <label for="od_pwd">비밀번호<strong class="sound_only"> 필수</strong></label>
+                    
+                        <input type="password" name="od_pwd" id="od_pwd" required class="frm_input required" maxlength="20">
+                        영,숫자 3~20자 (주문서 조회시 필요)
+                    
+                </li>
+                <?php } ?>
 
-            <tr>
-                <th scope="row"><label for="od_tel">전화번호<strong class="sound_only"> 필수</strong></label></th>
-                <td><input type="text" name="od_tel" value="<?php echo get_text($member['mb_tel']); ?>" id="od_tel" required class="frm_input required" maxlength="20"></td>
-            </tr>
-            <tr>
-                <th scope="row"><label for="od_hp">핸드폰</label></th>
-                <td><input type="text" name="od_hp" value="<?php echo get_text($member['mb_hp']); ?>" id="od_hp" class="frm_input" maxlength="20"></td>
-            </tr>
-            <tr>
-                <th scope="row">주소</th>
-                <td>
-                    <label for="od_zip" class="sound_only">우편번호<strong class="sound_only"> 필수</strong></label>
-                    <input type="text" name="od_zip" value="<?php echo $member['mb_zip1'].$member['mb_zip2']; ?>" id="od_zip" required class="frm_input required" size="5" maxlength="6">
-                    <button type="button" class="btn_frmline" onclick="win_zip('forderform', 'od_zip', 'od_addr1', 'od_addr2', 'od_addr3', 'od_addr_jibeon');">주소 검색</button><br>
-                    <label for="od_addr1" class="sound_only">기본주소<strong class="sound_only"> 필수</strong></label>
-                    <input type="text" name="od_addr1" value="<?php echo get_text($member['mb_addr1']) ?>" id="od_addr1" required class="frm_input frm_address required">
-                    <label for="od_addr2" class="sound_only">상세주소</label>
-                    <input type="text" name="od_addr2" value="<?php echo get_text($member['mb_addr2']) ?>" id="od_addr2" class="frm_input frm_address">
-                    <label for="od_addr3" class="sound_only">참고항목</label>
-                    <input type="text" name="od_addr3" value="<?php echo get_text($member['mb_addr3']) ?>" id="od_addr3" class="frm_input frm_address" readonly="readonly">
-                    <input type="hidden" name="od_addr_jibeon" value="<?php echo get_text($member['mb_addr_jibeon']); ?>"><br>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row"><label for="od_email">E-mail<strong class="sound_only"> 필수</strong></label></th>
-                <td><input type="email" name="od_email" value="<?php echo $member['mb_email']; ?>" id="od_email" required class="frm_input required" maxlength="100"></td>
-            </tr>
+                <li>
+                    <label for="od_tel">전화번호<strong class="sound_only"> 필수</strong></label>
+                    <input type="text" name="od_tel" value="<?php echo get_text($member['mb_tel']); ?>" id="od_tel" required class="frm_input required" maxlength="20">
+                </li>
+                <li>
+                    <label for="od_hp">핸드폰</label>
+                    <input type="text" name="od_hp" value="<?php echo get_text($member['mb_hp']); ?>" id="od_hp" class="frm_input" maxlength="20">
+                </li>
+                <li>
+                    주소
+                    
+                        <label for="od_zip" class="sound_only">우편번호<strong class="sound_only"> 필수</strong></label>
+                        <input type="text" name="od_zip" value="<?php echo $member['mb_zip1'].$member['mb_zip2']; ?>" id="od_zip" required class="frm_input required" size="5" maxlength="6">
+                        <button type="button" class="btn_frmline" onclick="win_zip('forderform', 'od_zip', 'od_addr1', 'od_addr2', 'od_addr3', 'od_addr_jibeon');">주소 검색</button><br>
+                        <label for="od_addr1" class="sound_only">기본주소<strong class="sound_only"> 필수</strong></label>
+                        <input type="text" name="od_addr1" value="<?php echo get_text($member['mb_addr1']) ?>" id="od_addr1" required class="frm_input frm_address required">
+                        <label for="od_addr2" class="sound_only">상세주소</label>
+                        <input type="text" name="od_addr2" value="<?php echo get_text($member['mb_addr2']) ?>" id="od_addr2" class="frm_input frm_address">
+                        <label for="od_addr3" class="sound_only">참고항목</label>
+                        <input type="text" name="od_addr3" value="<?php echo get_text($member['mb_addr3']) ?>" id="od_addr3" class="frm_input frm_address" readonly="readonly">
+                        <input type="hidden" name="od_addr_jibeon" value="<?php echo get_text($member['mb_addr_jibeon']); ?>"><br>
+                    
+                </li>
+                <li>
+                    <label for="od_email">E-mail<strong class="sound_only"> 필수</strong></label>
+                    <input type="email" name="od_email" value="<?php echo $member['mb_email']; ?>" id="od_email" required class="frm_input required" maxlength="100">
+                </li>
 
-            <?php if ($default['de_hope_date_use']) { // 배송희망일 사용 ?>
-            <tr>
-                <th scope="row"><label for="od_hope_date">희망배송일</label></th>
-                <td>
-                    <!-- <select name="od_hope_date" id="od_hope_date">
-                    <option value="">선택하십시오.</option>
-                    <?php
-                    for ($i=0; $i<7; $i++) {
-                        $sdate = date("Y-m-d", time()+86400*($default['de_hope_date_after']+$i));
-                        echo '<option value="'.$sdate.'">'.$sdate.' ('.get_yoil($sdate).')</option>'.PHP_EOL;
-                    }
-                    ?>
-                    </select> -->
-                    <input type="text" name="od_hope_date" value="" id="od_hope_date" required class="frm_input required" size="11" maxlength="10" readonly> 이후로 배송 바랍니다.
-                </td>
-            </tr>
-            <?php } ?>
-            </tbody>
-            </table>
+                <?php if ($default['de_hope_date_use']) { // 배송희망일 사용 ?>
+                <li>
+                    <label for="od_hope_date">희망배송일</label>
+                        <!-- <select name="od_hope_date" id="od_hope_date">
+                        <option value="">선택하십시오.</option>
+                        <?php
+                        for ($i=0; $i<7; $i++) {
+                            $sdate = date("Y-m-d", time()+86400*($default['de_hope_date_after']+$i));
+                            echo '<option value="'.$sdate.'">'.$sdate.' ('.get_yoil($sdate).')</option>'.PHP_EOL;
+                        }
+                        ?>
+                        </select> -->
+                        <input type="text" name="od_hope_date" value="" id="od_hope_date" required class="frm_input required" size="11" maxlength="10" readonly> 이후로 배송 바랍니다.
+                    
+                </li>
+                <?php } ?>
+            </ul>
         </div>
     </section>
 
     <section id="sod_frm_taker">
         <h2>받으시는 분</h2>
 
-        <div class="odf_tbl">
-            <table>
-            <tbody>
-            <?php
-            if($is_member) {
-                // 배송지 이력
-                $addr_list = '';
-                $sep = chr(30);
+        <div class="odf_list">
+            <ul>
+                <?php
+                if($is_member) {
+                    // 배송지 이력
+                    $addr_list = '';
+                    $sep = chr(30);
 
-                // 주문자와 동일
-                $addr_list .= '<input type="radio" name="ad_sel_addr" value="same" id="ad_sel_addr_same">'.PHP_EOL;
-                $addr_list .= '<label for="ad_sel_addr_same">주문자와 동일</label>'.PHP_EOL;
+                    // 주문자와 동일
+                    $addr_list .= '<input type="radio" name="ad_sel_addr" value="same" id="ad_sel_addr_same">'.PHP_EOL;
+                    $addr_list .= '<label for="ad_sel_addr_same">주문자와 동일</label>'.PHP_EOL;
 
-                // 기본배송지
-                $sql = " select *
-                            from {$g5['g5_shop_order_address_table']}
-                            where mb_id = '{$member['mb_id']}'
-                              and ad_default = '1' ";
-                $row = sql_fetch($sql);
-                if($row['ad_id']) {
-                    $val1 = $row['ad_name'].$sep.$row['ad_tel'].$sep.$row['ad_hp'].$sep.$row['ad_zip1'].$sep.$row['ad_zip2'].$sep.$row['ad_addr1'].$sep.$row['ad_addr2'].$sep.$row['ad_addr3'].$sep.$row['ad_jibeon'].$sep.$row['ad_subject'];
-                    $addr_list .= '<br><input type="radio" name="ad_sel_addr" value="'.get_text($val1).'" id="ad_sel_addr_def">'.PHP_EOL;
-                    $addr_list .= '<label for="ad_sel_addr_def">기본배송지</label>'.PHP_EOL;
+                    // 기본배송지
+                    $sql = " select *
+                                from {$g5['g5_shop_order_address_table']}
+                                where mb_id = '{$member['mb_id']}'
+                                  and ad_default = '1' ";
+                    $row = sql_fetch($sql);
+                    if($row['ad_id']) {
+                        $val1 = $row['ad_name'].$sep.$row['ad_tel'].$sep.$row['ad_hp'].$sep.$row['ad_zip1'].$sep.$row['ad_zip2'].$sep.$row['ad_addr1'].$sep.$row['ad_addr2'].$sep.$row['ad_addr3'].$sep.$row['ad_jibeon'].$sep.$row['ad_subject'];
+                        $addr_list .= '<br><input type="radio" name="ad_sel_addr" value="'.get_text($val1).'" id="ad_sel_addr_def">'.PHP_EOL;
+                        $addr_list .= '<label for="ad_sel_addr_def">기본배송지</label>'.PHP_EOL;
+                    }
+
+                    // 최근배송지
+                    $sql = " select *
+                                from {$g5['g5_shop_order_address_table']}
+                                where mb_id = '{$member['mb_id']}'
+                                  and ad_default = '0'
+                                order by ad_id desc
+                                limit 1 ";
+                    $result = sql_query($sql);
+                    for($i=0; $row=sql_fetch_array($result); $i++) {
+                        $val1 = $row['ad_name'].$sep.$row['ad_tel'].$sep.$row['ad_hp'].$sep.$row['ad_zip1'].$sep.$row['ad_zip2'].$sep.$row['ad_addr1'].$sep.$row['ad_addr2'].$sep.$row['ad_addr3'].$sep.$row['ad_jibeon'].$sep.$row['ad_subject'];
+                        $val2 = '<label for="ad_sel_addr_'.($i+1).'">최근배송지('.($row['ad_subject'] ? $row['ad_subject'] : $row['ad_name']).')</label>';
+                        $addr_list .= '<br><input type="radio" name="ad_sel_addr" value="'.get_text($val1).'" id="ad_sel_addr_'.($i+1).'"> '.PHP_EOL.$val2.PHP_EOL;
+                    }
+
+                    $addr_list .= '<br><input type="radio" name="ad_sel_addr" value="new" id="od_sel_addr_new">'.PHP_EOL;
+                    $addr_list .= '<label for="od_sel_addr_new">신규배송지</label>'.PHP_EOL;
+
+                    $addr_list .='<a href="'.G5_SHOP_URL.'/orderaddress.php" id="order_address">배송지목록</a>';
+                } else {
+                    // 주문자와 동일
+                    $addr_list .= '<input type="checkbox" name="ad_sel_addr" value="same" id="ad_sel_addr_same">'.PHP_EOL;
+                    $addr_list .= '<label for="ad_sel_addr_same">주문자와 동일</label>'.PHP_EOL;
                 }
-
-                // 최근배송지
-                $sql = " select *
-                            from {$g5['g5_shop_order_address_table']}
-                            where mb_id = '{$member['mb_id']}'
-                              and ad_default = '0'
-                            order by ad_id desc
-                            limit 1 ";
-                $result = sql_query($sql);
-                for($i=0; $row=sql_fetch_array($result); $i++) {
-                    $val1 = $row['ad_name'].$sep.$row['ad_tel'].$sep.$row['ad_hp'].$sep.$row['ad_zip1'].$sep.$row['ad_zip2'].$sep.$row['ad_addr1'].$sep.$row['ad_addr2'].$sep.$row['ad_addr3'].$sep.$row['ad_jibeon'].$sep.$row['ad_subject'];
-                    $val2 = '<label for="ad_sel_addr_'.($i+1).'">최근배송지('.($row['ad_subject'] ? $row['ad_subject'] : $row['ad_name']).')</label>';
-                    $addr_list .= '<br><input type="radio" name="ad_sel_addr" value="'.get_text($val1).'" id="ad_sel_addr_'.($i+1).'"> '.PHP_EOL.$val2.PHP_EOL;
+                ?>
+                <li>
+                    <th scope="row">배송지선택</th>
+                    <td id="sod_frm_deli">
+                        <?php echo $addr_list; ?>
+                    </td>
+                </li>
+                <?php if($is_member) { ?>
+                <li>
+                    <th scope="row"><label for="ad_subject">배송지명</label></th>
+                    <td>
+                        <input type="text" name="ad_subject" id="ad_subject" class="frm_input" maxlength="20">
+                        <input type="checkbox" name="ad_default" id="ad_default" value="1">
+                        <label for="ad_default">기본배송지로 설정</label>
+                    </td>
+                </li>
+                <?php
                 }
-
-                $addr_list .= '<br><input type="radio" name="ad_sel_addr" value="new" id="od_sel_addr_new">'.PHP_EOL;
-                $addr_list .= '<label for="od_sel_addr_new">신규배송지</label>'.PHP_EOL;
-
-                $addr_list .='<a href="'.G5_SHOP_URL.'/orderaddress.php" id="order_address">배송지목록</a>';
-            } else {
-                // 주문자와 동일
-                $addr_list .= '<input type="checkbox" name="ad_sel_addr" value="same" id="ad_sel_addr_same">'.PHP_EOL;
-                $addr_list .= '<label for="ad_sel_addr_same">주문자와 동일</label>'.PHP_EOL;
-            }
-            ?>
-            <tr>
-                <th scope="row">배송지선택</th>
-                <td id="sod_frm_deli">
-                    <?php echo $addr_list; ?>
-                </td>
-            </tr>
-            <?php if($is_member) { ?>
-            <tr>
-                <th scope="row"><label for="ad_subject">배송지명</label></th>
-                <td>
-                    <input type="text" name="ad_subject" id="ad_subject" class="frm_input" maxlength="20">
-                    <input type="checkbox" name="ad_default" id="ad_default" value="1">
-                    <label for="ad_default">기본배송지로 설정</label>
-                </td>
-            </tr>
-            <?php
-            }
-            ?>
-            <tr>
-                <th scope="row"><label for="od_b_name">이름<strong class="sound_only"> 필수</strong></label></th>
-                <td><input type="text" name="od_b_name" id="od_b_name" required class="frm_input required" maxlength="20"></td>
-            </tr>
-            <tr>
-                <th scope="row"><label for="od_b_tel">전화번호<strong class="sound_only"> 필수</strong></label></th>
-                <td><input type="text" name="od_b_tel" id="od_b_tel" required class="frm_input required" maxlength="20"></td>
-            </tr>
-            <tr>
-                <th scope="row"><label for="od_b_hp">핸드폰</label></th>
-                <td><input type="text" name="od_b_hp" id="od_b_hp" class="frm_input" maxlength="20"></td>
-            </tr>
-            <tr>
-                <th scope="row">주소</th>
-                <td id="sod_frm_addr">
-                    <label for="od_b_zip" class="sound_only">우편번호<strong class="sound_only"> 필수</strong></label>
-                    <input type="text" name="od_b_zip" id="od_b_zip" required class="frm_input required" size="5" maxlength="6">
-                    <button type="button" class="btn_frmline" onclick="win_zip('forderform', 'od_b_zip', 'od_b_addr1', 'od_b_addr2', 'od_b_addr3', 'od_b_addr_jibeon');">주소 검색</button><br>
-                    <label for="od_b_addr1" class="sound_only">기본주소<strong class="sound_only"> 필수</strong></label>
-                    <input type="text" name="od_b_addr1" id="od_b_addr1" required class="frm_input frm_address required">
-                    <label for="od_b_addr2" class="sound_only">상세주소</label>
-                    <input type="text" name="od_b_addr2" id="od_b_addr2" class="frm_input frm_address">
-                    <label for="od_b_addr3" class="sound_only">참고항목</label>
-                    <input type="text" name="od_b_addr3" id="od_b_addr3" class="frm_input frm_address" readonly="readonly">
-                    <input type="hidden" name="od_b_addr_jibeon" value="">
-                </td>
-            </tr>
-            <tr>
-                <th scope="row"><label for="od_memo">전하실 말씀</label></th>
-                <td><textarea name="od_memo" id="od_memo"></textarea></td>
-            </tr>
-            </tbody>
-            </table>
+                ?>
+                <li>
+                    <th scope="row"><label for="od_b_name">이름<strong class="sound_only"> 필수</strong></label></th>
+                    <td><input type="text" name="od_b_name" id="od_b_name" required class="frm_input required" maxlength="20"></td>
+                </li>
+                <li>
+                    <th scope="row"><label for="od_b_tel">전화번호<strong class="sound_only"> 필수</strong></label></th>
+                    <td><input type="text" name="od_b_tel" id="od_b_tel" required class="frm_input required" maxlength="20"></td>
+                </tr>
+                <li>
+                    <th scope="row"><label for="od_b_hp">핸드폰</label></th>
+                    <td><input type="text" name="od_b_hp" id="od_b_hp" class="frm_input" maxlength="20"></td>
+                </li>
+                <li>
+                    <th scope="row">주소</th>
+                    <td id="sod_frm_addr">
+                        <label for="od_b_zip" class="sound_only">우편번호<strong class="sound_only"> 필수</strong></label>
+                        <input type="text" name="od_b_zip" id="od_b_zip" required class="frm_input required" size="5" maxlength="6">
+                        <button type="button" class="btn_frmline" onclick="win_zip('forderform', 'od_b_zip', 'od_b_addr1', 'od_b_addr2', 'od_b_addr3', 'od_b_addr_jibeon');">주소 검색</button><br>
+                        <label for="od_b_addr1" class="sound_only">기본주소<strong class="sound_only"> 필수</strong></label>
+                        <input type="text" name="od_b_addr1" id="od_b_addr1" required class="frm_input frm_address required">
+                        <label for="od_b_addr2" class="sound_only">상세주소</label>
+                        <input type="text" name="od_b_addr2" id="od_b_addr2" class="frm_input frm_address">
+                        <label for="od_b_addr3" class="sound_only">참고항목</label>
+                        <input type="text" name="od_b_addr3" id="od_b_addr3" class="frm_input frm_address" readonly="readonly">
+                        <input type="hidden" name="od_b_addr_jibeon" value="">
+                    </td>
+                </li>
+                <li>
+                    <th scope="row"><label for="od_memo">전하실 말씀</label></th>
+                    <td><textarea name="od_memo" id="od_memo"></textarea></td>
+                </li>
+            </ul>
         </div>
     </section>
 
@@ -540,7 +537,7 @@ if($is_kakaopay_use) {
 
         $escrow_title = "";
         if ($default['de_escrow_use']) {
-            $escrow_title = "에스크로 ";
+            $escrow_title = "에스크로<br>";
         }
 
         if ($is_kakaopay_use || $default['de_bank_use'] || $default['de_vbank_use'] || $default['de_iche_use'] || $default['de_card_use'] || $default['de_hp_use'] || $default['de_easy_pay_use'] || $default['de_samsung_pay_use']) {
@@ -550,42 +547,42 @@ if($is_kakaopay_use) {
         // 카카오페이
         if($is_kakaopay_use) {
             $multi_settle++;
-            echo '<li><input type="radio" id="od_settle_kakaopay" name="od_settle_case" value="KAKAOPAY" '.$checked.'> <label for="od_settle_kakaopay" class="kakaopay_icon">KAKAOPAY</label></li>'.PHP_EOL;
+            echo '<li><input type="radio" id="od_settle_kakaopay" name="od_settle_case" value="KAKAOPAY" '.$checked.'> <label for="od_settle_kakaopay" class="kakaopay_icon lb_icon">KAKAOPAY</label></li>'.PHP_EOL;
             $checked = '';
         }
 
         // 무통장입금 사용
         if ($default['de_bank_use']) {
             $multi_settle++;
-            echo '<li><input type="radio" id="od_settle_bank" name="od_settle_case" value="무통장" '.$checked.'> <label for="od_settle_bank">무통장입금</label></li>'.PHP_EOL;
+            echo '<li><input type="radio" id="od_settle_bank" name="od_settle_case" value="무통장" '.$checked.'> <label for="od_settle_bank" class="lb_icon  bank_icon">무통장입금</label></li>'.PHP_EOL;
             $checked = '';
         }
 
         // 가상계좌 사용
         if ($default['de_vbank_use']) {
             $multi_settle++;
-            echo '<li><input type="radio" id="od_settle_vbank" name="od_settle_case" value="가상계좌" '.$checked.'> <label for="od_settle_vbank">'.$escrow_title.'가상계좌</label></li>'.PHP_EOL;
+            echo '<li><input type="radio" id="od_settle_vbank" name="od_settle_case" value="가상계좌" '.$checked.'> <label for="od_settle_vbank" class="lb_icon vbank_icon">'.$escrow_title.'가상계좌</label></li>'.PHP_EOL;
             $checked = '';
         }
 
         // 계좌이체 사용
         if ($default['de_iche_use']) {
             $multi_settle++;
-            echo '<li><input type="radio" id="od_settle_iche" name="od_settle_case" value="계좌이체" '.$checked.'> <label for="od_settle_iche">'.$escrow_title.'계좌이체</label></li>'.PHP_EOL;
+            echo '<li><input type="radio" id="od_settle_iche" name="od_settle_case" value="계좌이체" '.$checked.'> <label for="od_settle_iche" class="lb_icon iche_icon">'.$escrow_title.'계좌이체</label></li>'.PHP_EOL;
             $checked = '';
         }
 
         // 휴대폰 사용
         if ($default['de_hp_use']) {
             $multi_settle++;
-            echo '<li><input type="radio" id="od_settle_hp" name="od_settle_case" value="휴대폰" '.$checked.'> <label for="od_settle_hp">휴대폰</label></li>'.PHP_EOL;
+            echo '<li><input type="radio" id="od_settle_hp" name="od_settle_case" value="휴대폰" '.$checked.'> <label for="od_settle_hp" class="lb_icon hp_icon">휴대폰</label></li>'.PHP_EOL;
             $checked = '';
         }
 
         // 신용카드 사용
         if ($default['de_card_use']) {
             $multi_settle++;
-            echo '<li><input type="radio" id="od_settle_card" name="od_settle_case" value="신용카드" '.$checked.'> <label for="od_settle_card">신용카드</label></li>'.PHP_EOL;
+            echo '<li><input type="radio" id="od_settle_card" name="od_settle_case" value="신용카드" '.$checked.'> <label for="od_settle_card" class="lb_icon card_icon">신용카드</label></li>'.PHP_EOL;
             $checked = '';
         }
 
@@ -604,13 +601,13 @@ if($is_kakaopay_use) {
             }
 
             $multi_settle++;
-            echo '<li><input type="radio" id="od_settle_easy_pay" name="od_settle_case" value="간편결제" '.$checked.'> <label for="od_settle_easy_pay" class="'.$pg_easy_pay_name.'">'.$pg_easy_pay_name.'</label></li>'.PHP_EOL;
+            echo '<li><input type="radio" id="od_settle_easy_pay" name="od_settle_case" value="간편결제" '.$checked.'> <label for="od_settle_easy_pay" class="'.$pg_easy_pay_name.' lb_icon">'.$pg_easy_pay_name.'</label></li>'.PHP_EOL;
             $checked = '';
         }
 
         //이니시스 삼성페이
         if($default['de_samsung_pay_use']) {
-            echo '<li><input type="radio" id="od_settle_samsungpay" data-case="samsungpay" name="od_settle_case" value="삼성페이" '.$checked.'> <label for="od_settle_samsungpay" class="samsung_pay">삼성페이</label></li>'.PHP_EOL;
+            echo '<li><input type="radio" id="od_settle_samsungpay" data-case="samsungpay" name="od_settle_case" value="삼성페이" '.$checked.'> <label for="od_settle_samsungpay" class="samsung_pay lb_icon">삼성페이</label></li>'.PHP_EOL;
             $checked = '';
         }
 
