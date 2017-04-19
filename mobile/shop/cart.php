@@ -160,7 +160,7 @@ $cart_count = sql_num_rows($result);
         $tot_price = $tot_sell_price + $send_cost; // 총계 = 주문상품금액합계 + 배송비
         if ($tot_price > 0 || $send_cost > 0) {
         ?>
-        <dl id="sod_bsk_tot">
+        <dl id="m_sod_bsk_tot">
             <?php if ($send_cost > 0) { // 배송비가 0 보다 크다면 (있다면) ?>
             <dt class="sod_bsk_dvr">배송비</dt>
             <dd class="sod_bsk_dvr"><strong><?php echo number_format($send_cost); ?> 원</strong></dd>

@@ -73,6 +73,8 @@ $count = sql_num_rows($result);
         echo '<p>사용할 수 있는 쿠폰이 없습니다.</p>';
     }
     ?>
-    <button type="button" id="od_coupon_close" class="btn_close"><i class="fa fa-times" aria-hidden="true"></i><span class="sound_only">닫기</span></button>
+    <div class="btn_confirm">
+        <button type="button" id="od_coupon_close" class="btn_close"><i class="fa fa-times" aria-hidden="true"></i><span class="sound_only">닫기</span></button>
+    </div>
 </div>
 <!-- } 쿠폰 선택 끝 -->

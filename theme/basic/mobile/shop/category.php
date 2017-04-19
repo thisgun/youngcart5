@@ -146,28 +146,12 @@ function get_mshop_category($ca_id, $len)
             <li id="cate_02" class="con">
                 <ul id="hd_tnb" class="cate">
                     <li class="bd"><a href="<?php echo G5_SHOP_URL; ?>/mypage.php">마이페이지</a></li>
+                    <li class="bd"><a href="<?php echo G5_SHOP_URL; ?>/orderinquiry.php">주문내역</a></li>
                     <li class="bd"><a href="<?php echo G5_SHOP_URL; ?>/couponzone.php">쿠폰존</a></li>
                     <li class="bd"><a href="<?php echo G5_BBS_URL; ?>/faq.php">FAQ</a></li>
                     <li><a href="<?php echo G5_BBS_URL; ?>/qalist.php">1:1문의</a></li>
-                    <?php
-                    if(G5_COMMUNITY_USE) {
-                        $com_href = G5_URL;
-                        $com_name = '커뮤니티';
-                    } else {
-                        if(!preg_match('#'.G5_SHOP_DIR.'/#', $_SERVER['SCRIPT_NAME'])) {
-                            $com_href = G5_SHOP_URL;
-                            $com_name = '쇼핑몰';
-                        }
-                    }
-
-                    if($com_href && $com_name) {
-                    ?>
-                    <li><a href="<?php echo $com_href; ?>/"><?php echo $com_name; ?></a></li>
-                    <?php } ?>
                     <li><a href="<?php echo G5_SHOP_URL; ?>/personalpay.php">개인결제</a></li>
-                    <?php if(!$com_href || !$com_name) { ?>
                     <li><a href="<?php echo G5_SHOP_URL; ?>/listtype.php?type=5">세일상품</a></li>
-                    <?php } ?>
                 </ul> 
             </li>
             <li id="cate_03" class="con"><?php include(G5_MSHOP_SKIN_PATH.'/boxtodayview.skin.php'); // 오늘 본 상품 ?></li>

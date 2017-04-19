@@ -337,10 +337,10 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 
 <div id="sit_tab">
     <ul class="tab_tit">
-        <li><a href="#sit_inf" class="selected">상품정보</a></li>
-        <li><a href="#sit_use">사용후기</a></li>
-        <li><a href="#sit_qa">상품문의</a></li>
-        <li><a href="#sit_dvex">배송/교환</a></li>
+        <li><button type="button" rel="#sit_inf" class="selected">상품정보</button></li>
+        <li><button type="button" rel="#sit_use">사용후기</button></li>
+        <li><button type="button" rel="#sit_qa">상품문의</button></li>
+        <li><button type="button" rel="#sit_dvex">배송/교환</button></li>
     </ul>
     <ul class="tab_con">
 
@@ -434,11 +434,11 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 $(function (){
     $(".tab_con>li").hide();
     $(".tab_con>li:first").show();   
-    $(".tab_tit li a").click(function(){
-        $(".tab_tit li a").removeClass("selected");
+    $(".tab_tit li button").click(function(){
+        $(".tab_tit li button").removeClass("selected");
         $(this).addClass("selected");
         $(".tab_con>li").hide();
-        $($(this).attr("href")).show();
+        $($(this).attr("rel")).show();
     });
 });
 </script>

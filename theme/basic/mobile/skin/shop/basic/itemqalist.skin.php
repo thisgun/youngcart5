@@ -76,16 +76,16 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
         <div class="sqa_img">
             <a href="<?php echo $it_href; ?>">
                 <?php echo get_it_image($row['it_id'], 70, 70); ?>
-                <span><?php echo $row['it_name']; ?></span>
             </a>
         </div>
 
         <section class="sqa_section">
             <h2><?php echo $iq_subject; ?></h2>
+             <a href="<?php echo $it_href; ?>" class="prd_name"><?php echo $row['it_name']; ?></a>
 
             <dl class="sqa_dl">
                 <dt>작성자</dt>
-                <dd><?php echo get_text($row['iq_name']); ?></dd>
+                <dd><i class="fa fa-user" aria-hidden="true"></i> <?php echo get_text($row['iq_name']); ?></dd>
                 <dt>작성일</dt>
                 <dd><?php echo substr($row['iq_time'],0,10); ?></dd>
                 <dt>상태</dt>
