@@ -149,10 +149,10 @@ include_once('./_head.php');
                 </div>
             </td>
             <td class="td_num"><?php echo number_format($sum['qty']); ?></td>
-            <td class="td_numbig"><?php echo number_format($row['ct_price']); ?></td>
-            <td class="td_numbig"><?php echo number_format($point); ?></td>
+            <td class="td_numbig text_right"><?php echo number_format($row['ct_price']); ?></td>
+            <td class="td_numbig text_right"><?php echo number_format($point); ?></td>
             <td class="td_dvr"><?php echo $ct_send_cost; ?></td>
-            <td class="td_numbig"><span id="sell_price_<?php echo $i; ?>" class="total_prc"><?php echo number_format($sell_price); ?></span></td>
+            <td class="td_numbig text_right"><span id="sell_price_<?php echo $i; ?>" class="total_prc"><?php echo number_format($sell_price); ?></span></td>
 
         </tr>
 

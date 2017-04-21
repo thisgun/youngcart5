@@ -75,13 +75,13 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
                 <div class="sit_qa_p">
                     <div class="sit_qa_qaq">
                         <span class="sit_alp">Q</span>
-                        <strong>문의내용</strong><br>
+                        <strong>문의내용</strong>
                         <?php echo $iq_question; // 상품 문의 내용 ?>
                     </div>
                     <?php if(!$is_secret) { ?>
                     <div class="sit_qa_qaa">
                         <span class="sit_alp">A</span>
-                        <strong>답변</strong><br>
+                        <strong>답변</strong>
                         <?php echo $iq_answer; ?>
                     </div>
                     <?php } ?>

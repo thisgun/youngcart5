@@ -45,7 +45,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 
         $is_secret = false;
         if($row['iq_secret']) {
-            $iq_subject .= ' <img src="'.G5_SHOP_SKIN_URL.'/img/icon_secret.gif" alt="비밀글">';
+            $iq_subject .= ' <i class="fa fa-lock" aria-hidden="true"></i>';
 
             if($is_admin || $member['mb_id' ] == $row['mb_id']) {
                 $iq_question = get_view_thumbnail(conv_content($row['iq_question'], 1), $thumbnail_width);

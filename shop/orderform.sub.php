@@ -189,9 +189,9 @@ if($is_kakaopay_use) {
                  </div>
             </td>
             <td class="td_num"><?php echo number_format($sum['qty']); ?></td>
-            <td class="td_numbig"><?php echo number_format($row['ct_price']); ?></td>
-            <td class="td_numbig"><span class="total_price"><?php echo number_format($sell_price); ?></span></td>
-            <td class="td_numbig"><?php echo number_format($point); ?></td>
+            <td class="td_numbig  text_right"><?php echo number_format($row['ct_price']); ?></td>
+            <td class="td_numbig  text_right"><span class="total_price"><?php echo number_format($sell_price); ?></span></td>
+            <td class="td_numbig  text_right"><?php echo number_format($point); ?></td>
             <td class="td_dvr"><?php echo $ct_send_cost; ?></td>
         </tr>
 

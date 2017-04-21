@@ -71,9 +71,9 @@ if(defined('G5_THEME_SHOP_PATH')) {
         </td>
         <td><?php echo substr($row['od_time'],2,14); ?> (<?php echo get_yoil($row['od_time']); ?>)</td>
         <td class="td_numbig"><?php echo $row['od_cart_count']; ?></td>
-        <td class="td_numbig"><?php echo display_price($row['od_cart_price'] + $row['od_send_cost'] + $row['od_send_cost2']); ?></td>
-        <td class="td_numbig"><?php echo display_price($row['od_receipt_price']); ?></td>
-        <td class="td_numbig"><?php echo display_price($row['od_misu']); ?></td>
+        <td class="td_numbig text_right"><?php echo display_price($row['od_cart_price'] + $row['od_send_cost'] + $row['od_send_cost2']); ?></td>
+        <td class="td_numbig text_right"><?php echo display_price($row['od_receipt_price']); ?></td>
+        <td class="td_numbig text_right"><?php echo display_price($row['od_misu']); ?></td>
         <td><?php echo $od_status; ?></td>
     </tr>
 

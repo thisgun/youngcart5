@@ -54,25 +54,20 @@ include_once(G5_PATH.'/head.sub.php');
 <form name="forderaddress" method="post" action="<?php echo $order_action_url; ?>" autocomplete="off">
 <div id="sod_addr" class="new_win">
 
-    <h1 id="win_title">배송지 목록</h1>
+    <h1 id="win_title"><i class="fa fa-address-book-o" aria-hidden="true"></i> 배송지 목록</h1>
     <div class="new_win_con">
-        <div class="tbl_head02 tbl_wrap">
+        <div class="tbl_head01 tbl_wrap">
             <table>
             <thead>
             <tr>
                 <th scope="col">
-                    <label for="chk_all" class="sound_only">전체선택</label>
-                    <input type="checkbox" name="chk_all" id="chk_all">
+                    배송지명
                 </th>
-                <th scope="col">배송지명</th>
-
                 <th scope="col">이름</th>
-                <th scope="col">전화번호</th>
+                <th scope="col">배송지정보</th>
                 <th scope="col">관리</th>
             </tr>
-            <tr>
-                <th scope="col" colspan="6">주소</th>
-            </tr>
+     
             </thead>
             <tbody>
             <?php
@@ -82,31 +77,30 @@ include_once(G5_PATH.'/head.sub.php');
                 $addr = get_text($addr);
             ?>
             <tr>
-                <td class="td_chk">
+                <td class="td_sbj">
                     <input type="hidden" name="ad_id[<?php echo $i; ?>]" value="<?php echo $row['ad_id'];?>">
                     <label for="chk_<?php echo $i;?>" class="sound_only">배송지선택</label>
                     <input type="checkbox" name="chk[]" value="<?php echo $i;?>" id="chk_<?php echo $i;?>">
-                </td>
-                <td class="td_name">
                     <label for="ad_subject<?php echo $i;?>" class="sound_only">배송지명</label>
                     <input type="text" name="ad_subject[<?php echo $i; ?>]" id="ad_subject<?php echo $i;?>" class="frm_input" size="12" maxlength="20" value="<?php echo get_text($row['ad_subject']); ?>">
                 </td>
 
-                <td class="td_namesmall"><?php echo get_text($row['ad_name']); ?></td>
-                <td class="td_numbig"><?php echo $row['ad_tel']; ?> / <?php echo $row['ad_hp']; ?></td>
+                <td class="td_name"><?php echo get_text($row['ad_name']); ?></td>
+                <td class="td_address">
+                    <?php echo print_address($row['ad_addr1'], $row['ad_addr2'], $row['ad_addr3'], $row['ad_jibeon']); ?><br>
+                    <span class="ad_tel"><?php echo $row['ad_tel']; ?> / <?php echo $row['ad_hp']; ?></span>
+
+                </td>
                 <td class="td_mng">
-                    <input type="hidden" value="<?php echo $addr; ?>">
-                    <button type="button" class="sel_address">선택</button>
-                    <a href="<?php echo $_SERVER['SCRIPT_NAME']; ?>?w=d&amp;ad_id=<?php echo $row['ad_id']; ?>" class="del_address">삭제</a>
+                    <input type="hidden" value="<?php echo $addr; ?>" >
+                    <button type="button" class="sel_address mng_btn">선택</button>
+                    <a href="<?php echo $_SERVER['SCRIPT_NAME']; ?>?w=d&amp;ad_id=<?php echo $row['ad_id']; ?>" class="del_address mng_btn">삭제</a>
                     <input type="radio" name="ad_default" value="<?php echo $row['ad_id'];?>" id="ad_default<?php echo $i;?>" <?php if($row['ad_default']) echo 'checked="checked"';?>>
-                    <label for="ad_default<?php echo $i;?>" class="default_lb">기본배송지</label>
+                    <label for="ad_default<?php echo $i;?>" class="default_lb mng_btn">기본배송지</label>
 
                 </td>
             </tr>
-            <tr>
-                <td></td>
-                <td colspan="5"><?php echo print_address($row['ad_addr1'], $row['ad_addr2'], $row['ad_addr3'], $row['ad_jibeon']); ?></td>
-            </tr>
+    
             <?php
             }
             ?>

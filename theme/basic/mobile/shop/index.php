@@ -112,7 +112,7 @@ include_once(G5_THEME_MSHOP_PATH.'/shop.head.php');
 
     <!-- 커뮤니티 최신글 시작 { -->
     <section id="sidx_lat">
-        <?php echo latest('theme/shop_basic', 'notice', 5, 30); ?>
+        <?php echo latest('theme/shop_basic', 'notice', 3, 30); ?>
     </section>
 <?php
 include_once(G5_THEME_MSHOP_PATH.'/shop.tail.php');
