@@ -55,7 +55,7 @@ $colspan = 10;
 ?>
 
 <div class="local_ov01 local_ov">
-    전체 <?php echo number_format($total_count) ?> 건
+   <span class="btn_ov01"><span class="ov_txt">전체 </span><span class="ov_num"> <?php echo number_format($total_count) ?>건 </span></span>
 </div>
 
 <form name="fsearch" id="fsearch" class="local_sch01 local_sch" method="get">
@@ -69,9 +69,7 @@ $colspan = 10;
     <input type="submit" class="btn_submit" value="검색">
 </form>
 
-<div class="btn_add01 btn_add">
-    <a href="./personalpayform.php" id="personalpay_add">개인결제 추가</a>
-</div>
+
 
 <form name="fpersonalpaylist" id="fpersonalpaylist" method="post" action="./personalpaylistdelete.php" onsubmit="return fpersonalpaylist_submit(this);">
 <input type="hidden" name="sst" value="<?php echo $sst; ?>">
@@ -125,9 +123,9 @@ $colspan = 10;
         <td class="td_payby"><?php echo $row['pp_settle_case']; ?></td>
         <td class="td_date"><?php echo is_null_time($row['pp_receipt_time']) ? '' : substr($row['pp_receipt_time'], 2, 8); ?></td>
         <td class="td_boolean"><?php echo $row['pp_use'] ? '예' : '아니오'; ?></td>
-        <td class="td_mngsmall">
-            <a href="./personalpayform.php?w=u&amp;pp_id=<?php echo $row['pp_id']; ?>&amp;<?php echo $qstr; ?>"><span class="sound_only"><?php echo $row['pp_id']; ?> </span>수정</a>
-            <a href="./personalpaycopy.php?pp_id=<?php echo $row['pp_id']; ?>" class="personalpaycopy"><span class="sound_only"><?php echo $row['pp_id']; ?> </span>복사</a>
+        <td class="td_mng td_mng_m">
+            <a href="./personalpayform.php?w=u&amp;pp_id=<?php echo $row['pp_id']; ?>&amp;<?php echo $qstr; ?>" class="btn btn_03"><span class="sound_only"><?php echo $row['pp_id']; ?> </span>수정</a>
+            <a href="./personalpaycopy.php?pp_id=<?php echo $row['pp_id']; ?>" class="personalpaycopy btn btn_02"><span class="sound_only"><?php echo $row['pp_id']; ?> </span>복사</a>
         </td>
     </tr>
 
@@ -141,8 +139,9 @@ $colspan = 10;
     </table>
 </div>
 
-<div class="btn_list01 btn_list">
-    <input type="submit" name="act_button" value="선택삭제" onclick="document.pressed=this.value">
+<div class="btn_fixed_top">
+    <input type="submit" name="act_button" value="선택삭제" onclick="document.pressed=this.value" class="btn btn_02">
+    <a href="./personalpayform.php" id="personalpay_add" class="btn btn_01">개인결제 추가</a>
 </div>
 
 </form>

@@ -68,20 +68,20 @@ if($od['od_pg'] == 'lg') {
                     order by ct_id ";
         $result = sql_query($sql);
         ?>
-        <div class="tbl_head02 tbl_wrap">
+        <div class="tbl_head01 tbl_wrap">
             <table>
             <thead>
             <tr>
                 <th scope="col" rowspan="2">이미지</th>
                 <th scope="col" colspan="7" id="th_itname">상품명</th>
             </tr>
-            <tr>
+            <tr class="th_line">
                 <th scope="col" id="th_itopt">옵션명</th>
                 <th scope="col" id="th_itqty">수량</th>
                 <th scope="col" id="th_itprice">판매가</th>
                 <th scope="col" id="th_itsum">소계</th>
                 <th scope="col" id="th_itpt">포인트</th>
-                <th scope="col" id="th_itpt">배송비</th>
+                <th scope="col" id="th_itsd">배송비</th>
                 <th scope="col" id="th_itst">상태</th>
             </tr>
             </thead>
@@ -147,10 +147,10 @@ if($od['od_pg'] == 'lg') {
             <tr>
                 <td headers="th_itopt" class="td_bdno"><?php echo get_text($opt['ct_option']); ?></td>
                 <td headers="th_itqty" class="td_mngsmall"><?php echo number_format($opt['ct_qty']); ?></td>
-                <td headers="th_itprice" class="td_numbig"><?php echo number_format($opt_price); ?></td>
-                <td headers="th_itsum" class="td_numbig"><?php echo number_format($sell_price); ?></td>
-                <td headers="th_itpt" class="td_numbig"><?php echo number_format($point); ?></td>
-                <td headers="th_itpt" class="td_dvr"><?php echo $ct_send_cost; ?></td>
+                <td headers="th_itprice" class="td_numbig text_right"><?php echo number_format($opt_price); ?></td>
+                <td headers="th_itsum" class="td_numbig text_right"><?php echo number_format($sell_price); ?></td>
+                <td headers="th_itpt" class="td_numbig text_right"><?php echo number_format($point); ?></td>
+                <td headers="th_itsd" class="td_dvr"><?php echo $ct_send_cost; ?></td>
                 <td headers="th_itst" class="td_mngsmall"><?php echo $opt['ct_status']; ?></td>
             </tr>
             <?php
@@ -592,7 +592,7 @@ if($od['od_pg'] == 'lg') {
             <?php if ($od['od_send_cost'] > 0) { ?>
             <li class="sod_bsk_dvr">
                 <span>배송비</span>
-                <dd><strong><?php echo number_format($od['od_send_cost']); ?> 원</strong>
+                <strong><?php echo number_format($od['od_send_cost']); ?> 원</strong>
                 
             </li>
             <?php } ?>

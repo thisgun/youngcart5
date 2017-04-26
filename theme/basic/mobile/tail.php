@@ -19,7 +19,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
         </div>
         Copyright &copy; <b>소유하신 도메인.</b> All rights reserved.<br>
     </div>
-    <button type="button" id="top_btn">상단으로</button>
+    <button type="button" id="top_btn"><i class="fa fa-arrow-up" aria-hidden="true"></i><span class="sound_only">상단으로</span></button>
     <?php
     if(G5_DEVICE_BUTTON_DISPLAY && G5_IS_MOBILE) { ?>
     <a href="<?php echo get_device_change_url(); ?>" id="device_change">PC 버전으로 보기</a>
@@ -41,14 +41,17 @@ $(function() {
 });
 
 //상단고정
-$(window).scroll(function(){
-  var sticky = $('.top'),
-      scroll = $(window).scrollTop();
-
-  if (scroll >= 50) sticky.addClass('fixed');
-  else sticky.removeClass('fixed');
+$( document ).ready( function() {
+    var jbOffset = $( '.top' ).offset();
+    $( window ).scroll( function() {
+        if ( $( document ).scrollTop() > jbOffset.top ) {
+            $( '.top' ).addClass( 'fixed' );
+        }
+        else {
+            $( '.top' ).removeClass( 'fixed' );
+        }
+    });
 });
-
 //상단으로
 $(function() {
     $("#top_btn").on("click", function() {

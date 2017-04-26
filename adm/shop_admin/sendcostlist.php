@@ -78,7 +78,7 @@ include_once (G5_ADMIN_PATH.'/admin.head.php');
     </div>
 
     <div class="btn_list01 btn_list">
-        <input type="submit" name="act_button" value="선택삭제" onclick="document.pressed=this.value">
+        <input type="submit" name="act_button" value="선택삭제" onclick="document.pressed=this.value" class="btn_frmline">
     </div>
 
     </form>
@@ -125,7 +125,7 @@ include_once (G5_ADMIN_PATH.'/admin.head.php');
     </div>
 
     <div class="btn_confirm01 btn_confirm">
-        <input type="submit" value="확인" class="btn_submit">
+        <input type="submit" value="확인" class="btn_submit btn">
     </div>
 
     </form>

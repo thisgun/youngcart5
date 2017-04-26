@@ -13,7 +13,7 @@ $bn_sl = ' class="bn_sl"';
 
 for ($i=0; $row=sql_fetch_array($result); $i++)
 {
-    if ($i==0) echo '<div id="main_bn">'.PHP_EOL.'<ul class="slide-wrap bn_img">'.PHP_EOL;
+    if ($i==0) echo '<div id="main_bn">'.PHP_EOL.'<ul class="slide-wrap">'.PHP_EOL;
     //print_r2($row);
     // 테두리 있는지
     $bn_border  = ($row['bn_border']) ? ' class="sbn_border"' : '';;
@@ -66,12 +66,11 @@ if ($i > 0) {
 
 <script>
 $(document).ready(function(){
-    $('.slide-wrap').bxSlider({
+    $('.slide-wrap').show().bxSlider({
         speed:800,
         pagerCustom: '#bx_pager',
-        onSliderLoad: function(){ 
-            $(".slide-wrap").css("visibility", "visible");
-        }
+        auto: true
+ 
     });
 });
 

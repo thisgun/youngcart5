@@ -1,5 +1,4 @@
 @charset "utf-8";
-
 /* aside:gnb */
 #gnb {margin:0 0 5px;padding:0 0 10px;background:#333949;position:relative;min-height:425px}
 #gnb h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}
@@ -41,8 +40,10 @@
 #scomm li {display:block;margin:3px}
 #scomm li a{line-height:25px;color:#555}
 #scomm li a:hover{color:#be334a}
+
 /* 메인배너 */
 #main_bn {border:1px solid #cdcdcd;position:relative;margin-bottom:20px}
+#main_bn .slide-wrap{display:none}
 #main_bn .bx-prev{position:absolute;top:50%;left:0;margin-top:-35px;z-index:99;background:url(img/btn_prev.png) no-repeat 50% 50%;width:50px;height:70px;;text-indent:-999px;overflow:hidden;opacity:0.6}
 #main_bn .bx-prev:hover{opacity:1}
 #main_bn .bx-next{position:absolute;top:50%;right:0;margin-top:-35px;z-index:99;background:url(img/btn_next.png) no-repeat 50% 50%;width:50px;height:70px;;text-indent:-999px;overflow:hidden;opacity:0.6}
@@ -56,12 +57,16 @@
 
 /*서브배너*/
 #sbn_side {width:150px;}
-.sb_bn { visibility: hidden; }
+.sb_bn { display:none}
+.sb_bn img{width:100%;height:auto}
 #sbn_side h2{position:absolute;font-size:0;line-height:0;overflow:hidden}
 #sbn_side .bx-controls{position:absolute;bottom:0;right:0}
 #sbn_side .bx-prev{display:block;float:left;background:url(img/btn_sb_prev.png) no-repeat 50% 50% #fff;width:15px;height:15px;text-indent:-999px;overflow:hidden;border:1px solid #ccc;}
 #sbn_side .bx-next{display:block;margin-left:-1px;float:left;background:url(img/btn_sb_next.png) no-repeat 50% 50% #fff;width:15px;height:15px;text-indent:-999px;overflow:hidden;border:1px solid #ccc;}
 
+/*장바구니*/
+#sbsk .go_cart{display:block;height:40px;line-height:38px;font-weight:bold;text-align:center;width:100%}
+#sbsk .btn_buy{height:40px;margin:5px 0;font-weight:bold;text-align:center;width:100%}
 
 /* ##### main(nn).skin.php, list.(nn).skin.php 공통 적용 시작 ##### */
 /* 공통 */
@@ -251,7 +256,7 @@
 .smt_40 .sct_rel_ul {margin:0;padding:0;list-style:none}
 .smt_40 .sct_rel_li {float:left;margin:0 0 0 10px}
 .smt_40 .sct_sns {padding:10px 0 0}
-.sct_40 .shop_icon_4{position:absolute;top:10px;left:10px;width:50px;height:50px;line-height:50px;font-size:14px;border-radius:50%;text-align:center;font-weight:bold}
+.smt_40 .shop_icon_4{position:absolute;top:10px;left:10px;width:50px;height:50px;line-height:50px;font-size:14px;border-radius:50%;text-align:center;font-weight:bold}
 
 /* 메인 상품 목록 스킨 50 */
 .smt_50 {position:relative}
@@ -259,7 +264,7 @@
 .smt_50 .sct_img{width:50px;position:absolute;top:0;left:0;}
 .smt_50 .sct_img img{width:100%;height:auto}
 .smt_50 .sct_rank{position:absolute;top:0;left:0;background:#fb5861;display:block;width:20px;height:20px;line-height:20px;color:#fff;text-align:center;;z-index:10;font-weight:bold}
-.smt_50 .sct_txt a{color:#555;display:block;margin:0 0 3px;font-size:0.92em;line-height:1.4em}
+.smt_50 .sct_txt a{color:#555;display:block;margin:0 0 3px;line-height:1.4em}
 .smt_50 .sct_cost{font-weight:bold}
 
 .smt_50 .sct_li_1 {padding:0}
@@ -535,7 +540,7 @@
 /* 사용후기 모음 */
 #sps_sch {margin:0 0 10px}
 #sps_sch a {display:inline-block;padding:0 8px;height:40px;line-height:40px;vertical-align:top;border-radius:3px;background:#fff;color:#3059c7;font-weight:bold;border:1px solid #3059c7;text-decoration:none;}
-#sps_sch .sch_wr{border:1px solid #d3d3d3;border-radius:3px;display:inline-block}
+#sps_sch .sch_wr{border:1px solid #6d7892;border-radius:3px;display:inline-block}
 #sps_sch:after {display:block;visibility:hidden;clear:both;content:""}
 #sps_sch select{border:0;;margin:9px 5px ;height:20px;float:left;border-right:1px solid #ddd;}
 #sps_sch .sch_input{height:38px;border:0;padding:0;background-color:transparent;float:left}
@@ -572,7 +577,7 @@
 /* 상품문의 모음 */
 #sqa_sch {margin:0 0 10px}
 #sqa_sch a {display:inline-block;padding:0 8px;height:40px;line-height:40px;vertical-align:top;border-radius:3px;background:#fff;color:#3059c7;font-weight:bold;border:1px solid #3059c7;text-decoration:none;}
-#sqa_sch .sch_wr{border:1px solid #d3d3d3;border-radius:3px;display:inline-block}
+#sqa_sch .sch_wr{border:1px solid #6d7892;border-radius:3px;display:inline-block}
 #sqa_sch:after {display:block;visibility:hidden;clear:both;content:""}
 #sqa_sch select{border:0;;margin:9px 5px ;height:20px;float:left;border-right:1px solid #ddd;}
 #sqa_sch .sch_input{height:38px;border:0;padding:0;background-color:transparent;float:left}

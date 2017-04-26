@@ -38,12 +38,10 @@ if ($i>0) echo '</ul></aside>'.PHP_EOL;
 
 <script>
 $(document).ready(function(){
-    $('.sb_bn').bxSlider({
+    $('.sb_bn').show().bxSlider({
         speed:800,
         pager:false,
-        onSliderLoad: function(){ 
-            $(".sb_bn").css("visibility", "visible");
-        }
+
     });
 });
 

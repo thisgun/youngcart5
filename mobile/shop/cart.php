@@ -154,41 +154,43 @@ $cart_count = sql_num_rows($result);
         <button type="button" onclick="return form_check('seldelete');" class="btn01">선택삭제</button>
         <button type="button" onclick="return form_check('alldelete');" class="btn01">비우기</button>
     </div>
-    
-    <div class="sod_ta_wr">
-        <?php
-        $tot_price = $tot_sell_price + $send_cost; // 총계 = 주문상품금액합계 + 배송비
-        if ($tot_price > 0 || $send_cost > 0) {
-        ?>
-        <dl id="m_sod_bsk_tot">
-            <?php if ($send_cost > 0) { // 배송비가 0 보다 크다면 (있다면) ?>
-            <dt class="sod_bsk_dvr">배송비</dt>
-            <dd class="sod_bsk_dvr"><strong><?php echo number_format($send_cost); ?> 원</strong></dd>
-            <?php } ?>
 
-            <?php if ($tot_price > 0) { ?>
-            <dt>포인트</dt>
-            <dd><strong><?php echo number_format($tot_point); ?> 점</strong></dd>
-            <dt class="sod_bsk_cnt">총계</dt>
-            <dd class="sod_bsk_cnt"><strong><?php echo number_format($tot_price); ?></strong> 원</dd>
-            <?php } ?>
-        </dl>
+
+    <?php if ($i == 0) { ?>
+    <div class="go_shopping"><a href="<?php echo G5_SHOP_URL; ?>/" class="btn01">쇼핑 계속하기</a></div>
+    <?php } else { ?>
+    <div class="sod_ta_wr">
+    <?php
+    $tot_price = $tot_sell_price + $send_cost; // 총계 = 주문상품금액합계 + 배송비
+    if ($tot_price > 0 || $send_cost > 0) {
+    ?>
+    <dl id="m_sod_bsk_tot">
+        <?php if ($send_cost > 0) { // 배송비가 0 보다 크다면 (있다면) ?>
+        <dt class="sod_bsk_dvr">배송비</dt>
+        <dd class="sod_bsk_dvr"><strong><?php echo number_format($send_cost); ?> 원</strong></dd>
         <?php } ?>
 
-        <div id="sod_bsk_act" class="btn_confirm">
-            <?php if ($i == 0) { ?>
-            <a href="<?php echo G5_SHOP_URL; ?>/" class="btn01">쇼핑 계속하기</a>
-            <?php } else { ?>
-            <input type="hidden" name="url" value="<?php echo G5_SHOP_URL; ?>/orderform.php">
-            <input type="hidden" name="act" value="">
-            <input type="hidden" name="records" value="<?php echo $i; ?>">
-            <button type="button" onclick="return form_check('buy');" class="btn_submit">주문하기</button>
+        <?php if ($tot_price > 0) { ?>
+        <dt>포인트</dt>
+        <dd><strong><?php echo number_format($tot_point); ?> 점</strong></dd>
+        <dt class="sod_bsk_cnt">총계</dt>
+        <dd class="sod_bsk_cnt"><strong><?php echo number_format($tot_price); ?></strong> 원</dd>
+        <?php } ?>
+    </dl>
+    <?php } ?>
 
-            <?php if ($naverpay_button_js) { ?>
-            <div class="naverpay-cart"><?php echo $naverpay_request_js.$naverpay_button_js; ?></div>
-            <?php } ?>
-            <?php } ?>
-        </div>
+    <div id="sod_bsk_act" class="btn_confirm">
+
+        <input type="hidden" name="url" value="<?php echo G5_SHOP_URL; ?>/orderform.php">
+        <input type="hidden" name="act" value="">
+        <input type="hidden" name="records" value="<?php echo $i; ?>">
+        <button type="button" onclick="return form_check('buy');" class="btn_submit">주문하기</button>
+
+        <?php if ($naverpay_button_js) { ?>
+        <div class="naverpay-cart"><?php echo $naverpay_request_js.$naverpay_button_js; ?></div>
+        <?php } ?>
+    </div>
+    <?php } ?>
 
 
     </div>

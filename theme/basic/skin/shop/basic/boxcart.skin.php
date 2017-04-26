@@ -28,7 +28,8 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
         echo '<li class="li_empty">장바구니 상품 없음</li>'.PHP_EOL;
     ?>
     </ul>
-
+    <button type="submit" class="btn02 btn_buy"><i class="fa fa-credit-card" aria-hidden="true"></i> 바로구매</button>
+    <a href="<?php echo G5_SHOP_URL; ?>/cart.php" class="btn01 go_cart">장바구니 바로가기</a>
 </aside>
 <!-- } 장바구니 간략 보기 끝 -->
 

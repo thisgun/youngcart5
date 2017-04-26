@@ -59,11 +59,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$new_skin_url.'/style.css">', 0);
             <input type="checkbox" id="all_chk">
         </th>
         <?php } ?>
-        <th scope="col"><i class="fa fa-folder-open" aria-hidden="true"></i><span class="sound_only">그룹</span></th>
-        <th scope="col"><i class="fa fa-list-alt" aria-hidden="true"></i><span class="sound_only">게시판</span></th>
-        <th scope="col"><i class="fa fa-list-ul" aria-hidden="true"></i><span class="sound_only">제목</span></th>
-        <th scope="col"><i class="fa fa-user" aria-hidden="true"></i><span class="sound_only">이름</span></th>
-        <th scope="col"><i class="fa fa-clock-o" aria-hidden="true"></i><span class="sound_only">일시</span></th>
+        <th scope="col">그룹</th>
+        <th scope="col">게시판</th>
+        <th scope="col">제목</th>
+        <th scope="col">이름</th>
+        <th scope="col">일시</th>
     </tr>
     </thead>
     <tbody>

@@ -26,7 +26,7 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
             <a href="<?php echo G5_URL ?>"><img src="<?php echo G5_IMG_URL ?>/m_logo.png" alt="<?php echo $config['cf_title']; ?>"  height="15"></a>
         </div>
 
-        <button type="button" id="gnb_open" class="hd_opener">메뉴<span class="sound_only"> 열기</span></button>
+        <button type="button" id="gnb_open" class="hd_opener"><i class="fa fa-bars" aria-hidden="true"></i><span class="sound_only"> 메뉴열기</span></button>
 
         <div id="gnb" class="hd_div">
             <button type="button" id="gnb_close" class="hd_closer"><span class="sound_only">메뉴 </span>닫기</button>
@@ -113,7 +113,7 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
             </div>
         </div>
 
-        <button type="button" id="user_btn" class="hd_opener">사용자메뉴</button>
+        <button type="button" id="user_btn" class="hd_opener"><i class="fa fa-user" aria-hidden="true"></i><span class="sound_only">사용자메뉴</span></button>
         <div class="hd_div" id="user_menu">
             <button type="button" id="user_close" class="hd_closer"><span class="sound_only">메뉴 </span>닫기</button>
 

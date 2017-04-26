@@ -227,16 +227,16 @@ function all_send()
             <td class="td_numbig"><?php echo $res['hs_hp']?></td>
             <td class="td_datetime"><?php echo $res['hs_datetime']?></td>
             <td class="td_boolean"><?php echo $res['hs_flag']?'성공':'실패'?></td>
-            <td>
+            <td class="td_left">
                 <u>결과코드</u> : <?php echo $res['hs_code']?><br>
                 <u>로그</u> : <?php echo $res['hs_log']?><br>
                 <u>메모</u> : <?php echo $res['hs_memo']?>
             </td>
-            <td class="td_mngsmall">
+            <td class="td_mng td_mng_s">
                 <?php if ($res['bk_no']) { ?>
-                <a href="./history_num.php?wr_id=<?php echo $res['wr_no']?>&amp;st=bk_no&amp;sv=<?php echo $res['bk_no']?>">내역</a>
+                <a href="./history_num.php?wr_id=<?php echo $res['wr_no']?>&amp;st=bk_no&amp;sv=<?php echo $res['bk_no']?>" class="btn_02 btn">내역</a>
                 <?php } else { ?>
-                <a href="./history_num.php?wr_id=<?php echo $res['wr_no']?>&amp;st=hs_hp&amp;sv=<?php echo $res['hs_hp']?>">내역</a>
+                <a href="./history_num.php?wr_id=<?php echo $res['wr_no']?>&amp;st=hs_hp&amp;sv=<?php echo $res['hs_hp']?>" class="btn_02 btn">내역</a>
                 <?php } ?>
             </td>
         </tr>

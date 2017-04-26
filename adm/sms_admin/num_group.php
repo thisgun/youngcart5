@@ -81,7 +81,7 @@ function num_group_submit(f)
     <input type="submit" value="그룹추가" class="btn_submit">
 </div>
 <div class="sch_last">
-    <span>건수 : <?php echo $total_count; ?></span>
+    <span class="btn_ov01"><span class="ov_txt">건수</span><span class="ov_num"> <?php echo $total_count; ?>건 </span></span>
 </div>
 </form>
 
@@ -131,7 +131,7 @@ function num_group_submit(f)
             </select>
         </td>
         <td class="td_mng">
-            <a href="./num_book.php?bg_no=1">보기</a>
+            <a href="./num_book.php?bg_no=1" class="btn btn_03">보기</a>
         </td>
     </tr>
     <!-- 미분류 끝 -->
@@ -166,7 +166,7 @@ function num_group_submit(f)
             </select>
         </td>
         <td class="td_mng">
-            <a href="./num_book.php?bg_no=<?php echo $group[$i]['bg_no']?>">보기</a>
+            <a href="./num_book.php?bg_no=<?php echo $group[$i]['bg_no']?>" class="btn btn_03">보기</a>
         </td>
     </tr>
     <?php } ?>
@@ -174,10 +174,10 @@ function num_group_submit(f)
     </table>
 </div>
 
-<div class="btn_list01 btn_list">
-    <input type="submit" name="act_button" value="선택수정" onclick="document.pressed=this.value">
-    <input type="submit" name="act_button" value="선택삭제" onclick="document.pressed=this.value">
-    <input type="submit" name="act_button" value="선택비우기" onclick="document.pressed=this.value">
+<div class="btn_fixed_top">
+    <input type="submit" name="act_button" value="선택수정" onclick="document.pressed=this.value" class="btn_02 btn">
+    <input type="submit" name="act_button" value="선택삭제" onclick="document.pressed=this.value" class="btn_02 btn">
+    <input type="submit" name="act_button" value="선택비우기" onclick="document.pressed=this.value" class="btn_02 btn">
 </div>
 
 </form>

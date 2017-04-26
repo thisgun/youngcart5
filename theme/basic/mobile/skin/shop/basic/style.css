@@ -26,14 +26,14 @@
 -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     box-shadow: 0 1px 3px rgba(0,0,0,0.2);}
-#main_bn .active{background:#d5503a;width:18px}
+#main_bn .active{background:#555;width:18px}
 
 /*사이드배너*/
-#sbn_side{margin:10px}
+#sbn_side{margin: 5px}
 #sbn_side h2  {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
 #sbn_side ul:after {display:block;visibility:hidden;clear:both;content:""}
 #sbn_side img{width:100%;height:auto}
-#sbn_side li{float:left;width:50%}
+#sbn_side li{float:left;width:50%;padding:5px}
 
 /* 쇼핑몰 이벤트 */
 #sev {text-align:center;margin:10px}
@@ -46,8 +46,10 @@
 -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     box-shadow: 0 1px 3px rgba(0,0,0,0.2);}
-#sev .active{background:#d5503a;width:18px}
+#sev .active{background:#555;width:18px}
 #sev_list{margin:10px}
+#sev_list #sct_sort{background:#fff}
+
 /* ##### maint.(nn).skin.php, list.(nn).skin.php 공통 적용 시작 ##### */
 /* 공통 */
 .sct_wrap {margin:10px 10px 30px;;zoom:1}
@@ -79,7 +81,7 @@
 /* 상품 목록 스킨 10 */
 .sct_10{margin:10px -5px}
 .sct_10 .sct_li {;float:left;text-align:center;padding:5px ;margin-bottom:10px;}
-.sct_10 .sct_li .li_wr{position:relative;background:#fff;border:1px solid #ddd;}
+.sct_10 .sct_li .li_wr{position:relative;background:#fff;border:1px solid #ddd;padding-bottom:5px}
 .sct_10 .sct_img{margin-bottom:10px;border-bottom:1px solid #ddd;font-size:0}
 .sct_10 .sct_img img{width:100%;height:auto;}
 .sct_10 .sct_clear{clear:both}

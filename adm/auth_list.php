@@ -43,7 +43,7 @@ $sql = " select *
             limit {$from_record}, {$rows} ";
 $result = sql_query($sql);
 
-$listall = '<a href="'.$_SERVER['SCRIPT_NAME'].'" class="ov_listall">전체목록</a>';
+$listall = '<a href="'.$_SERVER['SCRIPT_NAME'].'" class="ov_listall btn_ov02">전체목록</a>';
 
 $g5['title'] = "관리권한설정";
 include_once('./admin.head.php');
@@ -53,7 +53,7 @@ $colspan = 5;
 
 <div class="local_ov01 local_ov">
     <?php echo $listall ?>
-    설정된 관리권한 <?php echo number_format($total_count) ?>건
+    <span class="btn_ov01"><span class="ov_txt">설정된 관리권한</span><span class="ov_num"><?php echo number_format($total_count) ?>건</span></span>
 </div>
 
 <form name="fsearch" id="fsearch" class="local_sch01 local_sch" method="get">

@@ -106,16 +106,17 @@ require_once(G5_SHOP_PATH.'/'.$default['de_pg_service'].'/orderform.1.php');
         // 결제대행사별 코드 include (주문버튼)
         require_once(G5_SHOP_PATH.'/'.$default['de_pg_service'].'/orderform.3.php');
         ?>
+        <?php
+        if ($default['de_escrow_use']) {
+            // 결제대행사별 코드 include (에스크로 안내)
+            require_once(G5_SHOP_PATH.'/'.$default['de_pg_service'].'/orderform.4.php');
+        }
+        ?>
     </div>
 
 </form>
 
-<?php
-if ($default['de_escrow_use']) {
-    // 결제대행사별 코드 include (에스크로 안내)
-    require_once(G5_SHOP_PATH.'/'.$default['de_pg_service'].'/orderform.4.php');
-}
-?>
+
 
 <script>
 function forderform_check(f)

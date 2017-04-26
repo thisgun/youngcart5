@@ -138,7 +138,7 @@ if(!sql_query(" select mb_id from {$g5['g5_shop_order_delete_table']} limit 1 ",
 
 <div class="local_ov01 local_ov">
     <?php echo $listall; ?>
-    전체 주문내역 <?php echo number_format($total_count); ?>건
+    <span class="btn_ov01"><span class="ov_txt">전체 주문내역</span><span class="ov_num"> <?php echo number_format($total_count); ?>건</span></span>
     <?php if($od_status == '준비' && $total_count > 0) { ?>
     <a href="./orderdelivery.php" id="order_delivery" class="ov_a">엑셀배송처리</a>
     <?php } ?>
@@ -171,7 +171,7 @@ if(!sql_query(" select mb_id from {$g5['g5_shop_order_delete_table']} limit 1 ",
 
 </form>
 
-<form class="local_sch02 local_sch">
+<form class="local_sch03 local_sch">
 <div>
     <strong>주문상태</strong>
     <input type="radio" name="od_status" value="" id="od_status_all"    <?php echo get_checked($od_status, '');     ?>>
@@ -248,7 +248,7 @@ if(!sql_query(" select mb_id from {$g5['g5_shop_order_delete_table']} limit 1 ",
 <form name="forderlist" id="forderlist" onsubmit="return forderlist_submit(this);" method="post" autocomplete="off">
 <input type="hidden" name="search_od_status" value="<?php echo $od_status; ?>">
 
-<div class="tbl_head02 tbl_wrap">
+<div class="tbl_head01 tbl_wrap">
     <table id="sodr_list">
     <caption>주문 내역 목록</caption>
     <thead>
@@ -378,13 +378,13 @@ if(!sql_query(" select mb_id from {$g5['g5_shop_order_delete_table']} limit 1 ",
         <td headers="th_odrer" class="td_name"><?php echo $mb_nick; ?></td>
         <td headers="th_odrertel" class="td_tel"><?php echo get_text($row['od_tel']); ?></td>
         <td headers="th_recvr" class="td_name"><a href="<?php echo $_SERVER['SCRIPT_NAME']; ?>?sort1=<?php echo $sort1; ?>&amp;sort2=<?php echo $sort2; ?>&amp;sel_field=od_b_name&amp;search=<?php echo get_text($row['od_b_name']); ?>"><?php echo get_text($row['od_b_name']); ?></a></td>
-        <td rowspan="3" class="td_numsum"><?php echo number_format($row['od_cart_price'] + $row['od_send_cost'] + $row['od_send_cost2']); ?></td>
-        <td rowspan="3" class="td_numincome"><?php echo number_format($row['od_receipt_price']); ?></td>
-        <td rowspan="3" class="td_numcancel<?php echo $td_color; ?>"><?php echo number_format($row['od_cancel_price']); ?></td>
-        <td rowspan="3" class="td_numcoupon"><?php echo number_format($row['couponprice']); ?></td>
-        <td rowspan="3" class="td_numrdy"><?php echo number_format($row['od_misu']); ?></td>
-        <td rowspan="3" class="td_mngsmall">
-            <a href="./orderform.php?od_id=<?php echo $row['od_id']; ?>&amp;<?php echo $qstr; ?>" class="mng_mod"><span class="sound_only"><?php echo $row['od_id']; ?> </span>보기</a>
+        <td rowspan="3" class="td_num td_numsum"><?php echo number_format($row['od_cart_price'] + $row['od_send_cost'] + $row['od_send_cost2']); ?></td>
+        <td rowspan="3" class="td_num"><?php echo number_format($row['od_receipt_price']); ?></td>
+        <td rowspan="3" class="td_numcancel<?php echo $td_color; ?> td_num"><?php echo number_format($row['od_cancel_price']); ?></td>
+        <td rowspan="3" class="td_num"><?php echo number_format($row['couponprice']); ?></td>
+        <td rowspan="3" class="td_num"><?php echo number_format($row['od_misu']); ?></td>
+        <td rowspan="3" class="td_mng td_mng_s">
+            <a href="./orderform.php?od_id=<?php echo $row['od_id']; ?>&amp;<?php echo $qstr; ?>" class="mng_mod btn btn_02"><span class="sound_only"><?php echo $row['od_id']; ?> </span>보기</a>
         </td>
     </tr>
     <tr class="<?php echo $bg; ?>">

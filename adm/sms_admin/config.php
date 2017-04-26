@@ -98,8 +98,8 @@ if ($config['cf_sms_use'] == 'icode') { // 아이코드 사용
     </table>
 </div>
 
-<div class="btn_confirm01 btn_confirm">
-    <input type="submit" value="확인" class="btn_submit" accesskey="s">
+<div class="btn_fixed_top">
+    <input type="submit" value="확인" class="btn_submit btn" accesskey="s">
 </div>
 </form>
 

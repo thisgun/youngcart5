@@ -22,9 +22,9 @@ $li_width_style = ' style="width:'.$li_width.'%;"';
 for ($i=0; $row=sql_fetch_array($result); $i++) {
     if ($i == 0) {
         if ($this->css) {
-            echo "<ul id=\"sct_wrap\" class=\"{$this->css}\">\n";
+            echo "<ul class=\"{$this->css}\">\n";
         } else {
-            echo "<ul id=\"sct_wrap\" class=\"sct sct_10\">\n";
+            echo "<ul class=\"sct sct_10\">\n";
         }
     }
 

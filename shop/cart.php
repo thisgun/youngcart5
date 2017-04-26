@@ -197,7 +197,7 @@ include_once('./_head.php');
                 <strong><?php echo number_format($tot_price); ?></strong> 원 
             </li>
          
-        <ul>
+        </ul>
     </div>
     <?php } ?>
 

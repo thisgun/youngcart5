@@ -19,9 +19,9 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
     } ?>
     <ul id="hd_mb">
         <li><a href="<?php echo G5_URL; ?>/">커뮤니티</a></li>
-         <?php if ($is_member) { ?>
-        <li><a href="<?php echo G5_ADMIN_URL ?>/shop_admin/"><b>관리자</b></a></li>
+        <?php if ($is_member) { ?>
         <?php if ($is_admin) {  ?>
+        <li><a href="<?php echo G5_ADMIN_URL ?>/shop_admin/"><b>관리자</b></a></li>
         <?php } else { ?>
         <li><a href="<?php echo G5_BBS_URL; ?>/member_confirm.php?url=register_form.php">정보수정</a></li>
         <?php } ?>
