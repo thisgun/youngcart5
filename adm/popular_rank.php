@@ -54,7 +54,7 @@ $(function(){
     ~
     <input type="text" name="to_date" value="<?php echo $to_date ?>" id="to_date" class="frm_input" size="11" maxlength="10">
     <label for="to_date" class="sound_only">종료일</label>
-    <input type="submit" class="btn_submit" value="검색">
+    <input type="submit" class="btn_sch2" value="검색">
 </div>
 </form>
 
@@ -88,7 +88,7 @@ $(function(){
     <tr>
         <td class="td_num"><?php echo $rank ?></td>
         <td class="td_left"><?php echo $word ?></td>
-        <td class="td_numbig"><?php echo $row['cnt'] ?></td>
+        <td class="td_num"><?php echo $row['cnt'] ?></td>
     </tr>
 
     <?php

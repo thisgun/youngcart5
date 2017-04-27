@@ -90,7 +90,7 @@ include_once(G5_ADMIN_PATH.'/admin.head.php');
         <option value="<?php echo $group[$i]['bg_no']?>"> <?php echo $group[$i]['bg_name']?> (<?php echo number_format($group[$i]['bg_count'])?>) </option>
         <?php } ?>
     </select>
-    <button type="button" onclick="download()" class="btn_submit btn">다운로드</button>
+    <button type="button" onclick="download()" class="btn_01 btn">다운로드</button>
 </div>
 
 <script>

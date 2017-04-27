@@ -66,29 +66,27 @@ function imageview(id, w, h)
 <div id="to_content"><a href="#container">본문 바로가기</a></div>
 
 <header id="hd">
-        <h1><?php echo $config['cf_title'] ?></h1>
-        <div id="hd_top">
-            <button type="button" id="btn_gnb" class="btn_gnb_close">메뉴</button>
-           <div id="logo"><a href="<?php echo G5_ADMIN_URL ?>"><img src="<?php echo G5_ADMIN_URL ?>/img/logo.png" alt="<?php echo $config['cf_title'] ?> 관리자"></a></div>
+    <h1><?php echo $config['cf_title'] ?></h1>
+    <div id="hd_top">
+        <button type="button" id="btn_gnb" class="btn_gnb_close">메뉴</button>
+       <div id="logo"><a href="<?php echo G5_ADMIN_URL ?>"><img src="<?php echo G5_ADMIN_URL ?>/img/logo.png" alt="<?php echo $config['cf_title'] ?> 관리자"></a></div>
 
-            <div id="tnb">
-                <ul>
-                    <li class="tnb_li"><a href="<?php echo G5_SHOP_URL ?>/" class="tnb_shop" target="_blank">쇼핑몰 바로가기</a></li>
-                    <li class="tnb_li"><a href="<?php echo G5_URL ?>/" class="tnb_community" target="_blank">커뮤니티 바로가기</a></li>
-                    <li class="tnb_li"><a href="<?php echo G5_ADMIN_URL ?>/service.php" class="tnb_service">부가서비스</a></li>
-                    <li class="tnb_li"><button type="button" class="tnb_mb_btn">관리자<span class="./img/btn_gnb.png">메뉴열기</span></button>
-                        <ul class="tnb_mb_area">
-                            <li><a href="<?php echo G5_ADMIN_URL ?>/member_form.php?w=u&amp;mb_id=<?php echo $member['mb_id'] ?>">관리자정보</a></li>
-                            <li id="tnb_logout"><a href="<?php echo G5_BBS_URL ?>/logout.php">로그아웃</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+        <div id="tnb">
+            <ul>
+                <li class="tnb_li"><a href="<?php echo G5_SHOP_URL ?>/" class="tnb_shop" target="_blank">쇼핑몰 바로가기</a></li>
+                <li class="tnb_li"><a href="<?php echo G5_URL ?>/" class="tnb_community" target="_blank">커뮤니티 바로가기</a></li>
+                <li class="tnb_li"><a href="<?php echo G5_ADMIN_URL ?>/service.php" class="tnb_service">부가서비스</a></li>
+                <li class="tnb_li"><button type="button" class="tnb_mb_btn">관리자<span class="./img/btn_gnb.png">메뉴열기</span></button>
+                    <ul class="tnb_mb_area">
+                        <li><a href="<?php echo G5_ADMIN_URL ?>/member_form.php?w=u&amp;mb_id=<?php echo $member['mb_id'] ?>">관리자정보</a></li>
+                        <li id="tnb_logout"><a href="<?php echo G5_BBS_URL ?>/logout.php">로그아웃</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-        <nav id="gnb" class="gnb_large">
-            <h2>관리자 주메뉴</h2>
-            <div id="gnb" class="gnb_large">
-        <h2>카테고리</h2>
+    </div>
+    <nav id="gnb" class="gnb_large">
+        <h2>관리자 주메뉴</h2>
         <ul class="gnb_ul">
             <li class="gnb_li on">
                 <button type="button" class="btn_op menu-1">환경설정</button>
@@ -150,27 +148,6 @@ function imageview(id, w, h)
                 </div>
             </li>
 
-            <li class="gnb_li">
-                <button type="button" class="btn_op menu-4">SMS관리</button>
-                <div class="gnb_oparea_wr">
-                    <div class="gnb_oparea">
-                        <h3>SMS관리</h3>
-                        <ul>
-                            <li><a href="<?php echo G5_ADMIN_URL ?>/sms_admin/config.php">SMS 기본설정</a></li>
-                            <li><a href="<?php echo G5_ADMIN_URL ?>/sms_admin/member_update.php">회원정보업데이트</a></li>
-                            <li><a href="<?php echo G5_ADMIN_URL ?>/sms_admin/sms_write.php">문자 보내기</a></li>
-                            <li><a href="<?php echo G5_ADMIN_URL ?>/sms_admin/history_list.php">전송내역-건별</a></li>
-                            <li><a href="<?php echo G5_ADMIN_URL ?>/sms_admin/history_num.php">전송내역-번호별</a></li>
-                            <li><a href="<?php echo G5_ADMIN_URL ?>/sms_admin/form_group.php">이모티콘 그룹</a></li>
-                            <li><a href="<?php echo G5_ADMIN_URL ?>/sms_admin/form_list.php">이모티콘 관리</a></li>
-                            <li><a href="<?php echo G5_ADMIN_URL ?>/sms_admin/num_group.php">휴대폰번호 그룹</a></li>
-                            <li><a href="<?php echo G5_ADMIN_URL ?>/sms_admin/num_book.php">휴대폰번호 관리</a></li>
-                            <li><a href="<?php echo G5_ADMIN_URL ?>/sms_admin/num_book_file.php">휴대폰번호 파일</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </li>
-
             <li class="gnb_li ">
                 <button type="button" class="btn_op menu-5">쇼핑몰관리</button>
                 <div class="gnb_oparea_wr">
@@ -216,10 +193,30 @@ function imageview(id, w, h)
                 </div>
             </li>
             
-        </ul>
-        </nav>
+            <li class="gnb_li">
+                <button type="button" class="btn_op menu-4">SMS관리</button>
+                <div class="gnb_oparea_wr">
+                    <div class="gnb_oparea">
+                        <h3>SMS관리</h3>
+                        <ul>
+                            <li><a href="<?php echo G5_ADMIN_URL ?>/sms_admin/config.php">SMS 기본설정</a></li>
+                            <li><a href="<?php echo G5_ADMIN_URL ?>/sms_admin/member_update.php">회원정보업데이트</a></li>
+                            <li><a href="<?php echo G5_ADMIN_URL ?>/sms_admin/sms_write.php">문자 보내기</a></li>
+                            <li><a href="<?php echo G5_ADMIN_URL ?>/sms_admin/history_list.php">전송내역-건별</a></li>
+                            <li><a href="<?php echo G5_ADMIN_URL ?>/sms_admin/history_num.php">전송내역-번호별</a></li>
+                            <li><a href="<?php echo G5_ADMIN_URL ?>/sms_admin/form_group.php">이모티콘 그룹</a></li>
+                            <li><a href="<?php echo G5_ADMIN_URL ?>/sms_admin/form_list.php">이모티콘 관리</a></li>
+                            <li><a href="<?php echo G5_ADMIN_URL ?>/sms_admin/num_group.php">휴대폰번호 그룹</a></li>
+                            <li><a href="<?php echo G5_ADMIN_URL ?>/sms_admin/num_book.php">휴대폰번호 관리</a></li>
+                            <li><a href="<?php echo G5_ADMIN_URL ?>/sms_admin/num_book_file.php">휴대폰번호 파일</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
 
-    </div>
+        </ul>
+    </nav>
+
 </header>
 <script>
 $(function(){ 

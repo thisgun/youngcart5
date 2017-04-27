@@ -70,8 +70,8 @@ $colspan = 16;
 <div class="local_ov01 local_ov">
     <?php echo $listall ?>
     <span class="btn_ov01"><span class="ov_txt">총회원수 </span><span class="ov_num"> <?php echo number_format($total_count) ?>명 </span></span>
-    <a href="?sst=mb_intercept_date&amp;sod=desc&amp;sfl=<?php echo $sfl ?>&amp;stx=<?php echo $stx ?>" class="btn_ov01"> <span class="ov_txt">차단 </span><span class="ov_num"><?php echo number_format($intercept_count) ?>명</a>
-    <a href="?sst=mb_leave_date&amp;sod=desc&amp;sfl=<?php echo $sfl ?>&amp;stx=<?php echo $stx ?>" class="btn_ov01"> <span class="ov_txt">탈퇴  </span><span class="ov_num"><?php echo number_format($leave_count) ?>명</a>
+    <a href="?sst=mb_intercept_date&amp;sod=desc&amp;sfl=<?php echo $sfl ?>&amp;stx=<?php echo $stx ?>" class="btn_ov01"> <span class="ov_txt">차단 </span><span class="ov_num"><?php echo number_format($intercept_count) ?>명</span></a>
+    <a href="?sst=mb_leave_date&amp;sod=desc&amp;sfl=<?php echo $sfl ?>&amp;stx=<?php echo $stx ?>" class="btn_ov01"> <span class="ov_txt">탈퇴  </span><span class="ov_num"><?php echo number_format($leave_count) ?>명</span></a>
 </div>
 
 <form id="fsearch" name="fsearch" class="local_sch01 local_sch" method="get">
@@ -228,7 +228,7 @@ $colspan = 16;
         </td>
         <td headers="mb_list_lastcall" class="td_date"><?php echo substr($row['mb_today_login'],2,8); ?></td>
         <td headers="mb_list_grp" rowspan="2" class="td_numsmall"><?php echo $group ?></td>
-        <td headers="mb_list_mng" rowspan="2" class="td_mng td_mngsmall"><?php echo $s_mod ?> <?php echo $s_grp ?></td>
+        <td headers="mb_list_mng" rowspan="2" class="td_mng td_mng_s"><?php echo $s_mod ?> <?php echo $s_grp ?></td>
     </tr>
     <tr class="<?php echo $bg; ?>">
         <td headers="mb_list_nick" class="td_name sv_use"><div><?php echo $mb_nick ?></div></td>

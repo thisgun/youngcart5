@@ -88,12 +88,12 @@ $listall = '<a href="'.$_SERVER['SCRIPT_NAME'].'" class="ov_listall">전체목�
 </select>
 
 <label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
-<input type="text" name="stx" value="<?php echo $stx; ?>" required class="frm_input required">
+<input type="text" name="stx" id="stx" value="<?php echo $stx; ?>" required class="frm_input required">
 <input type="submit" value="검색" class="btn_submit">
 
 </form>
 
-<form name="fitemuselist" method="post" action="./itemuselistupdate.php" onsubmit="return fitemuselist_submit(this);" autocomplete="off" id="itemuselist">
+<form name="fitemuselist" method="post" action="./itemuselistupdate.php" onsubmit="return fitemuselist_submit(this);" autocomplete="off">
 <input type="hidden" name="sca" value="<?php echo $sca; ?>">
 <input type="hidden" name="sst" value="<?php echo $sst; ?>">
 <input type="hidden" name="sod" value="<?php echo $sod; ?>">

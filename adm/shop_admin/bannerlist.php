@@ -67,9 +67,8 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                 $width = $size[0];
 
             $bn_img = "";
-            if ($row['bn_url'] && $row['bn_url'] != "http://")
-                $bn_img .= '<a href="'.$row['bn_url'].'" '.$bn_new_win.'>';
-            $bn_img .= '<img src="'.G5_DATA_URL.'/banner/'.$row['bn_id'].'" width="'.$width.'" alt="'.$row['bn_alt'].'"></a>';
+           
+            $bn_img .= '<img src="'.G5_DATA_URL.'/banner/'.$row['bn_id'].'" width="'.$width.'" alt="'.$row['bn_alt'].'">';
         }
 
         switch($row['bn_device']) {
@@ -99,7 +98,7 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
         <td headers="th_odr" class="td_num"><?php echo $row['bn_order']; ?></td>
         <td headers="th_hit" class="td_num"><?php echo $row['bn_hit']; ?></td>
         <td headers="th_mng" class="td_mng td_mns_m">
-            <a href="./bannerform.php?w=u&amp;bn_id=<?php echo $row['bn_id']; ?>" class="btn btn_03">수정</a></li>
+            <a href="./bannerform.php?w=u&amp;bn_id=<?php echo $row['bn_id']; ?>" class="btn btn_03">수정</a>
             <a href="./bannerformupdate.php?w=d&amp;bn_id=<?php echo $row['bn_id']; ?>" onclick="return delete_confirm(this);" class="btn btn_02">삭제</a>
         </td>
     </tr>

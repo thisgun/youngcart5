@@ -223,14 +223,11 @@ if(!sql_query(" select it_skin from {$g5['g5_shop_item_table']} limit 1", false)
     <div class="tbl_frm01 tbl_wrap">
         <table>
         <caption>스킨설정</caption>
-        <colgroup>
-            <col class="grid_4">
-            <col>
-        </colgroup>
+      
         <tbody>
         <tr>
             <th scope="row"><label for="it_skin">PC용 스킨</label></th>
-            <td colspan="3">
+            <td>
                 <?php echo get_skin_select('shop', 'it_skin', 'it_skin', $it['it_skin']); ?>
             </td>
             <td class="td_grpset">
@@ -242,7 +239,7 @@ if(!sql_query(" select it_skin from {$g5['g5_shop_item_table']} limit 1", false)
         </tr>
         <tr>
             <th scope="row"><label for="it_mobile_skin">모바일용 스킨</label></th>
-            <td colspan="3">
+            <td>
                 <?php echo get_mobile_skin_select('shop', 'it_mobile_skin', 'it_mobile_skin', $it['it_mobile_skin']); ?>
             </td>
             <td class="td_grpset">

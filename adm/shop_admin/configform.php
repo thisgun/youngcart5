@@ -240,20 +240,16 @@ if(!isset($default['de_listtype_list_skin'])) {
     <div class="tbl_frm01 tbl_wrap">
         <table>
         <caption>스킨설정</caption>
-        <colgroup>
-            <col class="grid_4">
-            <col>
-        </colgroup>
         <tbody>
         <tr>
             <th scope="row"><label for="de_shop_skin">PC용 스킨</label></th>
-            <td colspan="3">
+            <td>
                 <?php echo get_skin_select('shop', 'de_shop_skin', 'de_shop_skin', $default['de_shop_skin'], 'required'); ?>
             </td>
         </tr>
         <tr>
             <th scope="row"><label for="de_shop_mobile_skin">모바일용 스킨</label></th>
-            <td colspan="3">
+            <td>
                 <?php echo get_mobile_skin_select('shop', 'de_shop_mobile_skin', 'de_shop_mobile_skin', $default['de_shop_mobile_skin'], 'required'); ?>
             </td>
         </tr>
@@ -277,10 +273,6 @@ if(!isset($default['de_listtype_list_skin'])) {
     <div class="tbl_frm01 tbl_wrap">
         <table>
         <caption>쇼핑몰 초기화면 설정</caption>
-        <colgroup>
-            <col class="grid_4">
-            <col>
-        </colgroup>
         <tbody>
         <tr>
             <th scope="row">히트상품출력</th>
@@ -711,7 +703,7 @@ if(!isset($default['de_listtype_list_skin'])) {
         <tr class="pg_info_fld inicis_info_fld" id="inicis_info_anchor">
             <th scope="row">
                 <label for="de_inicis_mid">KG이니시스 상점아이디</label><br>
-                <a href="http://sir.kr/main/service/inicis_pg.php" target="_blank" id="scf_lgreg" class="kg_btn">KG이니시스 서비스신청하기</a>
+                <a href="http://sir.kr/main/service/inicis_pg.php" target="_blank" id="scf_kgreg" class="kg_btn">KG이니시스 서비스신청하기</a>
             </th>
             <td>
                 <?php echo help("KG이니시스로 부터 발급 받으신 상점아이디(MID) 10자리 중 SIR 을 제외한 나머지 7자리를 입력 합니다.\n만약, 상점아이디가 SIR로 시작하지 않는다면 계약담당자에게 변경 요청을 해주시기 바랍니다. (Tel. 02-3430-5858) 예) SIRpaytest"); ?>
@@ -849,7 +841,7 @@ if(!isset($default['de_listtype_list_skin'])) {
                 <?php echo help("에스크로 결제를 사용하시려면, 반드시 결제대행사 상점 관리자 페이지에서 에스크로 서비스를 신청하신 후 사용하셔야 합니다.\n에스크로 사용시 배송과의 연동은 되지 않으며 에스크로 결제만 지원됩니다."); ?>
                     <input type="radio" name="de_escrow_use" value="0" <?php echo $default['de_escrow_use']==0?"checked":""; ?> id="de_escrow_use1">
                     <label for="de_escrow_use1">일반결제 사용</label>
-                    <input type="radio" name="de_escrow_use" value="1"<?php echo $default['de_escrow_use']==1?"checked":""; ?> id="de_escrow_use2">
+                    <input type="radio" name="de_escrow_use" value="1" <?php echo $default['de_escrow_use']==1?"checked":""; ?> id="de_escrow_use2">
                     <label for="de_escrow_use2"> 에스크로결제 사용</label>
             </td>
         </tr>
@@ -1487,7 +1479,7 @@ function byte_check(el_cont, el_byte)
          <?php if ($userinfo['payment'] == 'A') { ?>
         <tr>
             <th scope="row">충전 잔액</th>
-            <td colspan="3">
+            <td>
                 <?php echo number_format($userinfo['coin']); ?> 원.
                 <a href="http://www.icodekorea.com/smsbiz/credit_card_amt.php?icode_id=<?php echo $config['cf_icode_id']; ?>&amp;icode_passwd=<?php echo $config['cf_icode_pw']; ?>" target="_blank" class="btn_frmline" onclick="window.open(this.href,'icode_payment', 'scrollbars=1,resizable=1'); return false;">충전하기</a>
             </td>

@@ -71,9 +71,8 @@ $colspan = 10;
     <option value="gr_admin"<?php echo get_selected($_GET['sfl'], "gr_admin"); ?>>그룹관리자</option>
 </select>
 <label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
-<input type="text" name="stx" value="<?php echo $stx ?>" required class="required frm_input">
+<input type="text" name="stx" id="stx" value="<?php echo $stx ?>" required class="required frm_input">
 <input type="submit" value="검색" class="btn_submit">
-</fieldset>
 </form>
 
 

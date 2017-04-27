@@ -94,6 +94,7 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 </div>
 
 <div id="side_menu">
+    <button type="button" id="btn_sidemenu" class="btn_sidemenu_cl"><i class="fa fa-outdent" aria-hidden="true"></i><span class="sound_only">사이드메뉴버튼</span></button>
     <div class="side_menu_wr">
         <?php echo outlogin('shop_basic'); // 아웃로그인 ?>
         <div class="side_menu_shop">
@@ -107,7 +108,6 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
         <?php include_once(G5_SHOP_SKIN_PATH.'/boxcommunity.skin.php'); // 커뮤니티 ?>
 
     </div>
-    <button type="button" id="btn_sidemenu" class="btn_sidemenu_cl"><i class="fa fa-outdent" aria-hidden="true"></i><span class="sound_only">사이드메뉴버튼</span></button>
 </div>
 
 

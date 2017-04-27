@@ -193,13 +193,13 @@ else {
         </tr>
         <tr>
             <th scope="row"><label for="ca_skin_dir">PC용 스킨명</label></th>
-            <td colspan="3">
+            <td>
                 <?php echo get_skin_select('shop', 'ca_skin_dir', 'ca_skin_dir', $ca['ca_skin_dir']); ?>
             </td>
         </tr>
         <tr>
             <th scope="row"><label for="ca_mobile_skin_dir">모바일용 스킨명</label></th>
-            <td colspan="3">
+            <td>
                 <?php echo get_mobile_skin_select('shop', 'ca_mobile_skin_dir', 'ca_mobile_skin_dir', $ca['ca_mobile_skin_dir']); ?>
             </td>
         </tr>

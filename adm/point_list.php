@@ -173,7 +173,7 @@ else
     </table>
 </div>
 
-<div class="btn_list01 btn_list">
+<div class="btn_fixed_top">
     <input type="submit" name="act_button" value="선택삭제" onclick="document.pressed=this.value" class="btn btn_02">
 </div>
 

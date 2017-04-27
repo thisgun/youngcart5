@@ -223,13 +223,13 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
                     <label for="ct_qty_<?php echo $chk_cnt; ?>" class="sound_only"><?php echo get_text($opt['ct_option']); ?> 수량</label>
                     <input type="text" name="ct_qty[<?php echo $chk_cnt; ?>]" id="ct_qty_<?php echo $chk_cnt; ?>" value="<?php echo $opt['ct_qty']; ?>" required class="frm_input required" size="5">
                 </td>
-                <td class="td_num"><?php echo number_format($opt_price); ?></td>
-                <td class="td_num"><?php echo number_format($ct_price['stotal']); ?></td>
-                <td class="td_num"><?php echo number_format($opt['cp_price']); ?></td>
-                <td class="td_num"><?php echo number_format($ct_point['stotal']); ?></td>
+                <td class="td_num_right "><?php echo number_format($opt_price); ?></td>
+                <td class="td_num_right"><?php echo number_format($ct_price['stotal']); ?></td>
+                <td class="td_num_right"><?php echo number_format($opt['cp_price']); ?></td>
+                <td class=" td_num_right"><?php echo number_format($ct_point['stotal']); ?></td>
                 <td class="td_sendcost_by"><?php echo $ct_send_cost; ?></td>
-                <td><?php echo get_yn($opt['ct_point_use']); ?></td>
-                <td><?php echo get_yn($opt['ct_stock_use']); ?></td>
+                <td class="td_mngsmall"><?php echo get_yn($opt['ct_point_use']); ?></td>
+                <td class="td_mngsmall"><?php echo get_yn($opt['ct_stock_use']); ?></td>
             </tr>
             <?php
                 $chk_cnt++;
@@ -784,7 +784,7 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
                 <tr>
                     <th scope="row"><label for="od_refund_price">결제취소/환불 금액</label></th>
                     <td>
-                        <input type="text" name="od_refund_price" value="<?php echo $od['od_refund_price']; ?>" class="frm_input" size="10"> 원
+                        <input type="text" name="od_refund_price" value="<?php echo $od['od_refund_price']; ?>" id="od_refund_price" class="frm_input" size="10"> 원
                     </td>
                 </tr>
                 <tr>

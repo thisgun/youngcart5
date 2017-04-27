@@ -91,7 +91,7 @@ if ($config['cf_sms_use'] == 'icode') { // 아이코드 사용
         <th scope="row"><label for="cf_phone">회신번호<strong class="sound_only"> 필수</strong></label></th>
         <td>
             <?php echo help("회신받을 휴대폰 번호를 입력하세요. 회신번호는 발신번호로 사전등록된 번호와 동일해야 합니다.<br>예) 010-123-4567"); ?>
-            <input type="text" name="cf_phone" value="<?php echo $sms5['cf_phone']; ?>" id="cf_phone" required class="frm_input required" size="12">
+            <input type="text" name="cf_phone" value="<?php echo $sms5['cf_phone']; ?>" id="cf_phone" required class="frm_input required" size="13">
         </td>
     </tr>
     </tbody>

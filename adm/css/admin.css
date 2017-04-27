@@ -259,6 +259,8 @@ border-bottom: 5px solid black;}
 .local_sch{}
 .local_sch:after ,.local_sch div:after{display:block;visibility:hidden;clear:both;content:""}
 .local_sch .btn_sch{width:30px;height:30px;border:0;padding:0;float:left;background:url(../img/sch_btn.png) no-repeat 50% 50%;border:1px solid #dcdcdc;border-left:0;text-indent:-999px;overflow:hidden}
+.local_sch .btn_sch2{width:35px;height:35px;border:0;padding:0;background:url(../img/sch_btn.png) no-repeat 50% 50% #eee;border:1px solid #dcdcdc;text-indent:-999px;overflow:hidden}
+
 .local_sch .sch_input{height:30px;border:1px solid #dcdcdc;border-right:0;;padding:0 5px;float:left;}
 .local_sch select{height:30px;margin-right:3px;border:1px solid #dcdcdc}
 .local_sch01{margin: 10px 0;}
@@ -281,7 +283,7 @@ border-bottom: 5px solid black;}
 
 /* 페이지 내 안내문 */
 .local_desc {background:#eaeaea;padding:10px 20px;margin:10px 0;line-height:1.5em }
-.local_desc ol, .local_desc ul {margin:0;padding:0 0 10px 15px}
+.local_desc ol, .local_desc ul {margin:0;padding:0 0 0 10px}
 .local_desc strong{color:red}
 .local_desc li{margin:10px 0}
 .local_wr{margin:0 0 10px }
@@ -461,7 +463,8 @@ td.td_grpset {width:160px;border-left:1px solid #e9ecee;text-align:center}
 .td_numcancel0 {color:#999;text-align:right !important}
 .td_numcancel1 {color:#ff3061;font-weight:bold;text-align:right !important}
 .td_numcoupon {color:#86b325;text-align:right !important}
-.td_numincome {color:#357dbb;text-align:right !important}
+.td_numincome {text-align:right !important}
+.td_num_right {text-align:right !important}
 .td_numsmall {width:40px;text-align:center}
 .td_numsum {font-weight:bold;text-align:right !important}
 .td_numrdy {color:#ff3061;text-align:right !important}
@@ -650,7 +653,7 @@ ul.de_pg_tab li.tab-current a{background:#2CC185;color:#fff}
 .sodr_nonpay {color:#ff6600}
 strong.sodr_nonpay {display:block;padding:5px 0;text-align:right}
 .sodr_sppay {color:#1f9bff}
-#anc_sodr_memo textarea {width:98%}
+#anc_sodr_memo textarea {width:100%}
 #anc_sodr_memo .btn_confirm {margin:10px 0 0}
 #anc_sodr_orderer #od_addr1, #anc_sodr_orderer #od_addr2, #anc_sodr_orderer #od_addr3 {margin:5px 0 0}
 #anc_sodr_taker #od_b_addr1, #anc_sodr_taker #od_b_addr2, #anc_sodr_taker #od_b_addr3 {margin:5px 0 0}
@@ -861,7 +864,8 @@ strong.sodr_nonpay {display:block;padding:5px 0;text-align:right}
 
 .price_engine dt a {font-weight:bold}
 .price_engine dd {margin:0 0 15px}
-.price_engine li {margin:5px 0 5px -1px;list-style:disc}
+.price_engine ul{    padding: 0 0 0 15px;}
+.price_engine li {margin:5px 0 5px -1px;list-style:disc }
 
 /* 새창 기본 스타일 */
 .new_win {}
@@ -914,15 +918,15 @@ strong.sodr_nonpay {display:block;padding:5px 0;text-align:right}
 /* 페이징 */
 .pg_wrap {clear:both;margin:0 0 20px;padding:20px 0 0;text-align:center}
 .pg {display:inline-block}
-.pg_page, .pg_current {color:#9f9f9f;display:inline-block;float:left;padding: 0 13px;line-height:35px;text-decoration: none;border: 1px solid #ddd;margin-left:-1px}
+.pg_page, .pg_current {color:#9f9f9f;display:inline-block;float:left;padding: 0 13px;line-height:30px;text-decoration: none;border: 1px solid #ddd;margin-left:-1px}
 .pg a:focus, .pg a:hover {background-color:#f3f3f3}
 .pg a:first-child{border-top-left-radius:5px;border-bottom-left-radius:5px;}
 .pg a:last-child{border-top-right-radius:5px;border-bottom-right-radius:5px;}
 .pg_page {background:#fff;text-decoration:none}
-.pg_start {background:url(../img/page_1.png) 50% 50% no-repeat;width:37px;text-indent:-999px;overflow:hidden}
-.pg_prev {background:url(../img/page_2.png) 50% 50% no-repeat;width:37px;text-indent:-999px;overflow:hidden}
-.pg_next {background:url(../img/page_3.png) 50% 50% no-repeat;width:37px;text-indent:-999px;overflow:hidden}
-.pg_end {background:url(../img/page_4.png) 50% 50% no-repeat;width:37px;text-indent:-999px;overflow:hidden}
+.pg_start {background:url(../img/page_1.png) 50% 50% no-repeat;width:32px;text-indent:-999px;overflow:hidden}
+.pg_prev {background:url(../img/page_2.png) 50% 50% no-repeat;width:32px;text-indent:-999px;overflow:hidden}
+.pg_next {background:url(../img/page_3.png) 50% 50% no-repeat;width:32px;text-indent:-999px;overflow:hidden}
+.pg_end {background:url(../img/page_4.png) 50% 50% no-repeat;width:32px;text-indent:-999px;overflow:hidden}
 .pg_current {display:inline-block;background:#3f51b5;color:#fff;font-weight:normal}
 
 
@@ -980,10 +984,10 @@ strong.sodr_nonpay {display:block;padding:5px 0;text-align:right}
 .svc_keyword .svc_btn{margin:40px 0 0 ;}
 .svc_keyword .svc_btn a{width:160px;}
 
-.svc_sms{border:1px  solid #ebe8e8;position:relative;height:83px}
+.svc_sms{border:1px  solid #ebe8e8;position:relative;height:93px}
 .svc_sms:after{display:block;visibility:hidden;clear:both;content:""}
 .svc_sms .svc_btn2{position:absolute;top:0;right:0}
-.svc_sms .svc_btn2 a{display:inline-block; width:220px; height:81px; background:#fbfbfb; text-align:center; padding:20px 0 0;}
+.svc_sms .svc_btn2 a{display:inline-block; width:220px; height:91px; background:#fbfbfb; text-align:center; padding:20px 0 0;}
 
 /*테마*/
 .theme_p{margin:0 0 10px }
@@ -1009,7 +1013,7 @@ strong.sodr_nonpay {display:block;padding:5px 0;text-align:right}
 #theme_detail .thdt_img{padding:20px 0 20px 20px;float:left;}
 #theme_detail .thdt_img img{width:600px;height:450px;border:1px solid #ddd}
 #theme_detail .thdt_if{float:right;width:310px;padding:20px 20px 0 0;position:relative}
-#theme_detail .thdt_if h2{padding:0 ;margin:0}
+#theme_detail .thdt_if h2{padding:0 ;margin:0 0 10px}
 #theme_detail .thdt_if p{font-weight:normal;padding:10px;background:#f5f5f5;height:250px;overflow-y:auto;}
 #theme_detail .thdt_if a{vertical-align:middle;}
 #theme_detail .thdt_if .thdt_home{background:url(../img/link_icon.gif) no-repeat bottom right;padding-right:13px;}

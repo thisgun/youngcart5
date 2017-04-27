@@ -56,7 +56,7 @@ $result = sql_query($sql);
 
     <tr>
         <td class="td_num"><?php echo $row['ev_id']; ?></td>
-        <td><?php echo $subject; ?></td>
+        <td class="td_left"><?php echo $subject; ?></td>
         <td class="td_num"><?php echo $href; ?><?php echo $ev['cnt']; ?><?php echo $href_close; ?></td>
         <td class="td_boolean"><?php echo $row['ev_use'] ? '<span class="txt_true">예</span>' : '<span class="txt_false">아니오</span>'; ?></td>
         <td class="td_mng td_mng_l">

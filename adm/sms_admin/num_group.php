@@ -73,16 +73,19 @@ function num_group_submit(f)
 
 </script>
 
-<form name="group<?php echo $res['bg_no']?>" method="get" action="./num_group_update.php" class="local_sch02 local_sch">
-<input type="hidden" name="bg_no" value="<?php echo $res['bg_no']?>">
-<div>
-    <label for="bg_name" class="sound_only">그룹추가<strong class="sound_only"> 필수</strong></label>
-    <input type="text" id="bg_name" name="bg_name" required class="required frm_input">
-    <input type="submit" value="그룹추가" class="btn_submit">
-</div>
 <div class="sch_last">
     <span class="btn_ov01"><span class="ov_txt">건수</span><span class="ov_num"> <?php echo $total_count; ?>건 </span></span>
 </div>
+
+<form name="group<?php echo $res['bg_no']?>" method="get" action="./num_group_update.php" class="local_sch02 local_sch">
+<input type="hidden" name="bg_no" value="<?php echo $res['bg_no']?>">
+
+<div>
+    <label for="bg_name" class="sound_only">그룹추가<strong class="sound_only"> 필수</strong></label>
+    <input type="text" id="bg_name" name="bg_name" required class="required frm_input">
+    <input type="submit" value="그룹추가" class="btn_submit btn">
+</div>
+
 </form>
 
 <div class="local_desc01 local_desc">

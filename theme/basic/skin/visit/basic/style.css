@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* 방문자 집계 */
 #visit {border-bottom:1px solid #e8e8e9;padding:20px 0;position:relative;}
-#visit .btn_admin{position:absolute;top:20px;right:0;height:25px;line-height:25px;padding:0 5px;border-radius:3px}
+#visit .btn_admin{position:absolute;top:15px;right:0;height:25px;line-height:25px;padding:0 5px;border-radius:3px}
 #visit h2{font-size:1.083em;margin: 0 0 10px;}
 #visit dl {background:#eee;padding:10px 15px;border-radius:5px}
 #visit dl:after {display:block;visibility:hidden;clear:both;content:""}

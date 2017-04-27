@@ -73,7 +73,7 @@ include_once(G5_ADMIN_PATH.'/admin.head.php');
     <tr class="<?php echo $bg; ?>">
         <td class="td_numsmall"><?php echo $vnum--?></td>
         <td class="td_left"><span title="<?php echo $res['wr_message']?>"><?php echo $res['wr_message']?></span></td>
-        <td class="td_numbig"><?php echo $res['wr_reply']?></td>
+        <td class="td_tel"><?php echo $res['wr_reply']?></td>
         <td class="td_datetime"><?php echo date('Y-m-d H:i', strtotime($res['wr_datetime']))?></td>
         <td class="td_boolean"><?php echo $res['wr_booking']!='0000-00-00 00:00:00'?"<span title='{$res['wr_booking']}'>예약</span>":'';?></td>
         <td class="td_num"><?php echo number_format($res['wr_total'])?></td>

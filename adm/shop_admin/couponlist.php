@@ -138,7 +138,7 @@ $colspan = 9;
         </td>
         <td><?php echo $cp_method; ?></td>
         <td><?php echo $row['cp_id']; ?></td>
-        <td><?php echo $row['cp_subject']; ?></td>
+        <td class="td_left"><?php echo $row['cp_subject']; ?></td>
         <td><?php echo $cp_target; ?></td>
         <td class="td_name sv_use"><div><?php echo $row['mb_id']; ?></div></td>
         <td class="td_datetime"><?php echo substr($row['cp_start'], 2, 8); ?> ~ <?php echo substr($row['cp_end'], 2, 8); ?></td>

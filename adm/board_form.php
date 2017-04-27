@@ -190,7 +190,7 @@ $pg_anchor = '<ul class="anchor">
             <th scope="row"><label for="gr_id">그룹<strong class="sound_only">필수</strong></label></th>
             <td colspan="2">
                 <?php echo get_group_select('gr_id', $board['gr_id'], 'required'); ?>
-                <?php if ($w=='u') { ?><a href="javascript:document.location.href='./board_list.php?sfl=a.gr_id&stx='+document.fboardform.gr_id.value;" class="btn_frmline">동일그룹 게시판목록</a><?php } ?></td>
+                <?php if ($w=='u') { ?><a href="javascript:document.location.href='./board_list.php?sfl=a.gr_id&stx='+document.fboardform.gr_id.value;" class="btn_frmline">동일그룹 게시판목록</a><?php } ?>
             </td>
         </tr>
         <tr>
@@ -1224,8 +1224,8 @@ $pg_anchor = '<ul class="anchor">
 
 <div class="btn_fixed_top">
     <a href="./board_copy.php?bo_table='.$bo_table.'" id="board_copy" target="win_board_copy" class=" btn_02 btn">게시판복사</a>
-    <a href="'.G5_BBS_URL.'/board.php?bo_table='.$board['bo_table'].'" class=" btn_02 btn">게시판 바로가기</a>
-    <a href="./board_thumbnail_delete.php?bo_table='.$board['bo_table'].'&amp;'.$qstr.'" onclick="return delete_confirm2(\'게시판 썸네일 파일을 삭제하시겠습니까?\');" class="btn_02 btn">게시판 썸네일 삭제</a>
+    <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $board['bo_table']; ?>'" class=" btn_02 btn">게시판 바로가기</a>
+    <a href="./board_thumbnail_delete.php?bo_table=<?php echo $board['bo_table']; ?>'&amp;'.$qstr.'" onclick="return delete_confirm2('게시판 썸네일 파일을 삭제하시겠습니까?');" class="btn_02 btn">게시판 썸네일 삭제</a>
     <input type="submit" value="확인" class="btn_submi btn btn_01" accesskey="s">
 </div>
 
