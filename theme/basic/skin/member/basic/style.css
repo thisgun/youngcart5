@@ -124,9 +124,7 @@ box-shadow: 0 1px 3px #eee;
 #fregister .btn_confirm .btn_submit{height:50px;border-radius:3px;padding:0 40px;font-weight:bold;font-size:1.083em}
 
 /* 회원가입 입력 */
-#register_form{
-}
-/*#fregisterform textarea {height:50px}*/
+#register_form{margin:0 auto;max-width:700px}
 #fregisterform #msg_certify {margin:5px 0 0;padding:5px;border:1px solid #dbecff;background:#eaf4ff;text-align:center}
 #fregisterform .frm_address {margin:5px 0 0}
 #fregisterform #mb_addr3 {display:inline-block;margin:5px 0 0;vertical-align:middle}

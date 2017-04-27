@@ -287,7 +287,7 @@
 /* 상품 목록 */
 #sct {}
 .sct_admin {margin:0 0 10px;text-align:right}
-
+.sct_admin a{line-height:35px;padding:0 10px}
 /* 상품 목록 현재 위치 */
 #sct_location {position:absolute;top:10px;right:0;}
 #sct_location a {display:inline-block;padding:10px 5px;text-decoration:none;letter-spacing:0 !important}
@@ -336,7 +336,8 @@
 /* 상품 상세보기 */
 #sit {margin:10px 0}
 .sit_admin {text-align:right}
-.sit_empty {padding:20px 0;text-align:center}
+.sit_admin a{line-height:35px;padding:0 10px}
+.sit_empty {padding:60px 0;text-align:center}
 
 /* 상품 상세보기 - 개요 */
 #sit_ov_wrap {margin:0;border-top:2px solid #000;zoom:1}
@@ -481,6 +482,7 @@
 .sit_use_con {display:none;}
 .sit_use_p {margin:0 0 10px}
 .sit_use_cmd {text-align:right}
+.sit_use_cmd a{height:30px;line-height:28px}
 
 .sit_use_reply{position:relative;border-top:1px dotted #bbb;margin:10px 0 0 ;padding:10px 0 0 40px}
 .use_reply_icon{position:absolute;top:10px;left:5px;background:url('./img/use_reply.png') no-repeat 0 0; width:28px;height:17px;text-indent:-999px;overflow:hidden;}
@@ -516,6 +518,7 @@
 .sit_qa_qaq {padding:20px;padding-left:70px;position:relative;min-height:100px}
 .sit_qa_con textarea {display:none}
 .sit_qa_cmd {text-align:right}
+.sit_qa_cmd a{height:30px;line-height:28px}
 
 .sit_qa_pw {display:none;position:absolute;top:30px;left:175px;padding:10px;width:348px;border:1px solid #000;background:#fff;text-align:center}
 .sit_qa_pw span {display:block;margin:0 0 5px}

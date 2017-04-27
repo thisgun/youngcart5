@@ -26,7 +26,6 @@ $pg_anchor = '<ul class="anchor">
 <li><a href="#anc_scf_sms">SMS설정</a></li>
 </ul>';
 
-
 // 무이자 할부 사용설정 필드 추가
 if(!isset($default['de_card_noint_use'])) {
     sql_query(" ALTER TABLE `{$g5['g5_shop_default_table']}`
@@ -261,10 +260,9 @@ if(!isset($default['de_listtype_list_skin'])) {
         </tbody>
         </table>
     </div>
-    <div class="btn_confirm"><button type="button" class="get_shop_skin btn btn_02">테마 스킨설정 가져오기</button></div>
 </section>
 
-
+<button type="button" class="get_shop_skin">테마 스킨설정 가져오기</button>
 
 <section id="anc_scf_index">
     <h2 class="h2_frm">쇼핑몰 초기화면</h2>
@@ -382,10 +380,9 @@ if(!isset($default['de_listtype_list_skin'])) {
         </tbody>
         </table>
     </div>
-    <div class="btn_confirm"><button type="button" class="shop_pc_index btn btn_02">테마설정 가져오기</button></div>
-
 </section>
 
+<button type="button" class="shop_pc_index">테마설정 가져오기</button>
 
 <section id="anc_mscf_index">
     <h2 class="h2_frm">모바일 쇼핑몰 초기화면 설정</h2>
@@ -502,10 +499,9 @@ if(!isset($default['de_listtype_list_skin'])) {
         </tbody>
         </table>
     </div>
-    <div class="btn_confirm"><button type="button" class="shop_mobile_index btn btn_02">테마설정 가져오기</button></div>
-
 </section>
 
+<button type="button" class="shop_mobile_index">테마설정 가져오기</button>
 
 <section id ="anc_scf_payment">
     <h2 class="h2_frm">결제설정</h2>
@@ -1315,10 +1311,9 @@ if(!isset($default['de_listtype_list_skin'])) {
         </tbody>
         </table>
     </div>
-    <div class="btn_confirm"><button type="button" class="shop_etc btn btn_02">테마설정 가져오기</button></div>
-
 </section>
 
+<button type="button" class="shop_etc">테마설정 가져오기</button>
 
 <?php if (file_exists($logo_img) || file_exists($logo_img2) || file_exists($mobile_logo_img) || file_exists($mobile_logo_img2)) { ?>
 <script>
@@ -1542,8 +1537,9 @@ function byte_check(el_cont, el_byte)
 
 </section>
 
+
 <div class="btn_fixed_top">
-    <a href="'.G5_SHOP_URL.'" class="btn_02 btn">쇼핑몰</a>
+    <a href=" <?php echo G5_SHOP_URL; ?>" class="btn btn_02">쇼핑몰</a>
     <input type="submit" value="확인" class="btn_submit btn" accesskey="s">
 </div>
 

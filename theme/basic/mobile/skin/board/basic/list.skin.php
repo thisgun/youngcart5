@@ -47,7 +47,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
     <div class="list_01">
         <?php if ($is_checkbox) { ?>
-        <div scope="col">
+        <div class="chk_all">
             <input type="checkbox" id="chkall" onclick="if (this.checked) all_checked(true); else all_checked(false);">
             <label for="chkall"><span class="sound_only">현재 페이지 게시물 </span>전체선택</label>
         </div>

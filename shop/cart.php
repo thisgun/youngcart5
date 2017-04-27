@@ -40,7 +40,7 @@ include_once('./_head.php');
 <div id="sod_bsk" class="od_prd_list">
 
     <form name="frmcartlist" id="sod_bsk_list" method="post" action="<?php echo $cart_action_url; ?>">
-    <div class="tbl_head01 tbl_wrap">
+    <div class="tbl_head03 tbl_wrap">
         <table>
         <thead>
         <tr>

@@ -17,7 +17,7 @@ if(defined('G5_THEME_SHOP_PATH')) {
 <!-- 주문 내역 목록 시작 { -->
 <?php if (!$limit) { ?>총 <?php echo $cnt; ?> 건<?php } ?>
 
-<div class="tbl_head01 tbl_wrap">
+<div class="tbl_head03 tbl_wrap">
     <table>
     <thead>
     <tr>

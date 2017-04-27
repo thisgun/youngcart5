@@ -62,7 +62,7 @@
 /* ### 기본 스타일 커스터마이징 끝 ### */
 
 /* 게시판 목록 */
-#bo_list #list_chk {padding:0 10px }
+#bo_list #list_chk {margin: 10px }
 
 #bo_list .li_stat{float:right;display:inline-block;height:25px;padding:0 10px;border-radius:15px;margin-top:3px}
 #bo_list .txt_rdy{border:1px solid #ff63ab;color:#ff63ab;line-height:23px}
@@ -99,7 +99,7 @@ box-shadow: 0 0 8px  rgba(65,98,255,0.8);}
 #bo_list td:nth-of-type(2) {text-align:center}
 
 /* 게시판 목록 공통 */
-.bo_fx {margin-bottom:5px;padding:5px 10px}
+.bo_fx {}
 .bo_fx:after {display:block;visibility:hidden;clear:both;content:""}
 .bo_fx ul {margin:0;padding:0;list-style:none}
 #bo_list_total {float:left;padding:0;height:2.5em;line-height:2.5em}

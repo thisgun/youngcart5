@@ -41,6 +41,7 @@
 #sev h2 {text-align:center;font-size:1.25em;display:inline-block;padding-bottom:5px;margin: 0 0 10px;border-bottom:2px solid #000;}
 #sev li img{width:100%}
 .sev_admin{margin:10px;text-align:right}
+.sev_admin .btn_admin{line-height:30px;padding:0 10px}
 #sev  .bx-pager-item{display:inline-block;margin:2px}
 #sev .bx-pager-link{display:inline-block;width:10px;height:10px;background:#fff;border-radius:5px;text-indent:-999px;overflow:hidden;
 -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
@@ -75,8 +76,6 @@
 .mli_btn button{background:url(img/mainlist_btn.gif) no-repeat; width:30px; height:30px;border:none;text-indent:-9999px}
 .mli_btn button.mli_pre{position:absolute;top:0;left:10px}
 .mli_btn button.mli_next{background-position: -33px 0;position:absolute;top:0;right:10px}
-
-
 
 /* 상품 목록 스킨 10 */
 .sct_10{margin:10px -5px}
@@ -129,7 +128,7 @@
 
 
 /* 관련상품 목록 스킨 10 */
-#sit_rel{background:#fff}
+#sit_rel{background:#fff;margin:20px 0}
 #sit_rel h2{text-align:left;padding:10px 15px;font-size:1.167em;background:#f5f5f5;border-top:1px solid #d3d3d3;border-bottom:1px solid #d3d3d3;}
 #sit_rel .sct_wrap{margin:0}
 .srl_10{padding:10px }

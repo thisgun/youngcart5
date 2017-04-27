@@ -68,7 +68,7 @@ if($od['od_pg'] == 'lg') {
                     order by ct_id ";
         $result = sql_query($sql);
         ?>
-        <div class="tbl_head01 tbl_wrap">
+        <div class="tbl_head03 tbl_wrap">
             <table>
             <thead>
             <tr>

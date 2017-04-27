@@ -57,7 +57,6 @@ border: 1px solid #558ab7 !important;
     -moz-box-shadow: 0 0 5px rgba(55,55,5,0.4));
     box-shadow: 0 0 5px rgba(55,55,5,0.4);}
 
-/*#hd #hd_btn{position:absolute;top:0;right:10px;}*/
 #hd #hd_btn button{height:50px;width:40px;border:0;background:0;font-size:16px;vertical-align:top;float:left}
 #hd #hd_btn a{display:inline-block;height:50px;line-height:50px;width:40px;border:0;background:0;text-align:center;font-size:16px;vertical-align:top;float:left}
 #hd_btn .cart-count {position: absolute;top: 20%;right: 0px;display: block;height: 16px;line-height: 16px;border-radius: 8px;background: #ff4444;font-size: 11px;color: #fff;padding: 0 5px;}
@@ -106,7 +105,7 @@ border: 1px solid #558ab7 !important;
 .sub_cate4 a{padding-left:60px;background-position:51px 17px}
 
 /* 중간 레이아웃 */
-#container {}
+#container {padding:0 0 10px}
 #container_title {margin:10px ;font-size:1.5em;text-align:left;font-weight:bold;border-bottom:1px solid #ccc;background:#fff;padding:15px;font-size:1.25em}
 
 /* 내용관리 */
@@ -117,11 +116,14 @@ border: 1px solid #558ab7 !important;
 .ctt_img {text-align:center}
 
 /* 하단 레이아웃 */
-#ft {background:#222;padding:0px 10px 10px;text-align:center}
+#ft {background:#222;padding: 10px 10px;text-align:center}
 #ft h2 {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
-#ft p {margin:0;padding:10px 0;line-height:1.8em;color:#777}
-#ft_logo{padding:20px 0 10px}
+#ft p {margin:0;padding:10px 0;line-height:1.8em;color:#777;font-size:0.92em}
+#ft_logo{padding:20px 0 0}
 #ft_to_top  {position:fixed;bottom:10px;right:10px;width:40px;height:40px;line-height:36px;border:2px solid #333;background:rgba(255,255,255,0.6);color:#333;text-align:center;font-size:15px;z-index:99}
+#ft_company {text-align:center}
+#ft_company a {display:inline-block;padding:0 10px;line-height:1em;border-left:1px solid #333;color:#aaa}
+#ft_company a:first-child{border:0}
 
 /* 목록 바로가기 */
 .sanchor {margin:0 0 5px;padding:0}
@@ -507,6 +509,7 @@ box-shadow: 1px 1px 5px rgba(0,0,0,0.4);}
 .cnt_cmt {display:inline-block;margin:0 0 0 5px;font-weight:bold}
 
 /* 버튼 */
+.btn{display:inline-block;padding:0 5px;height:30px;line-height:30px;border-radius:3px}
 a.btn01 {display:inline-block;padding:0 7px;;border: 1px solid #ccc;border-bottom: 1px solid #aaa;;background:#fff;color:#333;text-decoration:none;vertical-align:middle}
 a.btn01:focus, a.btn01:hover {text-decoration:none}
 button.btn01 {display:inline-block;margin:0;padding:7px;border:1px solid #ccc;background:#fff;color:#666;text-decoration:none}
@@ -520,6 +523,10 @@ a.btn_cancel {display:inline-block;padding:8px 7px 7px;border:1px solid #ccc;bac
 button.btn_cancel {display:inline-block;padding:7px;border:1px solid #ccc;background:#fafafa;color:#000;vertical-align:top;text-decoration:none}
 a.btn_frmline, button.btn_frmline {display:inline-block;padding:0 5px;height:1.9em;border:0;background:#333;color:#fff;letter-spacing:-0.1em;text-decoration:none;vertical-align:top;line-height:1.9em} /* 우편번호검색버튼 등 */
 button.btn_frmline {font-size:1em}
+.btn_top{margin:10px;text-align:right}
+.btn_top li{display:inline-block}
+.btn_top a,.btn_top .btn_submit{line-height:30px;padding: 0 10px;border-radius:3px}
+.btn_top .btn_cancel,.btn_top .btn_b01{border:1px solid #aaa;background:none;color:#666;line-height:28px;background:#fff}
 
 /* 게시판용 버튼 */
 a.btn_b01,.btn_b01 {display:inline-block;background:#4c4f6f;color:#fff;text-decoration:none;vertical-align:middle}

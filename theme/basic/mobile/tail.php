@@ -1,5 +1,11 @@
 <?php
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
+
+if(G5_COMMUNITY_USE === false) {
+    include_once(G5_THEME_SHOP_PATH.'/shop.tail.php');
+    return;
+}
+
 ?>
     </div>
 </div>
@@ -41,17 +47,14 @@ $(function() {
 });
 
 //상단고정
-$( document ).ready( function() {
-    var jbOffset = $( '.top' ).offset();
-    $( window ).scroll( function() {
-        if ( $( document ).scrollTop() > jbOffset.top ) {
-            $( '.top' ).addClass( 'fixed' );
-        }
-        else {
-            $( '.top' ).removeClass( 'fixed' );
-        }
-    });
+$(window).scroll(function(){
+  var sticky = $('.top'),
+      scroll = $(window).scrollTop();
+
+  if (scroll >= 50) sticky.addClass('fixed');
+  else sticky.removeClass('fixed');
 });
+
 //상단으로
 $(function() {
     $("#top_btn").on("click", function() {

@@ -1,6 +1,11 @@
 <?php
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
+if(G5_COMMUNITY_USE === false) {
+    include_once(G5_THEME_SHOP_PATH.'/shop.head.php');
+    return;
+}
+
 include_once(G5_THEME_PATH.'/head.sub.php');
 include_once(G5_LIB_PATH.'/latest.lib.php');
 include_once(G5_LIB_PATH.'/outlogin.lib.php');
@@ -80,7 +85,7 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
                 <input type="hidden" name="sfl" value="wr_subject||wr_content">
                 <input type="hidden" name="sop" value="and">
                 <input type="text" name="stx" id="sch_stx" placeholder="검색어(필수)" required maxlength="20">
-                <input type="submit" value="검색" id="sch_submit">
+                <button type="submit" value="검색" id="sch_submit"><i class="fa fa-search" aria-hidden="true"></i><span class="sound_only">검색</span></button>
                 </form>
 
                 <script>
