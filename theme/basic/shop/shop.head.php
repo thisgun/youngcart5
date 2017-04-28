@@ -77,11 +77,11 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
     </div>
     <div id="hd_menu">
         <ul>
-            <li><a href="<?php echo G5_BBS_URL; ?>//listtype.php?type=1">히트상품</a></li>
-            <li><a href="<?php echo G5_BBS_URL; ?>//listtype.php?type=2">추천상품</a></li>
-            <li><a href="<?php echo G5_BBS_URL; ?>//listtype.php?type=3">최신상품</a></li>
-            <li><a href="<?php echo G5_BBS_URL; ?>//listtype.php?type=4">인기상품</a></li>
-            <li><a href="<?php echo G5_BBS_URL; ?>//listtype.php?type=5">할인상품</a></li>
+            <li><a href="<?php echo G5_SHOP_URL; ?>/listtype.php?type=1">히트상품</a></li>
+            <li><a href="<?php echo G5_SHOP_URL; ?>/listtype.php?type=2">추천상품</a></li>
+            <li><a href="<?php echo G5_SHOP_URL; ?>/listtype.php?type=3">최신상품</a></li>
+            <li><a href="<?php echo G5_SHOP_URL; ?>/listtype.php?type=4">인기상품</a></li>
+            <li><a href="<?php echo G5_SHOP_URL; ?>/listtype.php?type=5">할인상품</a></li>
             <li class="hd_menu_right"><a href="<?php echo G5_BBS_URL; ?>/faq.php">FAQ</a></li>
             <li class="hd_menu_right"><a href="<?php echo G5_BBS_URL; ?>/qalist.php">1:1문의</a></li>
             <li class="hd_menu_right"><a href="<?php echo G5_SHOP_URL; ?>/personalpay.php">개인결제</a></li>
@@ -93,6 +93,7 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 </div>
 
 <div id="side_menu">
+    <button type="button" id="btn_sidemenu" class="btn_sidemenu_cl"><i class="fa fa-outdent" aria-hidden="true"></i><span class="sound_only">사이드메뉴버튼</span></button>
     <div class="side_menu_wr">
         <?php echo outlogin('theme/shop_basic'); // 아웃로그인 ?>
         <div class="side_menu_shop">
@@ -106,7 +107,6 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
         <?php include_once(G5_SHOP_SKIN_PATH.'/boxcommunity.skin.php'); // 커뮤니티 ?>
 
     </div>
-    <button type="button" id="btn_sidemenu" class="btn_sidemenu_cl"><i class="fa fa-outdent" aria-hidden="true"></i><span class="sound_only">사이드메뉴버튼</span></button>
 </div>
 
 
@@ -130,7 +130,7 @@ $(function (){
     <div id="aside">
 
         <?php include_once(G5_SHOP_SKIN_PATH.'/boxcategory.skin.php'); // 상품분류 ?>
-
+        <?php include_once(G5_THEME_SHOP_PATH.'/category.php'); // 분류 ?>
         <?php if($default['de_type5_list_use']) { ?>
         <!-- 할인상품 시작 { -->
         <section class="sale_prd">
@@ -141,7 +141,7 @@ $(function (){
             $list->set_view('it_id', false);
             $list->set_view('it_name', true);
             $list->set_view('it_basic', false);
-            $list->set_view('it_cust_price', true);
+            $list->set_view('it_cust_price', false);
             $list->set_view('it_price', true);
             $list->set_view('it_icon', false);
             $list->set_view('sns', false);

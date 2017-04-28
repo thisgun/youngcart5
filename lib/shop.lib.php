@@ -970,8 +970,8 @@ function get_item_options($it_id, $subject)
                 $seq = $i + 1;
                 if($i > 0)
                     $disabled = ' disabled="disabled"';
-                $str .= '<tr>'.PHP_EOL;
-                $str .= '<th><label for="it_option_'.$seq.'">'.$subj[$i].'</label></th>'.PHP_EOL;
+                $str .= '<div>'.PHP_EOL;
+                $str .= '<label for="it_option_'.$seq.'">'.$subj[$i].'</label>'.PHP_EOL;
 
                 $select = '<select id="it_option_'.$seq.'" class="it_option"'.$disabled.'>'.PHP_EOL;
                 $select .= '<option value="">선택</option>'.PHP_EOL;
@@ -983,13 +983,13 @@ function get_item_options($it_id, $subject)
                 }
                 $select .= '</select>'.PHP_EOL;
 
-                $str .= '<td>'.$select.'</td>'.PHP_EOL;
-                $str .= '</tr>'.PHP_EOL;
+                $str .= '<span>'.$select.'</span>'.PHP_EOL;
+                $str .= '</div>'.PHP_EOL;
             }
         }
     } else {
-        $str .= '<tr>'.PHP_EOL;
-        $str .= '<th><label for="it_option_1">'.$subj[0].'</label></th>'.PHP_EOL;
+        $str .= '<div>'.PHP_EOL;
+        $str .= '<label for="it_option_1">'.$subj[0].'</label>'.PHP_EOL;
 
         $select = '<select id="it_option_1" class="it_option">'.PHP_EOL;
         $select .= '<option value="">선택</option>'.PHP_EOL;
@@ -1008,8 +1008,8 @@ function get_item_options($it_id, $subject)
         }
         $select .= '</select>'.PHP_EOL;
 
-        $str .= '<td>'.$select.'</td>'.PHP_EOL;
-        $str .= '</tr>'.PHP_EOL;
+        $str .= '<span>'.$select.'</span>'.PHP_EOL;
+        $str .= '</div>'.PHP_EOL;
     }
 
     return $str;
@@ -1064,8 +1064,8 @@ function get_item_supply($it_id, $subject)
         $opt_count = count($opt);
         if($opt_count) {
             $seq = $i + 1;
-            $str .= '<tr>'.PHP_EOL;
-            $str .= '<th><label for="it_supply_'.$seq.'">'.$subj[$i].'</label></th>'.PHP_EOL;
+            $str .= ''.PHP_EOL;
+            $str .= '<label for="it_supply_'.$seq.'">'.$subj[$i].'</label>'.PHP_EOL;
 
             $select = '<select id="it_supply_'.$seq.'" class="it_supply">'.PHP_EOL;
             $select .= '<option value="">선택</option>'.PHP_EOL;
@@ -1077,8 +1077,7 @@ function get_item_supply($it_id, $subject)
             }
             $select .= '</select>'.PHP_EOL;
 
-            $str .= '<td class="td_sit_sel">'.$select.'</td>'.PHP_EOL;
-            $str .= '</tr>'.PHP_EOL;
+            $str .= '<span class="td_sit_sel">'.$select.'</span>'.PHP_EOL;
         }
     }
 
@@ -1410,24 +1409,22 @@ function item_icon($it)
     global $g5;
 
     $icon = '<span class="sit_icon">';
-    // 품절
-    if (is_soldout($it['it_id']))
-        $icon .= '<img src="'.G5_SHOP_URL.'/img/icon_soldout.gif" alt="품절">';
 
     if ($it['it_type1'])
-        $icon .= '<img src="'.G5_SHOP_URL.'/img/icon_hit.gif" alt="히트상품">';
+        $icon .= '<span class="shop_icon shop_icon_1">히트</span>';
 
     if ($it['it_type2'])
-        $icon .= '<img src="'.G5_SHOP_URL.'/img/icon_rec.gif" alt="추천상품">';
+        $icon .= '<span class="shop_icon shop_icon_2">추천</span>';
 
     if ($it['it_type3'])
-        $icon .= '<img src="'.G5_SHOP_URL.'/img/icon_new.gif" alt="최신상품">';
+        $icon .= '<span class="shop_icon shop_icon_3">최신</span>';
 
     if ($it['it_type4'])
-        $icon .= '<img src="'.G5_SHOP_URL.'/img/icon_best.gif" alt="인기상품">';
+        $icon .= '<span class="shop_icon shop_icon_4">BEST</span>';
 
     if ($it['it_type5'])
-        $icon .= '<img src="'.G5_SHOP_URL.'/img/icon_discount.gif" alt="할인상품">';
+        $icon .= '<span class="shop_icon shop_icon_5">할인</span>';
+
 
     // 쿠폰상품
     $sql = " select count(*) as cnt
@@ -1441,7 +1438,11 @@ function item_icon($it)
                       ) ";
     $row = sql_fetch($sql);
     if($row['cnt'])
-        $icon .= '<img src="'.G5_SHOP_URL.'/img/icon_cp.gif" alt="쿠폰상품">';
+        $icon .= '<span class="shop_icon shop_icon_coupon">쿠폰</span>';
+
+    // 품절
+    if (is_soldout($it['it_id']))
+        $icon .= '<br><span class="shop_icon_soldout">Sold Out</span>';
 
     $icon .= '</span>';
 
