@@ -76,8 +76,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$qa_skin_url.'/style.css">', 0);
                 for ($i=0; $i<$view['download_count']; $i++) {
                  ?>
                     <li>
+                        <i class="fa fa-download" aria-hidden="true"></i>
                         <a href="<?php echo $view['download_href'][$i];  ?>" class="view_file_download">
-                            <img src="<?php echo $qa_skin_url ?>/img/icon_file.gif" alt="첨부">
                             <strong><?php echo $view['download_source'][$i] ?></strong>
                         </a>
                     </li>

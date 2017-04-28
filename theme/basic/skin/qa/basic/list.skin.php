@@ -77,7 +77,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$qa_skin_url.'/style.css">', 0);
                 <span class="bo_cate_link"><?php echo $list[$i]['category']; ?></span>
                 <a href="<?php echo $list[$i]['view_href']; ?>" class="bo_tit">
                     <?php echo $list[$i]['subject']; ?>
-                    <?php echo $list[$i]['icon_file']; ?>
+                    <?php if ($list[$i]['icon_file']) echo " <i class=\"fa fa-download\" aria-hidden=\"true\"></i>" ; ?>
                 </a>
             </td>
             <td class="td_name"><span class="profile_img"><img src="<?php echo G5_THEME_IMG_URL ;?>/no_profile.gif" alt="프로필이미지" width="20" height="20"></span> <?php echo $list[$i]['name']; ?></td>

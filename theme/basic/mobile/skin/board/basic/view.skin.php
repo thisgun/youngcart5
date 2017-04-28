@@ -8,12 +8,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
 <script src="<?php echo G5_JS_URL; ?>/viewimageresize.js"></script>
 
-<!-- <div id="bo_v_table"><?php echo ($board['bo_mobile_subject'] ? $board['bo_mobile_subject'] : $board['bo_subject']); ?></div> -->
-    <div class="btn_top top"> 
-        <?php if ($reply_href) { ?><a href="<?php echo $reply_href ?>" class="btn_b01"><i class="fa fa-reply" aria-hidden="true"></i> 답변</a><?php } ?>
-        <?php if ($write_href) { ?><a href="<?php echo $write_href ?>" class="btn_b02 btn"><i class="fa fa-pencil" aria-hidden="true"></i> 글쓰기</a><?php } ?>
+<div class="btn_top top"> 
+    <?php if ($reply_href) { ?><a href="<?php echo $reply_href ?>" class="btn_b01"><i class="fa fa-reply" aria-hidden="true"></i> 답변</a><?php } ?>
+    <?php if ($write_href) { ?><a href="<?php echo $write_href ?>" class="btn_b02 btn"><i class="fa fa-pencil" aria-hidden="true"></i> 글쓰기</a><?php } ?>
 
-    </div>
+</div>
 <article id="bo_v" style="width:<?php echo $width; ?>">
     <header>
         <h2 id="bo_v_title">

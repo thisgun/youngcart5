@@ -208,6 +208,7 @@ a.btn_ov02:hover,a.ov_listall:hover{background:#3f51b5}
 select{height:35px;line-height:32px;border:1px solid #d5d5d5;}
 textarea{width:100%;border:1px solid #d5d5d5;min-height:80px}
 legend {position:absolute;width:0;height:0;font-size:0;line-height:0;text-indent:-9999em;border:0;overflow:hidden}
+.code_input{font:bold 15px Consolas}
 
 /* 외부서비스 사이트코드 */
 .sitecode {display:inline-block;font:bold 15px 'Verdana';vertical-align:middle}
@@ -908,11 +909,16 @@ strong.sodr_nonpay {display:block;padding:5px 0;text-align:right}
 #admin_confirm .frm_input {border-color:#000}
 
 /* 사이드뷰 */
-.sv_wrap {display:inline-block;position:relative;font-weight:normal;font-size:1em}
-.sv_wrap .sv {z-index:1000;display:none;margin:5px 0 0;border:1px solid #383838}
-.sv_wrap .sv a {display:inline-block;margin:0;padding:3px;width:94px;border-bottom:1px solid #383838;background:#111;color:#fff;text-decoration:none}
-.sv_wrap .sv a:focus, .sv_wrap .sv a:hover {background:#393939}
-.sv_on {display:block !important;position:absolute;top:10px;left:20px;width:auto;height:auto}
+.sv_wrap {position:relative;font-weight:normal}
+.sv_wrap .sv {z-index:1000;display:none;margin:5px 0 0;font-size:0.92em;background:#333;
+-webkit-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.2);
+-moz-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.2);
+box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.2);}
+.sv_wrap .sv:before{content: "";position: absolute;top: -6px;left: 15px;width: 0;height: 0;border-style: solid;border-width: 0 6px 6px 6px;border-color: transparent transparent #333 transparent;}
+.sv_wrap .sv a {display:inline-block;margin:0;padding:0  10px;line-height:30px;width:100px;font-weight:normal;color:#bbb }
+.sv_wrap .sv a:hover{background:#000;color:#fff}
+.sv_member{color:#333}
+.sv_on {display:block !important;position:absolute;top:23px;left:0px;width:auto;height:auto}
 .sv_nojs .sv {display:block}
 
 /* 페이징 */
@@ -1009,19 +1015,28 @@ strong.sodr_nonpay {display:block;padding:5px 0;text-align:right}
 #theme_list li .theme_pr{float:right;margin-top:5px;padding:0 5px;height:26px;line-height:24px;  border: 1px solid #ccc;  background: #fafafa; }
 #theme_list li .theme_preview{  float: right;  margin-top: 5px; padding:0 5px;height:26px; border: 1px solid #ccc;  background: #fafafa; margin-right:3px}
 
-#theme_detail{position:fixed;_position:absolute;top:50%;left:50%;_top:300px;width:950px;height:490px;margin-top:-245px;margin-left:-425px;background:#fff;border:1px solid #000;z-index:99999;}
-#theme_detail .thdt_img{padding:20px 0 20px 20px;float:left;}
-#theme_detail .thdt_img img{width:600px;height:450px;border:1px solid #ddd}
-#theme_detail .thdt_if{float:right;width:310px;padding:20px 20px 0 0;position:relative}
-#theme_detail .thdt_if h2{padding:0 ;margin:0 0 10px}
-#theme_detail .thdt_if p{font-weight:normal;padding:10px;background:#f5f5f5;height:250px;overflow-y:auto;}
-#theme_detail .thdt_if a{vertical-align:middle;}
-#theme_detail .thdt_if .thdt_home{background:url(../img/link_icon.gif) no-repeat bottom right;padding-right:13px;}
-#theme_detail .close_btn{position:absolute;top:10px;right:10px;background:url(../img/close.gif) no-repeat 50% 50%;border:none;width:30px;height:30px;overflow:hidden;text-indent:-9999px;}
-#theme_detail table{border-collapse:collapse;margin:5px 0 10px}
-#theme_detail table th{padding: 5px 0;  border: 1px solid #d1dee2; background: #e5ecef;width:50px;padding:10px;text-align:left}
-#theme_detail table td{ border: 1px solid #ececec;padding:10px}
-.no_theme{text-align:center;padding:100px 0;color:#555}
+
+#theme_detail{position:fixed;top:50%;height:540px;width:900px;margin-top:-271px;background:#fff;background:#f3f3f3;border:1px solid #000;
+-webkit-box-shadow: 1px 2px 5px  rgba(150,150,150,100.5);
+   -moz-box-shadow: 1px 2px 5px  rgba(150,150,150,0.5);
+        box-shadow: 1px 2px 5px  rgba(150,150,150,0.5);z-index:1000}
+#theme_detail:after{display:block;visibility:hidden;clear:both;content:""}
+#theme_detail h2{font-size:1.25em;background:#fff;padding:0 15px;line-height:40px;border-bottom:1px solid #d8d8d8;margin:0}
+.theme_dt_img{float:left;padding:20px}
+.theme_dt_img img{border:1px solid #aaa;}
+.theme_dt_if{float:left;width:235px;padding:20px 0}
+.theme_dt_if table{width:100%;border-collapse:collapse;;margin:15px 0 0 ;font-size:0.92em}
+.theme_dt_if table th{padding:5px;background:#fff;border-bottom:1px solid #f3f3f3;vertical-align:top;color:#3f51b5}
+.theme_dt_if table td{padding:5px;background:#fff;border-bottom:1px solid #f3f3f3;line-height:1.56em}
+.theme_dt_if table td a{text-decoration:underline}
+.theme_dt_if p{line-height:1.5em}
+.if_p_bg{display:inline-block;width:20px;height:1px ;background:#000;margin:30px 0 10px}
+#theme_detail .theme_dt_btn{position:absolute;top:0px;right:0px;background:#fff;}
+#theme_detail .theme_dt_btn .close_btn{background:url('../img/close.png') 50% 50% no-repeat;width:40px;height:40px;overflow:hidden;border:0;text-indent:-99999px;border-left:1px solid #d8d8d8}
+
+#theme_detail .theme_dt_btn .close_btn:hover{background-color:#eceffc}
+#theme_detail .theme_dt_btn .btn_03{line-height:28px;display:inline-block;vertical-align:top;margin-top:6px;padding:0 6px;border-radius:5px}
+
 
 /*글,댓글현황*/
 #wr_cont{position:relative;margin:10px 0}

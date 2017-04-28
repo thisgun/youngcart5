@@ -102,7 +102,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$qa_skin_url.'/style.css">', 0);
 
     <div class="btn_top top">
         <a href="<?php echo $list_href; ?>" class="btn_cancel"><i class="fa fa-list" aria-hidden="true"></i><span class="sound_only">목록</span></a>
-        <button type="submit" value="작성완료" id="btn_submit" accesskey="s" class="btn_submit"><i class="fa fa-pencil" aria-hidden="true"></i> 작성완료</button>
+        <input type="submit" value="작성완료" id="btn_submit" accesskey="s" class="btn_submit">
     </div>
     </form>
 

@@ -143,10 +143,11 @@
 .td_num strong {color:#000}
 .bo_cate_link {display: inline-block;color: #3497d9;height: 20px;font-size:0.92em} /* 글제목줄 분류스타일 */
 .bo_tit{display:block;font-weight:bold;color:#000}
+.td_subject .fa-download{width:16px;height:16px;line-height:16px;background:#ecaa30;color:#fff;text-align:center;font-size:10px;border-radius:2px}
+
 .bo_current {color:#e8180c}
 #bo_list .profile_img img{border-radius:50%}
 #bo_list .cnt_cmt {display:inline-block;margin:0 0 0 3px;font-weight:bold;color:#ed6478;}
-#bo_list .bo_tit i{color:#8d96c2}
 #bo_list .bo_tit .fa-heart{color:#fe4560}
 #bo_list .bo_tit .fa-lock{color:#000}
 #bo_sch {float:left;border:1px solid #646982;border-radius:3px}
