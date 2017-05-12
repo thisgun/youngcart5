@@ -143,8 +143,8 @@ $colspan = 9;
         <td class="td_name sv_use"><div><?php echo $row['mb_id']; ?></div></td>
         <td class="td_datetime"><?php echo substr($row['cp_start'], 2, 8); ?> ~ <?php echo substr($row['cp_end'], 2, 8); ?></td>
         <td class="td_cntsmall"><?php echo number_format($used_count); ?></td>
-        <td class="td_mngsmall">
-            <a href="./couponform.php?w=u&amp;cp_id=<?php echo $row['cp_id']; ?>&amp;<?php echo $qstr; ?>"><span class="sound_only"><?php echo $row['cp_id']; ?> </span>수정</a>
+        <td class="td_mng td_mng_s">
+            <a href="./couponform.php?w=u&amp;cp_id=<?php echo $row['cp_id']; ?>&amp;<?php echo $qstr; ?>" class="btn btn_03"><span class="sound_only"><?php echo $row['cp_id']; ?> </span>수정</a>
         </td>
     </tr>
 
