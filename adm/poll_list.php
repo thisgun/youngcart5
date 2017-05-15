@@ -111,7 +111,7 @@ $colspan = 7;
             <input type="checkbox" name="chk[]" value="<?php echo $row['po_id'] ?>" id="chk_<?php echo $i ?>">
         </td>
         <td class="td_num"><?php echo $row['po_id'] ?></td>
-        <td><?php echo cut_str(get_text($row['po_subject']),70) ?></td>
+        <td class="td_left"><?php echo cut_str(get_text($row['po_subject']),70) ?></td>
         <td class="td_num"><?php echo $row['po_level'] ?></td>
         <td class="td_num"><?php echo $row2['sum_po_cnt'] ?></td>
         <td class="td_etc"><?php echo $po_etc ?></td>
