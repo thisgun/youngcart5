@@ -64,12 +64,12 @@ h2{font-size: 1.083em;font-weight: bold;margin:10px 0}
 #gnb .on .menu-2{background:url(../img/menu-2.png) 50% 50% no-repeat #fff}
 #gnb .gnb_li .menu-3{background:url(../img/menu-3-1.png) 50% 50% no-repeat #ebebeb }
 #gnb .on .menu-3{background:url(../img/menu-3.png) 50% 50% no-repeat #fff}
-#gnb .gnb_li .menu-4{background:url(../img/menu-4-1.png) 50% 50% no-repeat #ebebeb }
-#gnb .on .menu-4{background:url(../img/menu-4.png) 50% 50% no-repeat #fff}
-#gnb .gnb_li .menu-5{background:url(../img/menu-7-1.png) 50% 50% no-repeat #ebebeb }
-#gnb .on .menu-5{background:url(../img/menu-7.png) 50% 50% no-repeat #fff}
-#gnb .gnb_li .menu-6{background:url(../img/menu-6-1.png) 50% 50% no-repeat #ebebeb }
-#gnb .on .menu-6{background:url(../img/menu-6.png) 50% 50% no-repeat #fff}
+#gnb .gnb_li .menu-4{background:url(../img/menu-7-1.png) 50% 50% no-repeat #ebebeb }
+#gnb .on .menu-4{background:url(../img/menu-7.png) 50% 50% no-repeat #fff}
+#gnb .gnb_li .menu-5{background:url(../img/menu-6-1.png) 50% 50% no-repeat #ebebeb }
+#gnb .on .menu-5{background:url(../img/menu-6.png) 50% 50% no-repeat #fff}
+#gnb .gnb_li .menu-6{background:url(../img/menu-4-1.png) 50% 50% no-repeat #ebebeb }
+#gnb .on .menu-6{background:url(../img/menu-4.png) 50% 50% no-repeat #fff}
 #gnb .gnb_li button:hover{background-color:#f3f3f3}
 #gnb .gnb_oparea{display:none;position:absolute;top:0;left:50px;background:#fff;height:100%;width:170px;padding:20px;border-right:1px solid #dbdbdb;
 -webkit-box-shadow: 2px 0 2px  rgba(150,150,150,100.1);
