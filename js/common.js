@@ -533,18 +533,6 @@ $(function() {
     });
 });
 
-/**
- * 텍스트 리사이즈
-**/
-function font_resize(id, rmv_class, add_class)
-{
-    var $el = $("#"+id);
-
-    $el.removeClass(rmv_class).addClass(add_class);
-
-    set_cookie("ck_font_resize_rmv_class", rmv_class, 1, g5_cookie_domain);
-    set_cookie("ck_font_resize_add_class", add_class, 1, g5_cookie_domain);
-}
 
 /**
  * 댓글 수정 토큰
