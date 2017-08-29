@@ -238,9 +238,10 @@ html.no-overflowscrolling #autosave_pop {height:auto;max-height:10000px !importa
 .bo_v_left {margin:20px 0;float:left}
 .bo_v_left li {float:left;margin-right:5px}
 
-.bo_v_nb {margin:20px 0;position:relative;clear:both;text-align:left;;border-bottom:1px solid #ddd}
+.bo_v_nb {margin:20px 0;position:relative;clear:both;text-align:left;;border-bottom:1px solid #e8e8e8}
 .bo_v_nb:after {display:block;visibility:hidden;clear:both;content:""}
-.bo_v_nb li {border-top:1px solid #ddd;padding:10px;border-left:1px solid #ddd;border-right:1px solid #ddd;}
+.bo_v_nb li {border-top:1px solid #e8e8e8;padding:10px;border-left:1px solid #e8e8e8;border-right:1px solid #e8e8e8;}
+.bo_v_nb li:hover{background:#f6f6f6}
 .bo_v_nb li i{font-size:13px}
 .bo_v_nb li .nb_tit{display:inline-block;padding-right:20px;color:#666}
 .bo_v_nb li .nb_date{float:right;color:#888}
