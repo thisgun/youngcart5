@@ -134,7 +134,7 @@
 .bo_notice .notice_icon{display:inline-block;background:#ff6f6f;padding:0 5px;line-height:20px;border-radius:5px;font-weight:normal;font-size:0.92em;color:#fff}
 .td_num strong {color:#000}
 .bo_cate_link {display: inline-block;color: #3497d9;height: 20px;font-size:0.92em} /* 글제목줄 분류스타일 */
-.bo_tit{display:block;font-weight:bold;color:#000}
+.bo_tit{display:block;font-weight:bold;color:#000;font-size:1.084em}
 .bo_current {color:#e8180c}
 /*#bo_list .profile_img {display:inline-block;;margin-right:2px}*/
 #bo_list .profile_img img{border-radius:50%}
