@@ -238,12 +238,12 @@ html.no-overflowscrolling #autosave_pop {height:auto;max-height:10000px !importa
 .bo_v_left {margin:20px 0;float:left}
 .bo_v_left li {float:left;margin-right:5px}
 
-.bo_v_nb {margin:20px 0;position:relative;clear:both;text-align:center;padding:15px 0; border-top:1px solid #000;border-bottom:1px solid #ddd}
+.bo_v_nb {margin:20px 0;position:relative;clear:both;text-align:left;;border-bottom:1px solid #ddd}
 .bo_v_nb:after {display:block;visibility:hidden;clear:both;content:""}
-.bo_v_nb li {display:inline-block}
+.bo_v_nb li {border-top:1px solid #ddd;padding:10px;border-left:1px solid #ddd;border-right:1px solid #ddd;}
 .bo_v_nb li i{font-size:13px}
-.bo_v_nb .btn_prv{position:absolute;top:15px;left:10px}
-.bo_v_nb .btn_next{position:absolute;top:15px;right:10px}
+.bo_v_nb li .nb_tit{display:inline-block;padding-right:20px;color:#666}
+.bo_v_nb li .nb_date{float:right;color:#888}
 
 #bo_v_atc {min-height:200px;height:auto !important;height:200px}
 #bo_v_atc_title {position:absolute;font-size:0;line-height:0;overflow:hidden}
