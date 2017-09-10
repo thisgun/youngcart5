@@ -6,9 +6,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 ?>
 
 <!-- 회원가입결과 시작 { -->
-<div id="reg_result" class="mbskin">
-
-    <p>
+<div id="reg_result">
+    <h2><strong>회원가입</strong>이 완료되었습니다.</h2>
+    <p class="reg_result_p">
         <strong><?php echo get_text($mb['mb_name']); ?></strong>님의 회원가입을 진심으로 축하합니다.<br>
     </p>
 
@@ -38,16 +38,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
         감사합니다.
     </p>
 
-    <?php if($default['de_member_reg_coupon_use'] && get_session('ss_member_reg_coupon') == 1) { ?>
-    <p id="result_coupon">
-        <?php echo $mb['mb_name']; ?>님께 주문시 사용하실 수 있는 <strong><?php echo display_price($default['de_member_reg_coupon_price']); ?> 할인<?php echo ($default['de_member_reg_coupon_minimum'] ? '(주문금액 '.display_price($default['de_member_reg_coupon_minimum']).'이상)' : ''); ?> 쿠폰</strong>이 발행됐습니다.<br>
-        발행된 할인 쿠폰 내역은 마이페이지에서 확인하실 수 있습니다.
-    </p>
-    <?php } ?>
-
-    <div class="btn_confirm">
-        <a href="<?php echo G5_URL ?>/" class="btn02">메인으로</a>
-    </div>
+        <a href="<?php echo G5_URL ?>/" class="btn_submit">메인으로</a>
 
 </div>
 <!-- } 회원가입결과 끝 -->

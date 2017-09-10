@@ -9,7 +9,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 for ($i=0; $row=sql_fetch_array($result); $i++)
 {
 
-    if ($i==0) echo '<aside id="sbn_side" class="sbn"><h2>쇼핑몰 배너</h2><ul>'.PHP_EOL;
+    if ($i==0) echo '<aside id="sbn_side" class="sbn"><h2>쇼핑몰 배너</h2><ul class="sb_bn">'.PHP_EOL;
     //print_r2($row);
     // 테두리 있는지
     $bn_border  = ($row['bn_border']) ? ' class="sbn_border"' : '';;
@@ -35,3 +35,14 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
 }
 if ($i>0) echo '</ul></aside>'.PHP_EOL;
 ?>
+
+<script>
+$(document).ready(function(){
+    $('.sb_bn').show().bxSlider({
+        speed:800,
+        pager:false,
+
+    });
+});
+
+</script>

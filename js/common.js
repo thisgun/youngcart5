@@ -534,10 +534,9 @@ $(function() {
         $(this).attr('title', '');
     });
 });
-
 /**
  * 텍스트 리사이즈
-**/
+ **/
 function font_resize(id, rmv_class, add_class)
 {
     var $el = $("#"+id);
