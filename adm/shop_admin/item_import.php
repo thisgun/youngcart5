@@ -1,9 +1,10 @@
 <?php
+$sub_menu = '500710';
+include_once('./_common.php');
+
 //ini_set('display_errors', 1);
 //ini_set('display_startup_errors', 1);
 
-$sub_menu = '500710';
-include_once('./_common.php');
 include_once(G5_LIB_PATH.'/xml.lib.php');
 
 check_demo();
@@ -18,8 +19,6 @@ if( isset($_POST['action']) && 'import_data' === $_POST['action'] ){
     $dup_it_id = array();
     $dup_count = 0;
     $fail_count = 0;
-
-    //print_r2( $_FILES );
 
     $file_name = isset( $_FILES['import']['name'] )? $_FILES['import']['name'] : '';
     $file = isset( $_FILES['import']['tmp_name'] ) ? $_FILES['import']['tmp_name'] : '';
@@ -46,6 +45,53 @@ if( isset($_POST['action']) && 'import_data' === $_POST['action'] ){
     $results = xmlstr_to_array($content);
 
     $action_msg = '성공적으로 데이터를 가져왔습니다.';
+
+    if( isset($results['banners']) ){
+
+        foreach( (array) $results['banners'] as $banner ){
+
+            if( empty($banner) ) continue;
+            
+            $bn_id = $item['bn_id'];
+
+            $keys = array(
+                'bn_alt',
+                'bn_url',
+                'bn_device',
+                'bn_position',
+                'bn_border',
+                'bn_new_win',
+                'bn_begin_time',
+                'bn_end_time',
+                'bn_time',
+                'bn_hit',
+                'bn_order',
+                );
+
+            $data = array();
+
+            foreach( $keys as $key ){
+
+                $data[$key] = !empty($banner[$key]) ? addslashes($banner[$key]) : '';
+            }
+
+            $sql = " insert into {$g5['g5_shop_banner_table']}
+                        set bn_alt        = '{$data['bn_alt']}',
+                            bn_url        = '{$data['bn_url']}',
+                            bn_device     = '{$data['bn_device']}',
+                            bn_position   = '{$data['bn_position']}',
+                            bn_border     = '{$data['bn_border']}',
+                            bn_new_win    = '{$data['bn_new_win']}',
+                            bn_begin_time = '{$data['bn_begin_time']}',
+                            bn_end_time   = '{$data['bn_end_time']}',
+                            bn_time       = '{$data['bn_time']}',
+                            bn_hit        = '{$data['bn_hit']}',
+                            bn_order      = '{$data['bn_order']}' ";
+            sql_query($sql, false);
+
+        }
+
+    }
 
     if( isset($results['categories']) ){
         
