@@ -115,7 +115,7 @@ if( isset($_POST['action']) && 'export_data' === $_POST['action'] ){
     foreach( $de_keys as $key ){
 
         if( !empty( $default[$key] ) ){
-            $items['banners'][$key] = $default[$key];
+            $items['default'][$key] = $default[$key];
         }
 
     }
