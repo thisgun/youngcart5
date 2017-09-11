@@ -131,6 +131,10 @@ if( isset($_POST['action']) && 'export_data' === $_POST['action'] ){
         }
     }
 
+    if( isset($items['banners']) ){
+        $items['banners']['url_path'] = G5_DATA_URL.'/banner/';
+    }
+
     $sql = "select * from `{$g5['g5_shop_category_table']}` ";
     
     $result = sql_query($sql);

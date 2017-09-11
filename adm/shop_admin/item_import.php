@@ -15,6 +15,19 @@ $action_msg = '';
 
 if( isset($_POST['action']) && 'import_data' === $_POST['action'] ){
     
+function yc5_get_import_file($img_url, $store_path){
+
+    $ch = curl_init($img_url);
+    $fp = fopen($store_path, 'wb');
+    curl_setopt($ch, CURLOPT_FILE, $fp);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+    curl_exec($ch);
+    curl_close($ch);
+    fclose($fp);
+
+}
+
     $fail_it_id = array();
     $dup_it_id = array();
     $dup_count = 0;
@@ -46,7 +59,138 @@ if( isset($_POST['action']) && 'import_data' === $_POST['action'] ){
 
     $action_msg = '성공적으로 데이터를 가져왔습니다.';
 
+    if( isset($results['default']) ){
+
+        $de_keys = array(
+            'de_type1_list_use',
+            'de_type1_list_skin',
+            'de_type1_list_mod',
+            'de_type1_list_row',
+            'de_type1_img_width',
+            'de_type1_img_height',
+            'de_type2_list_use',
+            'de_type2_list_skin',
+            'de_type2_list_mod',
+            'de_type2_list_row',
+            'de_type2_img_width',
+            'de_type2_img_height',
+            'de_type3_list_use',
+            'de_type3_list_skin',
+            'de_type3_list_mod',
+            'de_type3_list_row',
+            'de_type3_img_width',
+            'de_type3_img_height',
+            'de_type4_list_use',
+            'de_type4_list_skin',
+            'de_type4_list_mod',
+            'de_type4_list_row',
+            'de_type4_img_width',
+            'de_type4_img_height',
+            'de_type5_list_use',
+            'de_type5_list_skin',
+            'de_type5_list_mod',
+            'de_type5_list_row',
+            'de_type5_img_width',
+            'de_type5_img_height',
+            'de_mobile_type1_list_use',
+            'de_mobile_type1_list_skin',
+            'de_mobile_type1_list_mod',
+            'de_mobile_type1_list_row',
+            'de_mobile_type1_img_width',
+            'de_mobile_type1_img_height',
+            'de_mobile_type2_list_use',
+            'de_mobile_type2_list_skin',
+            'de_mobile_type2_list_mod',
+            'de_mobile_type2_list_row',
+            'de_mobile_type2_img_width',
+            'de_mobile_type2_img_height',
+            'de_mobile_type3_list_use',
+            'de_mobile_type3_list_skin',
+            'de_mobile_type3_list_mod',
+            'de_mobile_type3_list_row',
+            'de_mobile_type3_img_width',
+            'de_mobile_type3_img_height',
+            'de_mobile_type4_list_use',
+            'de_mobile_type4_list_skin',
+            'de_mobile_type4_list_mod',
+            'de_mobile_type4_list_row',
+            'de_mobile_type4_img_width',
+            'de_mobile_type4_img_height',
+            'de_mobile_type5_list_use',
+            'de_mobile_type5_list_skin',
+            'de_mobile_type5_list_mod',
+            'de_mobile_type5_list_row',
+            'de_mobile_type5_img_width',
+            'de_mobile_type5_img_height',
+            'de_rel_list_skin',
+            'de_rel_img_width',
+            'de_rel_img_height',
+            'de_rel_list_mod',
+            'de_rel_list_use',
+            'de_mobile_rel_list_skin',
+            'de_mobile_rel_img_width',
+            'de_mobile_rel_img_height',
+            'de_mobile_rel_list_mod',
+            'de_mobile_rel_list_use',
+            'de_search_list_skin',
+            'de_search_img_width',
+            'de_search_img_height',
+            'de_search_list_mod',
+            'de_search_list_row',
+            'de_mobile_search_list_skin',
+            'de_mobile_search_img_width',
+            'de_mobile_search_img_height',
+            'de_mobile_search_list_mod',
+            'de_mobile_search_list_row',
+            'de_listtype_list_skin',
+            'de_listtype_img_width',
+            'de_listtype_img_height',
+            'de_listtype_list_mod',
+            'de_listtype_list_row',
+            'de_mobile_listtype_list_skin',
+            'de_mobile_listtype_img_width',
+            'de_mobile_listtype_img_height',
+            'de_mobile_listtype_list_mod',
+            'de_mobile_listtype_list_row',
+            'de_simg_width',
+            'de_simg_height',
+            'de_mimg_width',
+            'de_mimg_height',
+            );
+        
+        $data = array();
+
+        $config_default = $results['default'];
+
+        foreach( $de_keys as $key ){
+
+            if( isset($config_default[$key]) && !empty( $config_default[$key] ) ){
+                $data[$key] = addslashes($config_default[$key]);
+            }
+
+        }
+
+        $sql = " update {$g5['g5_shop_default_table']} set ";
+        
+        $data_count = count($data) - 1;
+        
+        $i = 0;
+
+        foreach($data as $key=>$v){
+            $sql .= $key." = '".$v."'";
+
+            if( $i !== $data_count ){
+                $sql .= ", ";
+            }
+            $i++;
+        }
+
+        sql_query($sql, false);
+    }
+
     if( isset($results['banners']) ){
+
+        $banner_url_path = $results['banners']['url_path'];
 
         foreach( (array) $results['banners'] as $banner ){
 
@@ -87,8 +231,18 @@ if( isset($_POST['action']) && 'import_data' === $_POST['action'] ){
                             bn_time       = '{$data['bn_time']}',
                             bn_hit        = '{$data['bn_hit']}',
                             bn_order      = '{$data['bn_order']}' ";
-            sql_query($sql, false);
+            $query_result = sql_query($sql, false);
 
+            if( $query_result && $banner_url_path ){
+                
+                $img_url = $banner_url_path.$bn_id;
+                
+                $banner_path = G5_DATA_PATH.'/banner';
+
+                if( ! file_exists($banner_path.'/'.$bn_id) ){
+                    yc5_get_import_file($img_url, $banner_path);
+                }
+            }
         }
 
     }
@@ -435,14 +589,7 @@ if( isset($_POST['action']) && 'import_data' === $_POST['action'] ){
 
                         if( preg_match('/(gif|jpe?g|png)$/i', strtolower(end(explode('.', $file_name))) ) ){
                             
-                            $ch = curl_init($img_url);
-                            $fp = fopen($dir.'/'.$file_name, 'wb');
-                            curl_setopt($ch, CURLOPT_FILE, $fp);
-                            curl_setopt($ch, CURLOPT_HEADER, 0);
-                            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-                            curl_exec($ch);
-                            curl_close($ch);
-                            fclose($fp);
+                            yc5_get_import_file($img_url, $dir.'/'.$file_name);
 
                         }
 
@@ -474,8 +621,6 @@ if( isset($_POST['action']) && 'import_data' === $_POST['action'] ){
     }
 
     //print_r2( $results );
-
-    exit;
 
 }
 
