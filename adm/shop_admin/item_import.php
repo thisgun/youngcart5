@@ -37,7 +37,7 @@ function yc5_get_import_file($img_url, $store_path){
     $file = isset( $_FILES['import']['tmp_name'] ) ? $_FILES['import']['tmp_name'] : '';
 
     if( ! ( $file_name && strtolower(end(explode('.', $file_name))) === 'xml' ) ){
-        alert('xml 파일만 업로드할수 있습니다.');
+        alert('xml 파일을 업로드 해 주세요.');
     }
     
     if ( ! extension_loaded( 'simplexml' ) ) {
@@ -191,12 +191,12 @@ function yc5_get_import_file($img_url, $store_path){
     if( isset($results['banners']) ){
 
         $banner_url_path = $results['banners']['url_path'];
-
+        
         foreach( (array) $results['banners'] as $banner ){
-
-            if( empty($banner) ) continue;
             
-            $bn_id = $item['bn_id'];
+            $bn_id = isset( $banner['bn_id'] ) ? (int) $banner['bn_id'] : 0;
+            
+            if( empty($banner) || empty($bn_id) ) continue;
 
             $keys = array(
                 'bn_alt',
@@ -219,7 +219,15 @@ function yc5_get_import_file($img_url, $store_path){
                 $data[$key] = !empty($banner[$key]) ? addslashes($banner[$key]) : '';
             }
 
-            $sql = " insert into {$g5['g5_shop_banner_table']}
+            $sql = " select bn_id from `{$g5['g5_shop_banner_table']}` where bn_alt = '{$data['bn_alt']}' and bn_url = '{$data['bn_url']}' and bn_device  = '{$data['bn_device']}' and bn_new_win  = '{$data['bn_new_win']}' and bn_begin_time = '{$data['bn_begin_time']}' and bn_end_time = '{$data['bn_end_time']}' and bn_order = '{$data['bn_order']}' ";
+
+            $exist = sql_fetch($sql);
+
+            if( $exist['bn_id'] ){
+                continue;
+            }
+
+            $sql = " insert into `{$g5['g5_shop_banner_table']}`
                         set bn_alt        = '{$data['bn_alt']}',
                             bn_url        = '{$data['bn_url']}',
                             bn_device     = '{$data['bn_device']}',
@@ -231,13 +239,16 @@ function yc5_get_import_file($img_url, $store_path){
                             bn_time       = '{$data['bn_time']}',
                             bn_hit        = '{$data['bn_hit']}',
                             bn_order      = '{$data['bn_order']}' ";
+
             $query_result = sql_query($sql, false);
 
-            if( $query_result && $banner_url_path ){
+            $insert_bn_id = sql_insert_id();
+
+            if( $query_result && $banner_url_path && $insert_bn_id ){
                 
                 $img_url = $banner_url_path.$bn_id;
-                
-                $banner_path = G5_DATA_PATH.'/banner';
+
+                $banner_path = G5_DATA_PATH.'/banner/'.$insert_bn_id;
 
                 if( ! file_exists($banner_path.'/'.$bn_id) ){
                     yc5_get_import_file($img_url, $banner_path);
@@ -638,12 +649,15 @@ include_once (G5_ADMIN_PATH.'/admin.head.php');
         <form id="export-item-form" method="post" enctype="multipart/form-data">
         <input type="hidden" name="action" value="import_data">
         <p>
-        <label>상품, 사용후기, 이미지, 카테고리와 태그 등을 xml 파일로 가져옵니다.</label>
+        <label>이미지 출력수 설정, 상품, 사용후기, 이미지, 카테고리와 배너 데이터를 xml 파일로 가져옵니다.</label>
+        <br >
         <br >
             <input type="file" name="import">
         </p>
-
-        <input type="submit" name="submit" id="submit" class="button" value="상품 가져오기">
+        
+        <p style="margin-top:20px">
+        <input type="submit" name="submit" class="button shop_etc" value="상품 가져오기">
+        </p>
 
         </form>
         

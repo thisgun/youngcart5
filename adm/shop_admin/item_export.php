@@ -201,12 +201,12 @@ include_once (G5_ADMIN_PATH.'/admin.head.php');
         <form id="export-item-form" method="post">
 
         <p>
-        <label>상품, 사용후기, 이미지, 카테고리와 태그 등을 xml 파일로 내보냅니다.</label>
+        <label>이미지 출력수 설정, 상품, 사용후기, 이미지, 카테고리와 배너 데이터 를 xml 파일로 내보냅니다.</label>
         <input type="hidden" name="action" value="export_data">
         </p>
-
-        <input type="submit" name="submit" id="submit" class="button" value="상품 내보내기">
-
+        <p style="margin-top:20px">
+        <input type="submit" name="submit" class="button shop_etc" value="상품 내보내기">
+        </p>
         </form>
         
     </div>
