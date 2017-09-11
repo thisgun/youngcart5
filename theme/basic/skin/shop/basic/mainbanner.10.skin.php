@@ -54,21 +54,23 @@ if ($i > 0) {
     echo '</ul>'.PHP_EOL;
 
 
-    echo '<div id="bx_pager">
-    <ul>
-        <li> <a data-slide-index="0" href="">배너이미지설명1</a></li>
-        <li> <a data-slide-index="1" href="">배너이미지설명2</a></li>
-        <li> <a data-slide-index="2" href="">배너이미지설명3</a></li>
-    </ul>
+    echo '<div id="bx_pager" class="bx_pager">
+    <ul>';
+		$k = 0;
+		foreach( $main_banners as $row ){
+			echo '<li> <a data-slide-index="'.$k.'" href="">'.get_text($row['bn_alt']).'</a></li>'.PHP_EOL;
+			$k++;
+		}
+    echo '</ul>
     </div>'.PHP_EOL;
     echo '</div>'.PHP_EOL;
 ?>
 
 <script>
 $(document).ready(function(){
-    $('.slide-wrap').show().bxSlider({
+    $('#main_bn .slide-wrap').show().bxSlider({
         speed:800,
-        pagerCustom: '#bx_pager',
+        pagerCustom: '#main_bn .bx_pager',
         auto: true
  
     });

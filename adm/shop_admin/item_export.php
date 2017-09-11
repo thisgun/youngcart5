@@ -15,6 +15,17 @@ if( isset($_POST['action']) && 'export_data' === $_POST['action'] ){
 
     $items = array();
 
+    $sql = "select * from `{$g5['g5_shop_banner_table']}` ";
+    
+    $result = sql_query($sql);
+
+    for($i=0; $banner=sql_fetch_array($result); $i++) {
+        
+        foreach($banner as $k=>$v){
+            $items['banners']['banner'.$i][$k] = $v;
+        }
+    }
+
     $sql = "select * from `{$g5['g5_shop_category_table']}` ";
     
     $result = sql_query($sql);

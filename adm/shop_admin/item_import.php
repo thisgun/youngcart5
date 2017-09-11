@@ -10,6 +10,8 @@ check_demo();
 
 auth_check($auth[$sub_menu], "r");
 
+$action_msg = '';
+
 if( isset($_POST['action']) && 'import_data' === $_POST['action'] ){
     
     $fail_it_id = array();
@@ -23,16 +25,16 @@ if( isset($_POST['action']) && 'import_data' === $_POST['action'] ){
     $file = isset( $_FILES['import']['tmp_name'] ) ? $_FILES['import']['tmp_name'] : '';
 
     if( ! ( $file_name && strtolower(end(explode('.', $file_name))) === 'xml' ) ){
-        //alert('xml 파일만 업로드할수 있습니다.');
+        alert('xml 파일만 업로드할수 있습니다.');
     }
     
-    if ( extension_loaded( 'simplexml' ) ) {
+    if ( ! extension_loaded( 'simplexml' ) ) {
     }
 
     $content = file_get_contents( $file );
     
     if ( ! $content ){
-        //alert(' 가져올 자료가 없습니다. ');
+        alert(' 가져올 자료가 없습니다. ');
     }
 
     @mkdir(G5_DATA_PATH."/item", G5_DIR_PERMISSION);
@@ -42,6 +44,8 @@ if( isset($_POST['action']) && 'import_data' === $_POST['action'] ){
     check_input_vars();
 
     $results = xmlstr_to_array($content);
+
+    $action_msg = '성공적으로 데이터를 가져왔습니다.';
 
     if( isset($results['categories']) ){
         
@@ -435,6 +439,9 @@ include_once (G5_ADMIN_PATH.'/admin.head.php');
 
 <div class="local_sch02 local_sch">
 
+    <?php if( $action_msg ){ ?>
+        <h2><?php echo $action_msg; ?></h2>
+    <?php } ?>
     <div>
 
         <form id="export-item-form" method="post" enctype="multipart/form-data">
