@@ -68,7 +68,7 @@ $sql = " select it_id, it_name from {$g5['g5_shop_item_table']}
           limit 1 ";
 $row = sql_fetch($sql);
 if ($row['it_id']) {
-    $prev_title = '이전상품 <span>'.$row['it_name'].'</span>';
+    $prev_title = '<i class="fa fa-caret-left" aria-hidden="true"></i> 이전상품 <span>'.$row['it_name'].'</span>';
     $prev_href = '<a href="'.G5_SHOP_URL.'/item.php?it_id='.$row['it_id'].'" id="siblings_prev">';
     $prev_href2 = '</a>';
 } else {
@@ -86,7 +86,7 @@ $sql = " select it_id, it_name from {$g5['g5_shop_item_table']}
           limit 1 ";
 $row = sql_fetch($sql);
 if ($row['it_id']) {
-    $next_title = '다음 상품 <span>'.$row['it_name'].'</span>';
+    $next_title = '다음 상품 <i class="fa fa-caret-right" aria-hidden="true"></i><span>'.$row['it_name'].'</span>';
     $next_href = '<a href="'.G5_SHOP_URL.'/item.php?it_id='.$row['it_id'].'" id="siblings_next">';
     $next_href2 = '</a>';
 } else {
@@ -184,7 +184,7 @@ if($ca_dir_check) {
 
 define('G5_SHOP_CSS_URL', str_replace(G5_PATH, G5_URL, $skin_dir));
 
-$g5['title'] = $it['it_name'].' &gt; '.$it['ca_name'];
+$g5['title'] = $it['ca_name'];
 
 include_once(G5_MSHOP_PATH.'/_head.php');
 include_once(G5_SHOP_PATH.'/settle_naverpay.inc.php');
