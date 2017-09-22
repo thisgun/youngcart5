@@ -354,6 +354,7 @@ CREATE TABLE IF NOT EXISTS `g5_shop_default` (
   `de_iche_use` tinyint(4) NOT NULL DEFAULT '0',
   `de_easy_pay_use` tinyint(4) NOT NULL DEFAULT '0',
   `de_samsung_pay_use` tinyint(4) NOT NULL DEFAULT '0',
+  `de_inicis_cartpoint_use` tinyint(4) NOT NULL DEFAULT '0',
   `de_item_use_use` tinyint(4) NOT NULL DEFAULT '0',
   `de_item_use_write` tinyint(4) NOT NULL DEFAULT '0',
   `de_code_dup_use` tinyint(4) NOT NULL DEFAULT '0',
@@ -851,5 +852,7 @@ CREATE TABLE IF NOT EXISTS `g5_shop_inicis_log` (
   `P_AUTH_NO` varchar(255) NOT NULL DEFAULT '',
   `P_AMT` int(11) NOT NULL DEFAULT '0',
   `P_RMESG1` varchar(255) NOT NULL DEFAULT '',
+  `post_data` text NOT NULL,
+  `is_mail_send` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`oid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
